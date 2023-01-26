@@ -3,6 +3,9 @@ import './App.css';
 import {useState,useEffect} from "react"
 import axios from "axios"
 import GameForm from './components/forms/GameForm';
+import HomePage from './pages/HomePage';
+import { Routes, Route} from 'react-router-dom'
+import SignUpPage from './pages/SignUpPage';
 
 
 function App() {
@@ -12,7 +15,7 @@ function App() {
 
   useEffect(() => {                                
     axios
-      .get("http://localhost:5005/games")
+      .get("http://127.0.0.1:5005/games")
       .then((response) => {
         console.log('response.data', response.data);
         setGames(response.data)
@@ -29,7 +32,13 @@ if (isLoading) {
   return (
     <div className="App">
 
-<GameForm />
+
+<Routes>
+  <Route path="/" element={<HomePage/>}/>
+  <Route path="/register" element={<SignUpPage/>}/>
+</Routes>
+
+ <GameForm />
 
 
       {games.map(game=>{
@@ -40,7 +49,7 @@ if (isLoading) {
 </div> 
 
         )
-      })}
+      })} 
  
     </div>
   );

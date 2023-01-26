@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { useState } from 'react'
+import { StyledForm } from '../styled/StyledForm'
 
 
 const LoginForm = () => {
@@ -31,13 +32,13 @@ const LoginForm = () => {
     return (
 
         <div>
-            <form onSubmit={handleSubmit}>
+            <StyledForm onSubmit={handleSubmit}>
                 <label htmlFor="email">Email</label>
                 <input type="text" name="email" placeholder="email" value={values.email} onChange={handleChange} />
                 <label htmlFor="password">Password</label>
                 <input type="password" name="password" placeholder="password" value={values.password} onChange={handleChange} />
                 <button type="submit">Login</button>
-            </form>
+            </StyledForm>
 
 
         </div>

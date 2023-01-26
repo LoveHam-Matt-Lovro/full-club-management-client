@@ -22,9 +22,16 @@ const GameForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:5005/games/create', values)
+        axios.post('http://127.0.0.1:5005/games/create', values)
             .then((response) => {
                 console.log(response)
+
+                setValues({
+                    opponent: "",
+                    venue: "",
+                    startTime: "",
+                    numberOfPlayers: ""
+                })
             })
             .catch((err) => {
                 console.log(err)
