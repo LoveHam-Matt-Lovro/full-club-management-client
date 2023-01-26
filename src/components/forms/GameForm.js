@@ -1,69 +1,19 @@
 import React from 'react'
-import axios from 'axios'
-import { useState } from 'react'
 import { StyledForm } from '../styled/StyledForm'
+import { useForm } from "./utils/useForm";
 
+const backup = {
+    opponent: "",
+    venue: "",
+    startTime: "",
+    numberOfPlayers: "",
+
+}
 
 const GameForm = ({ mode, game }) => {
-    const [values, setValues] = useState({
-        opponent: game?.opponent || "",
-        venue: game?.venue || "",
-        startTime: game?.startTime || "",
-        numberOfPlayers: game?.numberOfPlayers || ""
-    })
-
-    const handleChange = (e) => {
-        setValues({
-            ...values,
-            [e.target.name]: e.target.value
-        })
-
-    }
-
-    const submitNewGame = () => axios.post('http://127.0.0.1:5005/games/create', values)
-        .then((response) => {
-            console.log(response)
-
-            setValues({
-                opponent: "",
-                venue: "",
-                startTime: "",
-                numberOfPlayers: ""
-            })
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-
-
-
-    //! not working
-    const submitEditGame = () => {
-
-        // const edittedGame = { opponent, venue, startTime, numberOfPlayers }
-
-        // axios
-        //   .put(`http://127.0.0.1:5005/games/${gameId}/edit`, edittedGame)
-        //   .then(() => {
-        //     navigate(`/games/${gameId}`);
-        //   })
-        //   .catch((err) => console.log(err));
-    };
-
-
-
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        if (mode === "edit") {
-            console.log("edit mode")
-        } else {
-            submitNewGame()
-        }
-        //TODO: implement function
-        submitEditGame()
-
-    }
+    const [values, handleChange, handleSubmit] = useForm({
+        ...game || backup
+    }, mode, game);
 
 
 

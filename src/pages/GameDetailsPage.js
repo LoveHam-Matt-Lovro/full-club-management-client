@@ -87,7 +87,7 @@ const GameDetailsPage = () => {
 
         )}
 
-        {mode === "edit" && <GameForm gameId={gameId} mode="edit" game={game} />}
+        {mode === "edit" && <GameForm gameId={gameId} mode="editGame" game={game} />}
 
 
         <button onClick={toggleMode}>{mode === "view" ? "Edit Game" : "Cancel Edit"}</button>

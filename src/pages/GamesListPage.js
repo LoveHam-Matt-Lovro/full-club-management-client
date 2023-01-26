@@ -22,7 +22,7 @@ const GamesListPage = () => {
   } else
     return (
       <div>
-        <GameForm />
+        <GameForm mode="newGame" />
         <StyledCardList className="games">
           {games.map((game) => {
             return (
