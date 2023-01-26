@@ -1,4 +1,6 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { COLOR } from "../../Context/constants";
+
 
 export const StyledButton = styled.button`
 
@@ -15,21 +17,19 @@ export const StyledButton = styled.button`
         
     };
 
-
-    &.delete {
-        background-color: red;
+    ${props => props.primary && css`
+        background-color: ${COLOR.primary}; 
         color: white;
-    }
-
-    &.edit {
-        background-color: green;
+    `}
+    ${props => props.secondary && css`
+        background-color: ${COLOR.secondary};
         color: white;
-    }
+    `}
+    ${props => props.danger && css`
+        background-color: ${COLOR.danger};
+        color: white;`}
 
-    &.add {
-        background-color: blue;
-        color: white;
-    }
+ 
     
  
 `
