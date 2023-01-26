@@ -1,23 +1,47 @@
-import logo from './logo.svg';
+
 import './App.css';
+import {useState,useEffect} from "react"
+import axios from "axios"
+import GameForm from './components/forms/GameForm';
+
 
 function App() {
+  const [games,setGames] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+
+
+  useEffect(() => {                                
+    axios
+      .get("http://localhost:5005/games")
+      .then((response) => {
+        console.log('response.data', response.data);
+        setGames(response.data)
+        setIsLoading(false)
+      });
+    
+  }, [] ); 
+
+  
+if (isLoading) {
+  return <div>...Loading</div>
+} else 
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+<GameForm />
+
+
+      {games.map(game=>{
+        return(
+<div key={game._id}>
+<h3>{game.opponent}</h3>
+
+</div> 
+
+        )
+      })}
+ 
     </div>
   );
 }
