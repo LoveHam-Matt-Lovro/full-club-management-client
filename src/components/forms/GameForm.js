@@ -4,12 +4,12 @@ import { useState } from 'react'
 import { StyledForm } from '../styled/StyledForm'
 
 
-const GameForm = () => {
+const GameForm = ({ mode, game }) => {
     const [values, setValues] = useState({
-        opponent: "",
-        venue: "",
-        startTime: "",
-        numberOfPlayers: ""
+        opponent: game?.opponent || "",
+        venue: game?.venue || "",
+        startTime: game?.startTime || "",
+        numberOfPlayers: game?.numberOfPlayers || ""
     })
 
     const handleChange = (e) => {
@@ -20,22 +20,49 @@ const GameForm = () => {
 
     }
 
+    const submitNewGame = () => axios.post('http://127.0.0.1:5005/games/create', values)
+        .then((response) => {
+            console.log(response)
+
+            setValues({
+                opponent: "",
+                venue: "",
+                startTime: "",
+                numberOfPlayers: ""
+            })
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+
+
+
+    //! not working
+    const submitEditGame = () => {
+
+        // const edittedGame = { opponent, venue, startTime, numberOfPlayers }
+
+        // axios
+        //   .put(`http://127.0.0.1:5005/games/${gameId}/edit`, edittedGame)
+        //   .then(() => {
+        //     navigate(`/games/${gameId}`);
+        //   })
+        //   .catch((err) => console.log(err));
+    };
+
+
+
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('http://127.0.0.1:5005/games/create', values)
-            .then((response) => {
-                console.log(response)
+        if (mode === "edit") {
+            console.log("edit mode")
+        } else {
+            submitNewGame()
+        }
+        //TODO: implement function
+        submitEditGame()
 
-                setValues({
-                    opponent: "",
-                    venue: "",
-                    startTime: "",
-                    numberOfPlayers: ""
-                })
-            })
-            .catch((err) => {
-                console.log(err)
-            })
     }
 
 
