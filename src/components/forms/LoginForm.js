@@ -20,7 +20,7 @@ const LoginForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('/login', values)
+        axios.post('http://localhost:5005/auth/login', values)
             .then((response) => {
                 console.log(response)
             })

@@ -8,6 +8,7 @@ import { Routes, Route} from 'react-router-dom'
 import SignUpPage from './pages/SignUpPage';
 import NavBar from './components/NavBar';
 import GamesListPage from './pages/GamesListPage';
+import GameDetailsPage from './pages/GameDetailsPage';
 
 
 function App() {
@@ -39,6 +40,7 @@ if (isLoading) {
   <Route path="/" element={<HomePage/>}/>
   <Route path="/register" element={<SignUpPage/>}/>
   <Route path="/games" element={<GamesListPage/>}/>
+  <Route path="/games/:gameId" element={<GameDetailsPage/>}/>
 </Routes>
 {/* 
  <GameForm />

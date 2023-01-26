@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { useState } from 'react'
 import { StyledForm } from '../styled/StyledForm'
+import { useNavigate } from 'react-router-dom'
 
 
 const SignUpForm = () => {
@@ -15,6 +16,8 @@ const SignUpForm = () => {
         nationality: ""
     })
 
+    const navigate = useNavigate();
+
     const handleChange = (e) => {
         setValues({
             ...values,
@@ -25,9 +28,10 @@ const SignUpForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:5005/auth/signup', values)
+        axios.post('http://127.0.0.1:5005/auth/signup', values)
             .then((response) => {
                 console.log(response)
+                navigate("/")
             })
             .catch((err) => {
                 console.log(err)
