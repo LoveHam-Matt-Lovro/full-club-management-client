@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyledForm } from '../styled/StyledForm'
 import { useForm } from "./utils/useForm";
+import { StyledButton } from '../styled/StyledButton';
 
 const backup = {
     opponent: "",
@@ -30,7 +31,7 @@ const GameForm = ({ mode, game }) => {
                 <input type="datetime-local" name="startTime" value={values.startTime} onChange={handleChange} />
                 <label htmlFor="numberOfPlayers">Number of Players</label>
                 <input type="text" name="numberOfPlayers" value={values.numberOfPlayers} onChange={handleChange} />
-                <button type="submit">Create</button>
+                <StyledButton type="submit">Submit</StyledButton>
             </StyledForm>
         </div>
     )

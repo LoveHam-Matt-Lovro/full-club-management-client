@@ -6,7 +6,7 @@ import ReviewCard from '../components/cards/ReviewCard'
 import { StyledCardList } from '../components/styled/StyledCardList'
 import { StyledForm } from '../components/styled/StyledForm'
 import GameForm from '../components/forms/GameForm'
-
+import { StyledButton } from '../components/styled/StyledButton'
 
 
 const GameDetailsPage = () => {
@@ -90,8 +90,8 @@ const GameDetailsPage = () => {
         {mode === "edit" && <GameForm gameId={gameId} mode="editGame" game={game} />}
 
 
-        <button onClick={toggleMode}>{mode === "view" ? "Edit Game" : "Cancel Edit"}</button>
-        <button onClick={deleteGame}>Delete Game</button>
+        <StyledButton onClick={toggleMode}>{mode === "view" ? "Edit Game" : "Cancel Edit"}</StyledButton>
+        <StyledButton className='delete' onClick={deleteGame}>Delete Game</StyledButton>
 
         <ReviewForm gameId={gameId} />
 
