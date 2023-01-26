@@ -25,7 +25,7 @@ const SignUpForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('http://127.0.0.1:5005/auth/signup', values)
+        axios.post('http://localhost:5005/auth/signup', values)
             .then((response) => {
                 console.log(response)
             })
