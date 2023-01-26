@@ -33,6 +33,7 @@ const GamesListPage = () => {
         {games.map(game=>{
         return(
 <div key={game._id}>
+<GameCard  game={game}/>
 
     <h3><Link to={"/games/"+ game._id}>{game.opponent}</Link></h3>
 <h6>{game.venue} - {game.startTime}</h6>
