@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import GameForm from "../components/forms/GameForm";
 import GameCard from "../components/cards/GameCard";
+import { StyledCardList } from '../components/styled/StyledCardList'
 
 const GamesListPage = () => {
   const [games, setGames] = useState([]);
@@ -22,15 +23,16 @@ const GamesListPage = () => {
     return (
       <div>
         <GameForm />
+        <StyledCardList className="games">
+          {games.map((game) => {
+            return (
+              <Link to={`/games/${game._id}`} key={game._id}>
+                <GameCard game={game} />
 
-        {games.map((game) => {
-          return (
-            <div key={game._id}>
-              <GameCard game={game} />
-              
-            </div>
-          );
-        })}
+              </Link>
+            );
+          })}
+        </StyledCardList >
       </div>
     );
 };

@@ -16,9 +16,19 @@ export const StyledCard = styled.div`
     text-align: center;
     position: relative;
     overflow: hidden;
-    transition: all 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+
+        color: black;
+        text-decoration: none;
+
     &:hover {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         transform: scale(1.05);
+    };
+    &.review {
+       height: 100px;
+       width: 1200px;
+       max-width: 80vw;
     }
+ 
 `
