@@ -6,9 +6,9 @@ export const StyledCard = styled.div`
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin: 20px;
-    width: 600px;
+    width: 400px;
     max-width: 80vw;
-    height: 300px;
+    height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: space-between; 
@@ -17,9 +17,12 @@ export const StyledCard = styled.div`
     position: relative;
     overflow: hidden;
     transition: transform 0.3s ease-in-out;
-
-        color: black;
+ 
+    color: black;
         text-decoration: none;
+
+
+        
 
     &:hover {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -30,5 +33,7 @@ export const StyledCard = styled.div`
        width: 1200px;
        max-width: 80vw;
     }
+
+
  
 `

@@ -6,9 +6,10 @@ export const StyledCardList = styled.div`
     align-items: center;
     justify-content: center;
     margin: 5% auto;
+    max-width: 90vw;
     &.games {
         flex-direction: row;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
         justify-content: space-around;
     }
  
