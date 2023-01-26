@@ -25,7 +25,7 @@ const SignUpForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('http://127.0.0.1:5005/auth/signup', values)
+        axios.post('http://localhost:5005/auth/signup', values)
             .then((response) => {
                 console.log(response)
             })
@@ -41,14 +41,27 @@ const SignUpForm = () => {
 
         <div>
             <StyledForm onSubmit={handleSubmit}>
-                <label htmlFor="opponent">Opponent</label>
-                <input type="text" name="opponent" value={values.opponent} onChange={handleChange} />
-                <label htmlFor="venue">Venue</label>
-                <input type="text" name="venue" value={values.venue} onChange={handleChange} />
-                <label htmlFor="startTime">Start Time</label>
-                <input type="datetime-local" name="startTime" value={values.startTime} onChange={handleChange} />
-                <label htmlFor="numberOfPlayers">Number of Players</label>
-                <input type="text" name="numberOfPlayers" value={values.numberOfPlayers} onChange={handleChange} />
+                <label htmlFor="email">Email</label>
+                <input type="email" name="email" value={values.email} onChange={handleChange} />
+
+                <label htmlFor="password">Password</label>
+                <input type="password" name="password" value={values.password} onChange={handleChange} />
+
+                <label htmlFor="firstName">First Name</label>
+                <input type="text" name="firstName" value={values.firstName} onChange={handleChange} />
+
+                <label htmlFor="lastName">Last Name</label>
+                <input type="text" name="lastName" value={values.lastName} onChange={handleChange} />
+
+                <label htmlFor="team">Team</label>
+                <input type="text" name="team" value={values.team} onChange={handleChange} />
+
+                <label htmlFor="dateOfBirth">Date of birth</label>
+                <input type="datetime-local" name="dateOfBirth" value={values.dateOfBirth} onChange={handleChange} />
+
+                <label htmlFor="nationality">Nationality</label>
+                <input type="text" name="nationality" value={values.nationality} onChange={handleChange} />
+
                 <button type="submit">Create</button>
             </StyledForm>
         </div>
