@@ -1,21 +1,19 @@
 import React, { useState } from 'react'
 import GameForm from '../components/forms/GameForm'
+import GameCard from '../components/cards/GameCard'
 
 const GamesListPage = () => {
 
-    const [games,setGames] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
+  const [games, setGames] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
   return (
     <div>
-        <GameForm/>
+      <GameForm />
 
-        {games.map(game=>{
-        return(
-<div key={game._id}>
-<h3>{game.opponent}</h3>
-
-</div> 
+      {games.map(game => {
+        return (
+          <GameCard game={game} key={game._id} />
 
         )
       })}
