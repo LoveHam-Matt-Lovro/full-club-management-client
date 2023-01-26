@@ -28,7 +28,12 @@ const GameDetailsPage = () => {
     }
   };
 
+  const alreadyPlayed = () => {
+    const gameDate = new Date(game.startTime);
+    const today = new Date();
+    return gameDate < today ? true : false;
 
+  }
 
 
 
@@ -83,6 +88,7 @@ const GameDetailsPage = () => {
             <h2>score: 44:11 </h2>
             <h3>venue: {game.venue}</h3>
             <h4>startTime: {game.startTime}</h4>
+
           </div>
 
         )}
@@ -93,7 +99,7 @@ const GameDetailsPage = () => {
         <StyledButton onClick={toggleMode}>{mode === "view" ? "Edit Game" : "Cancel Edit"}</StyledButton>
         <StyledButton className='delete' onClick={deleteGame}>Delete Game</StyledButton>
 
-        <ReviewForm gameId={gameId} />
+        {alreadyPlayed() ? <ReviewForm gameId={gameId} /> : <h4>game will be played {game.startTime}</h4>}
 
         <StyledCardList>
           {reviews.map((review) => {
