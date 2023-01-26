@@ -2,11 +2,12 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import GameForm from '../components/forms/GameForm'
+import GameCard from '../components/cards/GameCard'
 
 const GamesListPage = () => {
 
-    const [games,setGames] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
+  const [games, setGames] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {                                
         axios
@@ -27,7 +28,7 @@ const GamesListPage = () => {
 
   return (
     <div>
-        <GameForm/>
+      <GameForm />
 
         {games.map(game=>{
         return(
