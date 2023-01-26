@@ -96,7 +96,7 @@ const GameDetailsPage = () => {
         {mode === "edit" && <GameForm gameId={gameId} mode="editGame" game={game} />}
 
 
-        <StyledButton secondary onClick={toggleMode}>{mode === "view" ? "Edit Game" : "Cancel Edit"}</StyledButton>
+        <StyledButton mode={mode} onClick={toggleMode}>{mode === "view" ? "Edit Game" : "Cancel Edit"}</StyledButton>
         <StyledButton danger onClick={deleteGame}>Delete Game</StyledButton>
 
         {alreadyPlayed() ? <ReviewForm gameId={gameId} /> : <h4>game will be played {game.startTime}</h4>}

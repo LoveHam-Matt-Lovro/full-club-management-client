@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { COLOR } from "../../Context/constants";
+import { COLOR, textColorDyn } from "../../Context/constants";
 
 
 export const StyledButton = styled.button`
@@ -17,6 +17,30 @@ export const StyledButton = styled.button`
         
     };
 
+    ${props => {
+        switch (props.mode) {
+            case "view":
+                return css`
+                background-color: ${COLOR.primary};
+                color: ${textColorDyn(COLOR.primary)}
+            `;
+            case "edit":
+                return css`
+                background-color: ${COLOR.secondary};
+                color: ${textColorDyn(COLOR.secondary)}
+            `;
+            default:
+                return css`
+                background-color: ${COLOR.background};
+                color: ${textColorDyn(COLOR.background)};
+            `;
+        }
+    }
+
+
+    } 
+
+
     ${props => props.primary && css`
         background-color: ${COLOR.primary}; 
         color: white;
@@ -29,7 +53,7 @@ export const StyledButton = styled.button`
         background-color: ${COLOR.danger};
         color: white;`}
 
- 
-    
- 
+
+
+
 `
