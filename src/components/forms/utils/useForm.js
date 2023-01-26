@@ -32,13 +32,7 @@ export const useForm = (initialValues, mode, element) => {
                 break;
         }
 
-        axiosFunction.then(() => {
-            setValuesFunction()
-        }
-        )
-            .catch((err) => {
-                console.log(err)
-            })
+        axiosFunction.then(() => setValuesFunction()).catch(err => console.log(err))
     }
 
 
