@@ -102,11 +102,7 @@ const GameDetailsPage = () => {
         {alreadyPlayed() ? <ReviewForm gameId={gameId} /> : <h4>game will be played {game.startTime}</h4>}
 
         <StyledCardList>
-          {reviews.map((review) => {
-            return (
-              <ReviewCard review={review} key={review._id} />
-            );
-          })}
+          {reviews.map((review) => <ReviewCard review={review} key={review._id} />)}
         </StyledCardList>
       </div>
     );
