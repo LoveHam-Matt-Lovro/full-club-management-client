@@ -99,7 +99,7 @@ const GameDetailsPage = () => {
         <StyledButton mode={mode} onClick={toggleMode}>{mode === "view" ? "Edit Game" : "Cancel Edit"}</StyledButton>
         <StyledButton danger onClick={deleteGame}>Delete Game</StyledButton>
 
-        {alreadyPlayed() ? <ReviewForm gameId={gameId} /> : <h4>game will be played {game.startTime}</h4>}
+        {alreadyPlayed() ? <ReviewForm gameId={gameId} mode="newForm" /> : <h4>game will be played {game.startTime}</h4>}
 
         <StyledCardList>
           {reviews.map((review) => <ReviewCard review={review} key={review._id} />)}

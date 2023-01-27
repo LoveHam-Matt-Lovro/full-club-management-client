@@ -1,48 +1,17 @@
 import React from 'react'
 import axios from 'axios'
-import { useState } from 'react'
 import { StyledForm } from '../styled/StyledForm'
+import { useForm } from "./utils/useForm";
 
+const backup= {
+    ourScore: "",
+    opponentScore: "",
+    coachReview: "",
+    playerReview: ""
+}
 
-const ReviewForm = ({ gameId }) => {
-    const [values, setValues] = useState({
-        ourScore: "",
-        opponentScore: "",
-        coachReview: "",
-        playerReview: ""
-    })
-
-    const handleChange = (e) => {
-        setValues({
-            ...values,
-            [e.target.name]: e.target.value
-        })
-
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log(gameId);
-        console.log(typeof gameId);
-        console.log(values);
-        axios.post('http://127.0.0.1:5005/games/' + gameId + "/review", values)
-            .then((response) => {
-                console.log(response)
-
-                setValues({
-                    ourScore: "",
-                    opponentScore: "",
-                    coachReview: "",
-                    playerReview: ""
-                })
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-    }
-
-
-
+const ReviewForm = ({ gameId, review, mode }) => {
+    const [values, handleChange, handleSubmit] = useForm({...review || backup}, mode, review)
 
     return (
 
