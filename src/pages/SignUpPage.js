@@ -4,7 +4,7 @@ import SignUpForm from '../components/forms/SignUpForm'
 const SignUpPage = () => {
   return (
     <div>
-      <SignUpForm/>
+      <SignUpForm mode="newUser" />
     </div>
   )
 }

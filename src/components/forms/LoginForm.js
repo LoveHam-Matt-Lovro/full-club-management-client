@@ -2,6 +2,8 @@ import React from 'react'
 import axios from 'axios'
 import { useState } from 'react'
 import { StyledForm } from '../styled/StyledForm'
+import { useNavigate } from 'react-router-dom'
+
 
 
 const LoginForm = () => {
@@ -9,6 +11,8 @@ const LoginForm = () => {
         email: '',
         password: ''
     })
+
+    const navigate = useNavigate()
 
     const handleChange = (e) => {
         setValues({
@@ -23,6 +27,8 @@ const LoginForm = () => {
         axios.post('http://localhost:5005/auth/login', values)
             .then((response) => {
                 console.log(response)
+                localStorage.setItem('token', response.data.token)
+                navigate('/games')
             })
             .catch((err) => {
                 console.log(err)

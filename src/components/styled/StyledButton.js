@@ -26,8 +26,8 @@ export const StyledButton = styled.button`
             `;
             case "edit":
                 return css`
-                background-color: ${COLOR.light};
-                color: ${textContrast(COLOR.light)}
+                background-color: ${COLOR.dark};
+                color: ${textContrast(COLOR.dark)}
             `;
             default:
                 return css`

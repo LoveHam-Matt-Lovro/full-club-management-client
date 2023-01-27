@@ -8,16 +8,10 @@ const backup = {
     venue: "",
     startTime: "",
     numberOfPlayers: "",
-
 }
 
 const GameForm = ({ mode, game }) => {
-    const [values, handleChange, handleSubmit] = useForm({
-        ...game || backup
-    }, mode, game);
-
-
-
+    const [values, handleChange, handleSubmit] = useForm({ ...game || backup }, mode, game);
 
     return (
 

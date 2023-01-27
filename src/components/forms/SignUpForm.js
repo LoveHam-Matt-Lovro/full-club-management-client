@@ -5,41 +5,24 @@ import { StyledForm } from '../styled/StyledForm'
 import { useNavigate } from 'react-router-dom'
 
 
-const SignUpForm = () => {
-    const [values, setValues] = useState({
-        email: "",
-        password: "",
-        firstName: "",
-        lastName: "",
-        team: "",
-        dateOfBirth: "",
-        nationality: ""
-    })
-
-    const navigate = useNavigate();
-
-    const handleChange = (e) => {
-        setValues({
-            ...values,
-            [e.target.name]: e.target.value
-        })
-
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        axios.post('http://127.0.0.1:5005/auth/signup', values)
-            .then((response) => {
-                console.log(response)
-                navigate("/")
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-    }
 
 
+import { useForm } from "./utils/useForm";
 
+const backup = {
+    email: "",
+    password: "",
+    firstName: "",
+    lastName: "",
+    team: "",
+    dateOfBirth: "",
+    nationality: "",
+    role: ""
+}
+
+const SignUpForm = ({ user, mode }) => {
+
+    const [values, handleChange, handleSubmit] = useForm({ ...user || backup }, mode, null);
 
     return (
 
@@ -65,6 +48,15 @@ const SignUpForm = () => {
 
                 <label htmlFor="nationality">Nationality</label>
                 <input type="text" name="nationality" value={values.nationality} onChange={handleChange} />
+
+
+
+                selected {values.role}
+                <label htmlFor="role">Player
+                    <input type="radio" name="role" value="player" onClick={handleChange} /></label>
+                <label htmlFor="role">Coach
+                    <input type="radio" name="role" value="coach" onClick={handleChange} /> </label>
+
 
                 <button type="submit">Create</button>
             </StyledForm>
