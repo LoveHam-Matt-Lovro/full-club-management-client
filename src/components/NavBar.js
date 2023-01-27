@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components';
 import { COLOR, textContrast } from "../Context/constants";
+import { GlobalContext } from "../Context/GlobalContext";
+
 
 
 const StyledNavbar = styled.nav`
@@ -19,11 +21,14 @@ const StyledNavbar = styled.nav`
 
 
 const NavBar = () => {
-  const user = localStorage.getItem("token")
+  const { test, games } = useContext(GlobalContext)
 
   return (
     <StyledNavbar>
-      Hello  {user || "user"}
+      {test}
+      {
+        // JSON.stringify(games)
+      }
       <NavLink to="/">Home</NavLink>
       <NavLink to="/register">SignUP</NavLink>
       <NavLink to="/games">Games</NavLink>
@@ -32,3 +37,6 @@ const NavBar = () => {
 }
 
 export default NavBar
+
+// const user = localStorage.getItem("token")
+// Hello  {user || "user"}
