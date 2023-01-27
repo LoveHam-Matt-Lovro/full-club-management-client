@@ -3,24 +3,19 @@ import axios from 'axios'
 import { useState } from 'react'
 import { StyledForm } from '../styled/StyledForm'
 import { useNavigate } from 'react-router-dom'
+import { useForm } from "./utils/useForm";
+
+const loginData = {
+    email: '',
+    password: ''
+}
 
 
 
-const LoginForm = () => {
-    const [values, setValues] = useState({
-        email: '',
-        password: ''
-    })
-
-    const navigate = useNavigate()
-
-    const handleChange = (e) => {
-        setValues({
-            ...values,
-            [e.target.name]: e.target.value
-        })
-
-    }
+const LoginForm = ({mode}) => {
+    const [values, handleChange] = useForm(loginData, mode, null);
+    const navigate = useNavigate();
+   
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -29,8 +24,8 @@ const LoginForm = () => {
                 console.log("---------")
                 console.log(response.data)
                 console.log("---------")
-                localStorage.setItem('token', response.data.authToken)
-                // navigate('/games')
+                
+                 navigate('/games')
             })
             .catch((err) => {
                 console.log(err)

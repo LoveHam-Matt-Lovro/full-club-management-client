@@ -22,13 +22,24 @@ export const useForm = (initialValues, mode, element) => {
         e.preventDefault()
         let axiosFunction
         let redirect
-        // let setValuesFunction
+        let secondaryFunction
+        
 
 
         switch (mode) {
+
+            case "loginUser":
+                axiosFunction = axios.post(baseUrl + "/auth/login", values)
+                secondaryFunction= (response)=> {
+                    localStorage.setItem('token', response.data.authToken)
+                    navigate('/games')
+                }
+
+            break;
+
             case "newUser":
                 axiosFunction = axios.post(baseUrl + "/auth/signup", values)
-                redirect = navigate("/")
+                secondaryFunction = navigate("/")
                 // setValuesFunction = setValues(initialValues)
                 break;
             case "editUser":
@@ -37,7 +48,7 @@ export const useForm = (initialValues, mode, element) => {
 
             case "newGame":
                 axiosFunction = axios.post(baseUrl + '/games', values, header)
-                redirect = navigate("/games")
+                secondaryFunction = navigate("/games")
                 // setValuesFunction = setValues(initialValues)
                 break;
             case "editGame":
@@ -46,7 +57,7 @@ export const useForm = (initialValues, mode, element) => {
                 // setValuesFunction = console.log(values)
                 break;
             case "newReview":
-                //TODO: insert logic
+                axios.post(baseUrl + `games/${element._id}/review`, values, header)
                 break;
             case "editReview":
                 //TODO: insert logic
@@ -58,7 +69,7 @@ export const useForm = (initialValues, mode, element) => {
         }
 
         // axiosFunction.then(() => setValuesFunction()).catch(err => console.log(err))
-        axiosFunction.then((values) => redirect).catch(err => console.log(err))
+        axiosFunction.then((values) => secondaryFunction).catch(err => console.log(err))
         // navigate("/")
     }
 
