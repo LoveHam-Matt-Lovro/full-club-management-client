@@ -19,8 +19,11 @@ const StyledNavbar = styled.nav`
 
 
 const NavBar = () => {
+  const user = localStorage.getItem("token")
+
   return (
     <StyledNavbar>
+      Hello  {user || "user"}
       <NavLink to="/">Home</NavLink>
       <NavLink to="/register">SignUP</NavLink>
       <NavLink to="/games">Games</NavLink>
