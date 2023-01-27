@@ -4,7 +4,7 @@ import LoginForm from '../components/forms/LoginForm'
 const HomePage = () => {
   return (
     <div>
-        <LoginForm/> 
+        <LoginForm mode="loginUser"/> 
     </div>
   )
 }
