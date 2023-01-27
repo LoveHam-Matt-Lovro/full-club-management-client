@@ -12,25 +12,25 @@ const loginData = {
 
 
 
-const LoginForm = ({mode}) => {
-    const [values, handleChange] = useForm(loginData, mode, null);
+const LoginForm = ({ mode }) => {
+    const [values, handleChange, handleSubmit] = useForm(loginData, mode, null);
     const navigate = useNavigate();
-   
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        axios.post('http://localhost:5005/auth/login', values)
-            .then((response) => {
-                console.log("---------")
-                console.log(response.data)
-                console.log("---------")
-                
-                 navigate('/games')
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-    }
+
+    // const handleSubmit = (e) => {
+    //     e.preventDefault()
+    //     axios.post('http://localhost:5005/auth/login', values)
+    //         .then((response) => {
+    //             console.log("---------")
+    //             console.log(response.data)
+    //             console.log("---------")
+
+    //              navigate('/games')
+    //         })
+    //         .catch((err) => {
+    //             console.log(err)
+    //         })
+    // }
 
     return (
 

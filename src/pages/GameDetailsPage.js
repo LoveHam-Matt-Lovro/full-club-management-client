@@ -36,6 +36,10 @@ const GameDetailsPage = () => {
   }
 
 
+  // const isCoach = () => user.role === 'coach' ? true : false;
+
+
+
 
 
   const deleteGame = () => {

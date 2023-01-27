@@ -23,24 +23,28 @@ export const useForm = (initialValues, mode, element) => {
         let axiosFunction
         let redirect
         let secondaryFunction
-        
+
 
 
         switch (mode) {
 
             case "loginUser":
                 axiosFunction = axios.post(baseUrl + "/auth/login", values)
-                secondaryFunction= (response)=> {
+
+                secondaryFunction = (response) => {
                     localStorage.setItem('token', response.data.authToken)
+                    console.log(response, "response")
                     navigate('/games')
                 }
 
-            break;
+                break;
 
             case "newUser":
                 axiosFunction = axios.post(baseUrl + "/auth/signup", values)
-                secondaryFunction = navigate("/")
-                // setValuesFunction = setValues(initialValues)
+                secondaryFunction = () => {
+                    setValues(initialValues)
+                    navigate("/")
+                }
                 break;
             case "editUser":
                 //TODO: insert logic
@@ -48,7 +52,10 @@ export const useForm = (initialValues, mode, element) => {
 
             case "newGame":
                 axiosFunction = axios.post(baseUrl + '/games', values, header)
-                secondaryFunction = navigate("/games")
+                secondaryFunction = () => {
+                    setValues(initialValues)
+                    navigate("/games")
+                }
                 // setValuesFunction = setValues(initialValues)
                 break;
             case "editGame":
@@ -68,9 +75,8 @@ export const useForm = (initialValues, mode, element) => {
                 break;
         }
 
-        // axiosFunction.then(() => setValuesFunction()).catch(err => console.log(err))
-        axiosFunction.then((values) => secondaryFunction).catch(err => console.log(err))
-        // navigate("/")
+        axiosFunction.then((values) => { secondaryFunction(values) }).catch(err => console.log(err))
+
     }
 
 
