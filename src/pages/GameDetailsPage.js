@@ -41,7 +41,7 @@ const GameDetailsPage = () => {
   const deleteGame = () => {
 
     axios
-      .delete(`http://127.0.0.1:5005/games/${gameId}/delete`)
+      .delete(`http://127.0.0.1:5005/games/${gameId}`)
       .then(() => {
         navigate("/games");
       })

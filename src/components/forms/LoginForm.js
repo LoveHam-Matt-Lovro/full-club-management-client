@@ -26,9 +26,11 @@ const LoginForm = () => {
         e.preventDefault()
         axios.post('http://localhost:5005/auth/login', values)
             .then((response) => {
-                console.log(response)
-                localStorage.setItem('token', response.data.token)
-                navigate('/games')
+                console.log("---------")
+                console.log(response.data)
+                console.log("---------")
+                localStorage.setItem('token', response.data.authToken)
+                // navigate('/games')
             })
             .catch((err) => {
                 console.log(err)

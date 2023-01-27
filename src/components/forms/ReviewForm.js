@@ -25,7 +25,7 @@ const ReviewForm = ({ gameId }) => {
         console.log(gameId);
         console.log(typeof gameId);
         console.log(values);
-        axios.post('http://127.0.0.1:5005/games/' + gameId + "/review/create", values)
+        axios.post('http://127.0.0.1:5005/games/' + gameId + "/review", values)
             .then((response) => {
                 console.log(response)
 
