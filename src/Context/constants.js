@@ -21,34 +21,20 @@ export const COLOR = {
 };
 
 
-// function to check color of the background, if the contrast is low then change the color of the text
-export const textColorDyn = (color) => {
-    let textColor = "#fafafa"; // default color
-    let r, g, b, hsp;
-    if (color.match(/^rgb/)) {
-        color = color.match(/rgba?\(([^)]+)\)/)[1];
-        color = color.split(/ *, */).map(Number);
-        r = color[0];
-        g = color[1];
-        b = color[2];
+
+export function textContrast(color) {
+    // Get the R, G, and B values of the color
+    const r = parseInt(color.slice(1, 3), 16);
+    const g = parseInt(color.slice(3, 5), 16);
+    const b = parseInt(color.slice(5, 7), 16);
+
+    // Calculate the brightness of the color
+    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+
+    // Return black if the color is bright, white if it's not
+    if (brightness > 125) {
+        return "#222";
     } else {
-        color = +("0x" + color.slice(1).replace(
-            color.length < 5 && /./g, '$&$&'
-        ));
-        r = color >> 16;
-        g = color >> 8 & 255;
-        b = color & 255;
+        return "#fff";
     }
-    hsp = Math.sqrt(
-        0.299 * (r * r) +
-        0.587 * (g * g) +
-        0.114 * (b * b)
-    );
-    if (hsp > 127.5) {
-        textColor = "#222";
-    }
-
-    console.log(textColor, "textColor")
-    return textColor;
 }
-
