@@ -9,6 +9,7 @@ import SignUpPage from './pages/SignUpPage';
 import NavBar from './components/NavBar';
 import GamesListPage from './pages/GamesListPage';
 import GameDetailsPage from './pages/GameDetailsPage';
+import ProfilePage from './pages/ProfilePage';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/register" element={<SignUpPage />} />
         <Route path="/games" element={<GamesListPage />} />
         <Route path="/games/:gameId" element={<GameDetailsPage />} />
+        <Route path="/profile/:userId" element={<ProfilePage />} />
       </Routes>
       {/* 
  <GameForm />
