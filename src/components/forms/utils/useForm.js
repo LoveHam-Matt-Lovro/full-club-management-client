@@ -32,10 +32,12 @@ export const useForm = (initialValues, mode, element) => {
                 axiosFunction = axios.post(baseUrl + "/auth/login", values)
 
                 secondaryFunction = (response) => {
-                    localStorage.setItem('user', JSON.stringify(response.data))
-                    console.log(response, "response")
+                    localStorage.setItem('token', response.data.authToken)
+                    localStorage.setItem('user', JSON.stringify(response.data.user))
+
                     navigate('/games')
                 }
+
 
                 break;
 
