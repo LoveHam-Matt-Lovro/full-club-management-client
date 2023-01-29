@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useReducer } from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components';
 import { COLOR, textContrast } from "../Context/constants";
@@ -21,7 +21,10 @@ const StyledNavbar = styled.nav`
 
 
 const NavBar = () => {
-  const { test, games } = useContext(GlobalContext)
+  const { test, games, user, setUser } = useContext(GlobalContext)
+  
+  setUser()
+  console.log(user);
 
   return (
     <StyledNavbar>
@@ -32,6 +35,7 @@ const NavBar = () => {
       <NavLink to="/">Home</NavLink>
       <NavLink to="/register">SignUP</NavLink>
       <NavLink to="/games">Games</NavLink>
+      {/* <NavLink to={`/user/${user._id}`}>Profile</NavLink> */}
     </StyledNavbar>
   )
 }

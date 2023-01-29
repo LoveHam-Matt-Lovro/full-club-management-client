@@ -13,6 +13,7 @@ const GamesListPage = () => {
     return <div>...Loading</div>;
   } else
     return (
+      
       <div>
         <GameForm mode="newGame" />
         <StyledCardList className="games">
