@@ -31,12 +31,10 @@ export const useForm = (initialValues, mode, element) => {
 
             case "loginUser":
                 axiosFunction = axios.post(baseUrl + "/auth/login", values)
-
                 secondaryFunction = (response) => {
                     localStorage.setItem('token', response.data.authToken)
                     localStorage.setItem('user', JSON.stringify(response.data.user))
                     setUser(response.data.user)
-
                     navigate('/games')
                 }
 
@@ -46,7 +44,6 @@ export const useForm = (initialValues, mode, element) => {
             case "newUser":
                 axiosFunction = axios.post(baseUrl + "/auth/signup", values, header)
                 secondaryFunction = () => {
-                    setValues(initialValues)
                     navigate("/")
                 }
                 break;
@@ -54,8 +51,7 @@ export const useForm = (initialValues, mode, element) => {
                 //TODO: test this
                 axiosFunction = axios.put(baseUrl + `/users/${element._id}/`, values, header)
                 secondaryFunction = () => {
-                    setValues(initialValues)
-                    navigate("/")
+                    console.log("edited user")
                 }
                 break;
 
@@ -63,32 +59,32 @@ export const useForm = (initialValues, mode, element) => {
                 axiosFunction = axios.post(baseUrl + '/games', values, header)
                 secondaryFunction = () => {
                     setValues(initialValues)
-                    navigate("/games")
+                    // navigate("/games")
                 }
-                // setValuesFunction = setValues(initialValues)
+
                 break;
             case "editGame":
                 //TODO: test this
                 axiosFunction = axios.put(baseUrl + `/games/${element._id}/`, values, header)
                 secondaryFunction = () => {
-                    setValues(initialValues)
-                    navigate(`/games/${element._id}/`)
+                    // setValues(initialValues)
+                    // navigate(`/games/${element._id}/`)
                 }
-                // setValuesFunction = console.log(values)
+
                 break;
             case "newReview":
                 axios.post(baseUrl + `games/${element._id}/review`, values, header)
                 secondaryFunction = () => {
                     setValues(initialValues)
-                    navigate(`/games/${element._id}/`)
+                    // navigate(`/games/${element._id}/`)
                 }
 
                 break;
             case "editReview":
                 axios.put(baseUrl + `games/${element._id}/review`, values, header)
                 secondaryFunction = () => {
-                    setValues(initialValues)
-                    navigate(`/games/${element._id}/`)
+                    // setValues(initialValues)
+                    // navigate(`/games/${element._id}/`)
                 }
                 break;
 
