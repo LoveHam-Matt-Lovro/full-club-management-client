@@ -33,7 +33,7 @@ const NavBar = () => {
       {
         // JSON.stringify(games)
       }
-      {user ? <NavLink to={`/profile/${user._id}`}> {`Hello ${user.firstName}`} </NavLink> : <NavLink to="/">Login</NavLink>}
+      <NavLink to={`/profile/${user._id}`}> {`Hello ${user.firstName}`} </NavLink>
       <NavLink to="/">Home</NavLink>
       <NavLink to="/register">SignUP</NavLink>
       <NavLink to="/games">Games</NavLink>
