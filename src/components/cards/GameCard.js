@@ -10,20 +10,7 @@ import { Link } from "react-router-dom";
 
 const GameCard = ({ game }) => {
     const { games, setGames } = useContext(GlobalContext)
-    const handleDelete = () => {
-        axios.delete(`http://127.0.01:5005/games/${game._id}`)
-            .then((response) => {
-                const filteredGames = games.filter((game) => game._id !== response.data._id)
-                setGames(filteredGames)
-
-            }
-            )
-            .catch((error) => {
-                console.log(error)
-            }
-            )
-
-    }
+    const handleDelete = useDelete("http://127.0.01:5005/games", game._id)
 
     return (
         <StyledCard>

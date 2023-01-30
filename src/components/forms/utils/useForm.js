@@ -6,7 +6,7 @@ import { GlobalContext } from "../../../Context/GlobalContext"
 
 export const useForm = (initialValues, mode, element) => {
     const [values, setValues] = useState(initialValues);
-    const { user, setUser } = useContext(GlobalContext)
+    const { user, setUser, games, setGames, } = useContext(GlobalContext)
     const baseUrl = "http://127.0.0.1:5005"
     const navigate = useNavigate();
     const storedToken = localStorage.getItem('token');
@@ -57,15 +57,20 @@ export const useForm = (initialValues, mode, element) => {
 
             case "newGame":
                 axiosFunction = axios.post(baseUrl + '/games', values, header)
-                secondaryFunction = () => {
+                secondaryFunction = (newGame) => {
+                    // console.log("newGame", newGame)
+                    // console.log("values", values)
+                    // setGames(games => [...games, values])
                     setValues(initialValues)
-                    // navigate("/games")
+                    window.location.reload()
+
                 }
 
                 break;
             case "editGame":
                 //TODO: test this
                 axiosFunction = axios.put(baseUrl + `/games/${element._id}/`, values, header)
+                console.log(axiosFunction())
                 secondaryFunction = () => {
                     // setValues(initialValues)
                     // navigate(`/games/${element._id}/`)
@@ -93,7 +98,10 @@ export const useForm = (initialValues, mode, element) => {
                 break;
         }
 
-        axiosFunction.then((values) => { secondaryFunction(values) }).catch(err => console.log(err))
+        axiosFunction.then((values) => {
+            console.log("values111", values)
+            secondaryFunction(values)
+        }).catch(err => console.log(err))
 
     }
 

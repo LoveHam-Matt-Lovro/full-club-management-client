@@ -11,7 +11,7 @@ export const useDelete = (url, id) => {
             .then((response) => {
                 const filteredGames = games.filter((game) => game._id !== response.data._id)
                 setGames(filteredGames)
-
+                window.location.reload()
             }
             )
             .catch((error) => {
