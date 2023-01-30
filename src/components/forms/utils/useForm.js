@@ -72,7 +72,7 @@ export const useForm = (initialValues, mode, element) => {
 
                 break;
             case "newReview":
-                axios.post(baseUrl + `games/${element._id}/review`, values, header)
+                axiosFunction = console.log(axios.post(baseUrl + `games/${element._id}/review`, values, header))
                 secondaryFunction = (newReview) => {
                     setValues(initialValues)
                     window.location.reload()

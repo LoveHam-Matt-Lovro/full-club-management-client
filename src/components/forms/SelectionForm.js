@@ -15,6 +15,10 @@ const SelectionForm = ({ gameId }) => {
     return (
         <div>
             <h2>Selection for game {gameId}</h2>
+
+
+
+
             <div style={{ display: "flex" }}>
                 <div className="players">
                     {" "}
@@ -28,6 +32,7 @@ const SelectionForm = ({ gameId }) => {
                         return <PlayerCard key={player._id} />;
                     })}
                 </div>
+
             </div>
         </div>
     );
