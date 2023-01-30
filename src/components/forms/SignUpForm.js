@@ -70,7 +70,7 @@ const SignUpForm = ({ user, mode }) => {
         <label htmlFor="dateOfBirth">
           Date of birth *
           <input
-            type="datetime-local"
+            type="date"
             name="dateOfBirth"
             value={values.dateOfBirth}
             onChange={handleChange}
