@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import ReviewForm from '../components/forms/ReviewForm'
+import SelectionForm from '../components/forms/SelectionForm'
 import ReviewCard from '../components/cards/ReviewCard'
 import { StyledCardList } from '../components/styled/StyledCardList'
 import { StyledForm } from '../components/styled/StyledForm'
@@ -15,7 +16,6 @@ const GameDetailsPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [game, setGame] = useState([]);
   const [mode, setMode] = useState('view');
-
   const { gameId } = useParams();
   const { reviewId } = useParams();
   const navigate = useNavigate();
@@ -40,10 +40,6 @@ const GameDetailsPage = () => {
     return gameDate < today ? true : false;
 
   }
-
-
-  // const isCoach = () => user.role === 'coach' ? true : false;
-
 
 
 
@@ -109,11 +105,15 @@ const GameDetailsPage = () => {
         <StyledButton mode={mode} onClick={toggleMode}>{mode === "view" ? "Edit Game" : "Cancel Edit"}</StyledButton>
         <StyledButton danger onClick={deleteGame}>Delete Game</StyledButton>
 
-        {alreadyPlayed() ? <ReviewForm gameId={gameId} mode="newForm" /> : <h4>game will be played {game.startTime}</h4>}
+        {alreadyPlayed() ? <ReviewForm gameId={gameId} mode="newForm" /> : <SelectionForm gameId={gameId} />}
+
+
+
 
         <StyledCardList>
           {filteredReviews().map((review) =>
             <ReviewCard review={review} key={review._id} />)}
+
         </StyledCardList>
       </div>
     );

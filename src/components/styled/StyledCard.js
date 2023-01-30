@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const StyledCard = styled.div`
     background-color: #fff;
@@ -33,7 +33,14 @@ export const StyledCard = styled.div`
        width: 1200px;
        max-width: 80vw;
     }
-
+    ${props => props.player && css`
+    flex-direction: row;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    max-width: 80vw;
+    height: 30px;
+    `}
 
  
 `
