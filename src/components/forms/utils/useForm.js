@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom'
+import { GlobalContext } from "../../../Context/GlobalContext"
 
 
 export const useForm = (initialValues, mode, element) => {
     const [values, setValues] = useState(initialValues);
+    const { user, setUser } = useContext(GlobalContext)
     const baseUrl = "http://127.0.0.1:5005"
     const navigate = useNavigate();
     const storedToken = localStorage.getItem('token');
@@ -34,6 +36,7 @@ export const useForm = (initialValues, mode, element) => {
                 secondaryFunction = (response) => {
                     localStorage.setItem('token', response.data.authToken)
                     localStorage.setItem('user', JSON.stringify(response.data.user))
+                    setUser(response.data.user)
 
                     navigate('/games')
                 }

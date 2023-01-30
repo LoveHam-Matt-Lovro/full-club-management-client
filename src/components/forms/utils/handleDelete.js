@@ -1,15 +1,13 @@
-import React from 'react'
-import { StyledCard } from "../styled/StyledCard"
 import axios from 'axios'
 import { GlobalContext } from "../../Context/GlobalContext";
 import { useContext } from 'react'
 
 
 
-const GameCard = ({ game }) => {
+export const useDelete = (url, id) => {
     const { games, setGames } = useContext(GlobalContext)
     const handleDelete = () => {
-        axios.delete(`http://127.0.01:5005/games/${game._id}`)
+        axios.delete(`${url}/${id}`)
             .then((response) => {
                 const filteredGames = games.filter((game) => game._id !== response.data._id)
                 setGames(filteredGames)
@@ -22,17 +20,5 @@ const GameCard = ({ game }) => {
             )
 
     }
-
-    return (
-        <StyledCard>
-
-            <h1>{game.opponent}</h1>
-
-            <h3>{game.startTime}</h3>
-
-            <button onClick={handleDelete}>Delete</button>
-        </StyledCard>
-    )
+    return handleDelete
 }
-
-export default GameCard
