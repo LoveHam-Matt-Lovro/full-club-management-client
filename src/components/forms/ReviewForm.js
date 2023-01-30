@@ -3,7 +3,7 @@ import axios from 'axios'
 import { StyledForm } from '../styled/StyledForm'
 import { useForm } from "./utils/useForm";
 
-const backup= {
+const backup = {
     ourScore: "",
     opponentScore: "",
     coachReview: "",
@@ -11,18 +11,13 @@ const backup= {
 }
 
 const ReviewForm = ({ gameId, review, mode }) => {
-    const [values, handleChange, handleSubmit] = useForm({...review || backup}, mode, review)
+    const [values, handleChange, handleSubmit] = useForm({ ...review || backup }, mode, review)
 
     return (
 
         <div>
             <StyledForm onSubmit={handleSubmit}>
-                {
-                    // <label htmlFor="ourScore">Berlin Score</label>
-                    // <input type="number" name="ourScore" value={values.ourScore} onChange={handleChange} />
-                    // <label htmlFor="opponentScore">Opposition Score</label>
-                    // <input type="number" name="opponentScore" value={values.opponentScore} onChange={handleChange} />
-                }
+
 
                 <label htmlFor="coachReview">Coach Review</label>
                 <input type="text" name="coachReview" value={values.coachReview} onChange={handleChange} />

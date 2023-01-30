@@ -32,9 +32,9 @@ const ProfilePage = () => {
   return (
     <div>
       <h1>Profile Page</h1>
-      {JSON.stringify(userDetails)}
+
       <h2>{userDetails.firstName} {userDetails.lastName}</h2>
-      <p>{userDetails.email || "dasd"}</p>
+      <p>{userDetails.email}</p>
 
 
 

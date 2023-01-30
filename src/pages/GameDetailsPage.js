@@ -20,6 +20,12 @@ const GameDetailsPage = () => {
   const { reviewId } = useParams();
   const navigate = useNavigate();
 
+  const filteredReviews = () => {
+    const filteredReviews = reviews.filter((review) => gameId === review.gameId);
+    return filteredReviews;
+  };
+
+
   const toggleMode = () => {
     if (mode === 'view') {
       setMode('edit');
@@ -89,7 +95,7 @@ const GameDetailsPage = () => {
         {mode === "view" && (
           <div>
             <h1>{gameId}</h1>
-            <h2>score: 44:11 </h2>
+            <h2>opponent: {game.opponent} </h2>
             <h3>venue: {game.venue}</h3>
             <h4>startTime: {game.startTime}</h4>
 
@@ -106,7 +112,8 @@ const GameDetailsPage = () => {
         {alreadyPlayed() ? <ReviewForm gameId={gameId} mode="newForm" /> : <h4>game will be played {game.startTime}</h4>}
 
         <StyledCardList>
-          {reviews.map((review) => <ReviewCard review={review} key={review._id} />)}
+          {filteredReviews().map((review) =>
+            <ReviewCard review={review} key={review._id} />)}
         </StyledCardList>
       </div>
     );

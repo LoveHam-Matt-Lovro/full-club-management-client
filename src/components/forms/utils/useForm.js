@@ -78,9 +78,18 @@ export const useForm = (initialValues, mode, element) => {
                 break;
             case "newReview":
                 axios.post(baseUrl + `games/${element._id}/review`, values, header)
+                secondaryFunction = () => {
+                    setValues(initialValues)
+                    navigate(`/games/${element._id}/`)
+                }
+
                 break;
             case "editReview":
                 axios.put(baseUrl + `games/${element._id}/review`, values, header)
+                secondaryFunction = () => {
+                    setValues(initialValues)
+                    navigate(`/games/${element._id}/`)
+                }
                 break;
 
 
