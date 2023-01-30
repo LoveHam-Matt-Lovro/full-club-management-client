@@ -12,10 +12,12 @@ import GameDetailsPage from './pages/GameDetailsPage';
 import ProfilePage from './pages/ProfilePage';
 
 
+
 function App() {
 
   return (
     <div className="App">
+
 
       <NavBar />
       <Routes>
@@ -25,6 +27,8 @@ function App() {
         <Route path="/games/:gameId" element={<GameDetailsPage />} />
         <Route path="/profile/:userId" element={<ProfilePage />} />
       </Routes>
+
+      
       {/* 
  <GameForm />
 

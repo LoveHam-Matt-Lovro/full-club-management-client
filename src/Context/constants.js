@@ -6,7 +6,7 @@ export const COLOR = {
     success: '#2e7d32',
     warning: '#ff6f00',
     info: '#1565c0',
-    light: '#f5f5f5',
+    light: '#e5e5e5',
     dark: '#212121',
     white: '#ffffff',
     black: '#000000',
