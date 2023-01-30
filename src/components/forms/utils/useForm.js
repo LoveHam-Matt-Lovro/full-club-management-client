@@ -23,7 +23,6 @@ export const useForm = (initialValues, mode, element) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         let axiosFunction
-        let redirect
         let secondaryFunction
 
 
@@ -45,14 +44,19 @@ export const useForm = (initialValues, mode, element) => {
                 break;
 
             case "newUser":
-                axiosFunction = axios.post(baseUrl + "/auth/signup", values)
+                axiosFunction = axios.post(baseUrl + "/auth/signup", values, header)
                 secondaryFunction = () => {
                     setValues(initialValues)
                     navigate("/")
                 }
                 break;
             case "editUser":
-                //TODO: insert logic
+                //TODO: test this
+                axiosFunction = axios.put(baseUrl + `/users/${element._id}/`, values, header)
+                secondaryFunction = () => {
+                    setValues(initialValues)
+                    navigate("/")
+                }
                 break;
 
             case "newGame":
@@ -64,15 +68,19 @@ export const useForm = (initialValues, mode, element) => {
                 // setValuesFunction = setValues(initialValues)
                 break;
             case "editGame":
+                //TODO: test this
                 axiosFunction = axios.put(baseUrl + `/games/${element._id}/`, values, header)
-
+                secondaryFunction = () => {
+                    setValues(initialValues)
+                    navigate(`/games/${element._id}/`)
+                }
                 // setValuesFunction = console.log(values)
                 break;
             case "newReview":
                 axios.post(baseUrl + `games/${element._id}/review`, values, header)
                 break;
             case "editReview":
-                //TODO: insert logic
+                axios.put(baseUrl + `games/${element._id}/review`, values, header)
                 break;
 
 
