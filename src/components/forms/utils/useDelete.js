@@ -47,3 +47,32 @@ export const useDeleteReview = (url, id) => {
     }
     return handleDelete
 }
+
+
+export const logOut = () => {
+    localStorage.clear();
+    window.location.reload();
+}
+
+
+
+export const useDeleteUser = (url, id) => {
+    const { users, setUsers } = useContext(GlobalContext)
+    const handleDelete = () => {
+        axios.delete(`${url}/${id}`)
+            .then((response) => {
+                //delete from context
+                const filteredUsers = users.filter((user) => user._id !== response.data._id)
+                setUsers(filteredUsers)
+                logOut()
+
+            }
+            )
+            .catch((error) => {
+                console.log(error)
+            }
+            )
+
+    }
+    return handleDelete
+}

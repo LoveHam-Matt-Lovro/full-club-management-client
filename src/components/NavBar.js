@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import styled from 'styled-components';
 import { COLOR, textContrast } from "../Context/constants";
 import { GlobalContext } from "../Context/GlobalContext";
+import { logOut } from "../components/forms/utils/useDelete";
 
 
 
@@ -23,11 +24,11 @@ const NavBar = () => {
 
   return (
     <StyledNavbar>
-      <NavLink to={`/profile/${user._id}`}> {`Hello ${user.firstName}`} </NavLink>
+      {user ? <NavLink to={`/profile/${user._id}`}> {`Hello ${user.firstName}`} </NavLink> : null}
       <NavLink to="/">Home</NavLink>
       <NavLink to="/register">SignUP</NavLink>
       <NavLink to="/games">Games</NavLink>
-      {user ? <NavLink to="/auth/logout">Logout</NavLink> : null}
+      {user ? <NavLink onClick={logOut}>Logout</NavLink> : null}
     </StyledNavbar>
   )
 }

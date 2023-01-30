@@ -37,8 +37,6 @@ export const useForm = (initialValues, mode, element) => {
                     setUser(response.data.user)
                     navigate('/games')
                 }
-
-
                 break;
 
             case "newUser":
@@ -58,9 +56,6 @@ export const useForm = (initialValues, mode, element) => {
             case "newGame":
                 axiosFunction = axios.post(baseUrl + '/games', values, header)
                 secondaryFunction = (newGame) => {
-                    // console.log("newGame", newGame)
-                    // console.log("values", values)
-                    // setGames(games => [...games, values])
                     setValues(initialValues)
                     window.location.reload()
 
@@ -72,24 +67,22 @@ export const useForm = (initialValues, mode, element) => {
                 axiosFunction = axios.put(baseUrl + `/games/${element._id}/`, values, header)
                 console.log(axiosFunction())
                 secondaryFunction = () => {
-                    // setValues(initialValues)
-                    // navigate(`/games/${element._id}/`)
+
                 }
 
                 break;
             case "newReview":
                 axios.post(baseUrl + `games/${element._id}/review`, values, header)
-                secondaryFunction = () => {
+                secondaryFunction = (newReview) => {
                     setValues(initialValues)
-                    // navigate(`/games/${element._id}/`)
+                    window.location.reload()
                 }
 
                 break;
             case "editReview":
                 axios.put(baseUrl + `games/${element._id}/review`, values, header)
                 secondaryFunction = () => {
-                    // setValues(initialValues)
-                    // navigate(`/games/${element._id}/`)
+
                 }
                 break;
 
@@ -99,7 +92,6 @@ export const useForm = (initialValues, mode, element) => {
         }
 
         axiosFunction.then((values) => {
-            console.log("values111", values)
             secondaryFunction(values)
         }).catch(err => console.log(err))
 
