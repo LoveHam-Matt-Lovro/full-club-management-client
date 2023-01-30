@@ -1,5 +1,6 @@
 import React from "react";
 import { StyledForm } from "../styled/StyledForm";
+import { useForm } from "./utils/useForm";
 
 
 const backup = {
@@ -13,7 +14,13 @@ const backup = {
     favouriteFootballMemory: "",
   };
 
-const PlayerDetailsForm = () => {
+
+  const PlayerDetailsForm = ({ user, mode }) => {
+    const [values, handleChange, handleSubmit] = useForm(
+      { ...(user || backup) },
+      mode,
+      null
+    );
   return (
     <div>
       <StyledForm onSubmit={handleSubmit}>

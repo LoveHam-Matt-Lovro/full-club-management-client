@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState, useContext } from 'react'
 import { useParams } from 'react-router-dom'
+import PlayerDetailsForm from '../components/forms/PlayerDetailsForm';
 import { GlobalContext } from "../Context/GlobalContext";
 
 
@@ -35,6 +36,24 @@ const ProfilePage = () => {
 
       <h2>{userDetails.firstName} {userDetails.lastName}</h2>
       <p>{userDetails.email}</p>
+      <p>{userDetails.team}</p>
+      <p>{userDetails.role}</p>
+      <p>{userDetails.nationality}</p>
+      <p>{userDetails.dateOfBirth}</p>
+      <p>{userDetails.favouriteAFLTeam}</p>
+      <p>{userDetails.favouriteFootballMemory}</p>
+      <p>{userDetails.aboutMe}</p>
+      <ul>
+        <li>{userDetails.kickingStat}</li>
+        <li>{userDetails.handballingStat}</li>
+        <li>{userDetails.markingStat}</li>
+        <li>{userDetails.speedStat}</li>
+        <li>{userDetails.tacklingStat}</li>
+      </ul>
+
+      <PlayerDetailsForm />
+
+
 
 
 
