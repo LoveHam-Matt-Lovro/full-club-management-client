@@ -5,7 +5,7 @@ import { GlobalContext } from "../Context/GlobalContext";
 
 
 const ProfilePage = () => {
-  const loggedInUser = localStorage.getItem('user');
+  const loggedInUser = JSON.parse(localStorage.getItem('user'));
   const { user, setUser } = useContext(GlobalContext)
   const { userId } = useParams();
   const [mode, setMode] = useState('view');
@@ -32,6 +32,7 @@ const ProfilePage = () => {
   return (
     <div>
       <h1>Profile Page</h1>
+
       <h2>{userDetails.firstName} {userDetails.lastName}</h2>
       <p>{userDetails.email}</p>
 
