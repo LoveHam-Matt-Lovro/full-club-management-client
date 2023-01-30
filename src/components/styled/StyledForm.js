@@ -16,7 +16,7 @@ export const StyledForm = styled.form`
     margin-top: 20px;
     margin-bottom: 20px;
     label {
-        width:15vw;
+        width:50vw;
     }
     input, select, textarea {
         -webkit-box-sizing: border-box;
