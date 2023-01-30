@@ -5,9 +5,11 @@ import ReviewForm from '../components/forms/ReviewForm'
 import SelectionForm from '../components/forms/SelectionForm'
 import ReviewCard from '../components/cards/ReviewCard'
 import { StyledCardList } from '../components/styled/StyledCardList'
-import { StyledForm } from '../components/styled/StyledForm'
+
 import GameForm from '../components/forms/GameForm'
 import { StyledButton } from '../components/styled/StyledButton'
+import { useDeleteGame, useDeleteReview } from '../components/forms/utils/useDelete'
+
 
 
 const GameDetailsPage = () => {
@@ -19,6 +21,10 @@ const GameDetailsPage = () => {
   const { gameId } = useParams();
   const { reviewId } = useParams();
   const navigate = useNavigate();
+
+  const deleteGame = useDeleteGame("http://127.0.01:5005/games", gameId, "/games");
+  // const handleDelete = useDeleteGame("http://127.0.01:5005/games", game._id)
+  const deleteReview = useDeleteReview('reviews', reviewId);
 
   const filteredReviews = () => {
     const filteredReviews = reviews.filter((review) => gameId === review.gameId);
@@ -44,25 +50,25 @@ const GameDetailsPage = () => {
 
 
 
-  const deleteGame = () => {
+  // const deleteGame = () => {
 
-    axios
-      .delete(`http://127.0.0.1:5005/games/${gameId}`)
-      .then(() => {
-        navigate("/games");
-      })
-      .catch((err) => console.log(err));
-  };
+  //   axios
+  //     .delete(`http://127.0.0.1:5005/games/${gameId}`)
+  //     .then(() => {
+  //       navigate("/games");
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
 
-  const deleteReview = () => {
+  // const deleteReview = () => {
 
-    axios
-      .delete(`http://127.0.0.1:5005/games/${gameId}/review/${reviewId}`)
-      .then(() => {
-        navigate(`/games/${gameId}/`);
-      })
-      .catch((err) => console.log(err));
-  };
+  //   axios
+  //     .delete(`http://127.0.0.1:5005/games/${gameId}/review/${reviewId}`)
+  //     .then(() => {
+  //       navigate(`/games/${gameId}/`);
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
 
   useEffect(() => {
     axios.get(`http://127.0.0.1:5005/games/${gameId}`).then((response) => {

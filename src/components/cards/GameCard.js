@@ -3,14 +3,14 @@ import { StyledCard } from "../styled/StyledCard"
 import axios from 'axios'
 import { GlobalContext } from "../../Context/GlobalContext"
 import { useContext } from 'react'
-import { useDelete } from '../forms/utils/useDelete'
+import { useDeleteGame } from '../forms/utils/useDelete'
 import { Link } from "react-router-dom";
 
 
 
 const GameCard = ({ game }) => {
     const { games, setGames } = useContext(GlobalContext)
-    const handleDelete = useDelete("http://127.0.01:5005/games", game._id)
+    const handleDelete = useDeleteGame("http://127.0.01:5005/games", game._id)
 
     return (
         <StyledCard>

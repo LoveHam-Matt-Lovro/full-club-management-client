@@ -12,8 +12,6 @@ export const GlobalProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(true);
 
 
-
-
     useEffect(() => {
         axios.get("http://127.0.0.1:5005/games").then((response) => {
             console.log("response.data", response.data);
@@ -22,11 +20,6 @@ export const GlobalProvider = ({ children }) => {
 
         });
     }, []);
-
-    // get user Data
-
-
-
 
 
 

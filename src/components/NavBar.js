@@ -18,21 +18,11 @@ const StyledNavbar = styled.nav`
 
 `
 
-
-
 const NavBar = () => {
-  // const { test, games, user, setUser } = useContext(GlobalContext)
   const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null
-
-
-  // console.log(user);
 
   return (
     <StyledNavbar>
-
-      {
-        // JSON.stringify(games)
-      }
       <NavLink to={`/profile/${user._id}`}> {`Hello ${user.firstName}`} </NavLink>
       <NavLink to="/">Home</NavLink>
       <NavLink to="/register">SignUP</NavLink>
@@ -43,6 +33,3 @@ const NavBar = () => {
 }
 
 export default NavBar
-
-// const user = localStorage.getItem("token")
-// Hello  {user || "user"}

@@ -1,5 +1,4 @@
 import React from 'react'
-import axios from 'axios'
 import { StyledForm } from '../styled/StyledForm'
 import { useForm } from "./utils/useForm";
 

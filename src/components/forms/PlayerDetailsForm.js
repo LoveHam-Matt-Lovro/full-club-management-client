@@ -4,23 +4,23 @@ import { useForm } from "./utils/useForm";
 
 
 const backup = {
-    favouriteAFLTeam: "",
-    kickingStat: "",
-    handballingStat: "",
-    markingStat: "",
-    speedStat: "",
-    tacklingStat: "",
-    aboutMe: "",
-    favouriteFootballMemory: "",
-  };
+  favouriteAFLTeam: "",
+  kickingStat: "",
+  handballingStat: "",
+  markingStat: "",
+  speedStat: "",
+  tacklingStat: "",
+  aboutMe: "",
+  favouriteFootballMemory: "",
+};
 
 
-  const PlayerDetailsForm = ({ user, mode }) => {
-    const [values, handleChange, handleSubmit] = useForm(
-      { ...(user || backup) },
-      mode,
-      null
-    );
+const PlayerDetailsForm = ({ user, mode }) => {
+  const [values, handleChange, handleSubmit] = useForm(
+    { ...(user || backup) },
+    mode,
+    null
+  );
   return (
     <div>
       <StyledForm onSubmit={handleSubmit}>

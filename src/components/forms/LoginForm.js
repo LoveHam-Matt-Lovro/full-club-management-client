@@ -16,30 +16,14 @@ const LoginForm = ({ mode }) => {
     const [values, handleChange, handleSubmit] = useForm(loginData, mode, null);
     const navigate = useNavigate();
 
-
-    // const handleSubmit = (e) => {
-    //     e.preventDefault()
-    //     axios.post('http://localhost:5005/auth/login', values)
-    //         .then((response) => {
-    //             console.log("---------")
-    //             console.log(response.data)
-    //             console.log("---------")
-
-    //              navigate('/games')
-    //         })
-    //         .catch((err) => {
-    //             console.log(err)
-    //         })
-    // }
-
     return (
 
         <div>
             <StyledForm onSubmit={handleSubmit}>
                 <label htmlFor="email">Email
-                <input type="text" name="email" placeholder="email" value={values.email} onChange={handleChange} /></label>
+                    <input type="text" name="email" placeholder="email" value={values.email} onChange={handleChange} /></label>
                 <label htmlFor="password">Password
-                <input type="password" name="password" placeholder="password" value={values.password} onChange={handleChange} /></label>
+                    <input type="password" name="password" placeholder="password" value={values.password} onChange={handleChange} /></label>
                 <button type="submit">Login</button>
             </StyledForm>
 

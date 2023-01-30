@@ -19,9 +19,7 @@ export const StyledForm = styled.form`
         width:50vw;
     }
     input, select, textarea {
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-            box-sizing: border-box;
+box-sizing: border-box;
         width: 50vw;
         height: 40px;
         border: 1px solid #ccc;
