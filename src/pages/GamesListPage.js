@@ -13,7 +13,7 @@ const GamesListPage = () => {
     return <div>...Loading</div>;
   } else
     return (
-      
+
       <div>
         <GameForm mode="newGame" />
         <StyledCardList className="games">
@@ -21,10 +21,10 @@ const GamesListPage = () => {
 
           {games.map((game) => {
             return (
-              <Link to={`/games/${game._id}`} key={game._id}>
-                <GameCard game={game} />
 
-              </Link>
+              <GameCard game={game} key={game._id} />
+
+
             );
           })}
         </StyledCardList >

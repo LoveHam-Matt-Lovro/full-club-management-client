@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { GlobalContext } from "../../Context/GlobalContext";
+import { GlobalContext } from "../../../Context/GlobalContext";
 import { useContext } from 'react'
 
 

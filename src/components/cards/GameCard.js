@@ -1,8 +1,10 @@
 import React from 'react'
 import { StyledCard } from "../styled/StyledCard"
 import axios from 'axios'
-import { GlobalContext } from "../../Context/GlobalContext";
+import { GlobalContext } from "../../Context/GlobalContext"
 import { useContext } from 'react'
+import { useDelete } from '../forms/utils/useDelete'
+import { Link } from "react-router-dom";
 
 
 
@@ -26,12 +28,16 @@ const GameCard = ({ game }) => {
     return (
         <StyledCard>
 
-            <h1>{game.opponent}</h1>
+            <Link to={`/games/${game._id} `}>
 
-            <h3>{game.startTime}</h3>
+                <h1>{game.opponent}</h1>
+
+                <h3>{game.startTime}</h3>
+
+            </Link>
 
             <button onClick={handleDelete}>Delete</button>
-        </StyledCard>
+        </StyledCard >
     )
 }
 
