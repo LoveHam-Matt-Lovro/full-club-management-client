@@ -36,10 +36,10 @@ const LoginForm = ({ mode }) => {
 
         <div>
             <StyledForm onSubmit={handleSubmit}>
-                <label htmlFor="email">Email</label>
-                <input type="text" name="email" placeholder="email" value={values.email} onChange={handleChange} />
-                <label htmlFor="password">Password</label>
-                <input type="password" name="password" placeholder="password" value={values.password} onChange={handleChange} />
+                <label htmlFor="email">Email
+                <input type="text" name="email" placeholder="email" value={values.email} onChange={handleChange} /></label>
+                <label htmlFor="password">Password
+                <input type="password" name="password" placeholder="password" value={values.password} onChange={handleChange} /></label>
                 <button type="submit">Login</button>
             </StyledForm>
 
