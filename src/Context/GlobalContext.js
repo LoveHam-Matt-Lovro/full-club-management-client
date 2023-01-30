@@ -21,7 +21,7 @@ export const GlobalProvider = ({ children }) => {
             setIsLoading(false);
 
         });
-    }, [games]);
+    }, []);
 
     // get user Data
 
