@@ -28,7 +28,9 @@ export const useSelection = (url) => {
     useEffect(() => {
         axios.get(url).then((response) => {
             // add a selected property to each player that will be used to toggle the selection
-            response.data.forEach((player) => { player.category = "none"; player.icon = "🗙"; player.color = "#000" });
+            response.data.filter((player) => player.role === "player").forEach((player) => { player.category = "none"; player.icon = "🗙"; player.color = "#000" });
+
+
             setSelection(response.data);
         });
     }, [url]);

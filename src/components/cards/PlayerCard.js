@@ -30,8 +30,8 @@ const PlayerCard = ({ player }) => {
         >
             {console.log(player)}
             < p > {player.icon}</ p >
-            <h3>{player ? player.firstName : "..."} </h3>
-            <p>{JSON.stringify(ItemTypes.PLAYER)}</p>
+            <h3>{player.firstName} {player.lastName} </h3>
+
             <p> {player.category ? player.category : "--"}</p>
         </StyledCard >
     )
