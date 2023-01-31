@@ -21,6 +21,7 @@ export const StyledCard = styled.div`
     color: black;
         text-decoration: none;
 
+background-color: rgba(238, 255, 255, 0.8);
 
         
 

@@ -96,6 +96,8 @@ const GameDetailsPage = () => {
   } else
     return (
       <div>
+
+
         {mode === "view" && (
           <div>
             <h1>{gameId}</h1>

@@ -11,13 +11,13 @@ import GamesListPage from './pages/GamesListPage';
 import GameDetailsPage from './pages/GameDetailsPage';
 import ProfilePage from './pages/ProfilePage';
 
-
+import stadium from "./images/stadiumBG.jpg"
 
 function App() {
 
   return (
     <div className="App">
-
+      <img src={stadium} className="bg" />
 
       <NavBar />
       <Routes>

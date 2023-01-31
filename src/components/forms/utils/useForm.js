@@ -18,7 +18,6 @@ export const useForm = (initialValues, mode, element) => {
 
     const handleChange = (e) => {
         setValues((values) => { return { ...values, [e.target.name]: e.target.value } });
-        console.log(values)
     };
 
     const handleSubmit = (e) => {
@@ -93,6 +92,7 @@ export const useForm = (initialValues, mode, element) => {
         }
 
         axiosFunction.then((values) => {
+            console.log('we are inside the response for the first one')
             secondaryFunction(values)
         }).catch(err => console.log(err))
 
