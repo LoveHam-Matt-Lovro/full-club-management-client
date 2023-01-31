@@ -19,12 +19,12 @@ const PlayerCard = ({ player }) => {
         })
     });
 
-    const color = player.color || "white"
+    const color = player.nationality === "Australian" ? "#fff1f1" : "#f1fff1"
 
 
     return (
         <StyledCard
-            style={{ "opacity": `${isDragging ? 0.5 : 1}`, "border": `1px solid ${color}` }}
+            style={{ "opacity": `${isDragging ? 0.5 : 1}`, "border": `3px solid ${color}`, "backgroundColor": `${color}` }}
             player
             ref={drag}
         >
