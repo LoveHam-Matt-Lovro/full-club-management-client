@@ -5,7 +5,7 @@ import SelectionDnD from "./SelectionDnD";
 import { useSelection } from "./utils/useSelection";
 
 const SelectionForm = ({ gameId }) => {
-    const [selection, setSelection, SelectionContext, markAsSelected] = useSelection(`http://127.0.0.1:5005/games/${gameId}/selection`)
+    const [selection, setSelection, SelectionContext, markAsSelected] = useSelection(`${process.env.REACT_APP_API_URL}/games/${gameId}/selection`)
 
 
     return (

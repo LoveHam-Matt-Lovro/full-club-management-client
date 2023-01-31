@@ -13,7 +13,7 @@ export const GlobalProvider = ({ children }) => {
 
 
     useEffect(() => {
-        axios.get("http://127.0.0.1:5005/games").then((response) => {
+        axios.get(`${process.env.REACT_APP_API_URL}/games`).then((response) => {
             console.log("response.data", response.data);
             setGames(response.data);
             setIsLoading(false);

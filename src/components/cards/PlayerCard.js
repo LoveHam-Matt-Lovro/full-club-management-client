@@ -27,6 +27,7 @@ const PlayerCard = ({ player }) => {
             style={{ "opacity": `${isDragging ? 0.5 : 1}`, "border": `3px solid ${color}`, "backgroundColor": `${color}` }}
             player
             ref={drag}
+            onClick={() => console.log(player)}
         >
             {console.log(player)}
             < p > {player.icon}</ p >

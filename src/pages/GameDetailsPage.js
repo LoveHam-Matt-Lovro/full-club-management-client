@@ -22,8 +22,9 @@ const GameDetailsPage = () => {
   const { reviewId } = useParams();
   const navigate = useNavigate();
 
-  const deleteGame = useDeleteGame("http://127.0.01:5005/games", gameId, "/games");
-  // const handleDelete = useDeleteGame("http://127.0.01:5005/games", game._id)
+
+  const deleteGame = useDeleteGame(`${process.env.REACT_APP_API_URL}/games`, gameId, "/games");
+
   const deleteReview = useDeleteReview('reviews', reviewId);
 
   const filteredReviews = () => {
@@ -71,15 +72,16 @@ const GameDetailsPage = () => {
   // };
 
   useEffect(() => {
-    axios.get(`http://127.0.0.1:5005/games/${gameId}`).then((response) => {
+    axios.get(`${process.env.REACT_APP_API_URL}/games/${gameId}`).then((response) => {
       console.log("response.data", response.data);
       setGame(response.data);
 
     });
 
 
+
     axios
-      .get(`http://127.0.0.1:5005/games/${gameId}/review`)
+      .get(`${process.env.REACT_APP_API_URL}/games/${gameId}/review`)
       .then((response) => {
         console.log("response.data", response.data);
         setReviews(response.data);

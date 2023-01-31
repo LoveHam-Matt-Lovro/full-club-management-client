@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 const GameCard = ({ game }) => {
     const { games, setGames } = useContext(GlobalContext)
-    const handleDelete = useDeleteGame("http://127.0.01:5005/games", game._id)
+    const handleDelete = useDeleteGame(`${process.env.REACT_APP_API_URL}/games`, game._id)
 
     return (
         <StyledCard>

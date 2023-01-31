@@ -1,4 +1,4 @@
-import axios from "axios";
+
 import React, { useEffect, useState, useContext } from "react";
 import { GlobalContext } from "../Context/GlobalContext";
 import { Link } from "react-router-dom";

@@ -7,7 +7,8 @@ import { GlobalContext } from "../../../Context/GlobalContext"
 export const useForm = (initialValues, mode, element) => {
     const [values, setValues] = useState(initialValues);
     const { user, setUser, games, setGames, } = useContext(GlobalContext)
-    const baseUrl = "http://127.0.0.1:5005"
+    const baseUrl = process.env.REACT_APP_API_URL
+
     const navigate = useNavigate();
     const storedToken = localStorage.getItem('token');
     const header = {
