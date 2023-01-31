@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import styled from 'styled-components';
 import { COLOR, textContrast } from "../Context/constants";
 import { GlobalContext } from "../Context/GlobalContext";
-import { logOut } from "../components/forms/utils/useDelete";
+import { logOut } from "./forms/utils/useDelete";
 
 
 

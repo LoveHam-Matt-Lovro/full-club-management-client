@@ -42,5 +42,20 @@ export const StyledCard = styled.div`
     height: 30px;
     `}
 
+    ${props => props.selection && css`
+    
+  
+   
+    width: 250px;
+    max-width: 80vw;
+    height: 700px;
+justify-content: flex-start;
+
+    &:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        transform: scale(1);
+    };
+    `}
+
  
 `

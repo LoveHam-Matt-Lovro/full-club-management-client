@@ -5,14 +5,18 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { GlobalProvider, GlobalContext } from "./Context/GlobalContext";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <GlobalProvider value={GlobalContext}>
-        <App />
-      </GlobalProvider>
+      <DndProvider backend={HTML5Backend}>
+        <GlobalProvider value={GlobalContext}>
+          <App />
+        </GlobalProvider>
+      </DndProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
