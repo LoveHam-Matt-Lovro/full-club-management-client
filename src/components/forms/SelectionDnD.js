@@ -77,30 +77,14 @@ const SelectionDnD = ({ selection, setSelection, SelectionContext }) => {
     return (
         <div style={{ display: "flex" }}>
 
-            {/*
-            <div ref={drop} className="players">
-                {" "}
-                {selection.filter((player) => !player.selected).map((player) => {
-                    return <PlayerCard player={player} key={`${player._id}_${player.selected}`} />;
-                })}
-            </div>
 
-            <div ref={drop} className="slots" style={{ "width": "300px", "height": "600px", "backgroundColor": "#ddd" }}>
-                {selection.filter((player) => player.selected).map((player) => {
-                    return <PlayerCard player={player} key={`${player._id}_${randomNumber}`} />;
-                    // key={`${player._id}_${player.selected}
-
-
-                })}
-            </div>
-            */}
             <div style={{ display: "flex" }}>
                 {categories.map((category) => {
                     return (
                         <DropWrapper category={category.position} color={category.color} icon={category.icon} key={category.position} onDrop={onDrop} SelectionContext={SelectionContext} markAsSelected={markAsSelected} >
                             <StyledCard selection  >
                                 {selection.filter((player) => player.category === category.position).map((player) => {
-                                    return <PlayerCard player={player} key={`${player._id}_${category.position}`} />;
+                                    return <PlayerCard onClick={() => console.log("player.firstName")} player={player} key={`${player._id}_${category.position}`} />;
                                     // key={`${player._id}_${player.selected}
 
 
