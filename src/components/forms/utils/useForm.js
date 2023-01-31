@@ -8,7 +8,7 @@ export const useForm = (initialValues, mode, element) => {
     const [values, setValues] = useState(initialValues);
     const { user, setUser, games, setGames, } = useContext(GlobalContext)
     const baseUrl = process.env.REACT_APP_API_URL
-
+    console.log(process.env.REACT_APP_API_URL, "baseUrl")
     const navigate = useNavigate();
     const storedToken = localStorage.getItem('token');
     const header = {

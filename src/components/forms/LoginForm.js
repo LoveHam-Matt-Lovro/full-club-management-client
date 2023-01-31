@@ -14,7 +14,7 @@ const loginData = {
 
 const LoginForm = ({ mode }) => {
     const [values, handleChange, handleSubmit] = useForm(loginData, mode, null);
-    const navigate = useNavigate();
+
 
     return (
 
