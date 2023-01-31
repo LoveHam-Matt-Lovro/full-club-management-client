@@ -10,13 +10,10 @@ import { logOut } from "./forms/utils/useDelete";
 const StyledNavbar = styled.nav`
     display: flex;
     justify-content: space-around;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     padding:17px;
     background-color: ${COLOR.background};
     border-bottom: 4px solid #222;
-    
- 
-
 `
 
 const NavBar = () => {

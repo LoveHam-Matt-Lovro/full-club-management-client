@@ -20,9 +20,9 @@ const LoginForm = ({ mode }) => {
 
         <div>
             <StyledForm onSubmit={handleSubmit}>
-                <label htmlFor="email">Email
+                <label htmlFor="email"><h4>EMAIL</h4>
                     <input type="text" name="email" placeholder="email" value={values.email} onChange={handleChange} /></label>
-                <label htmlFor="password">Password
+                <label htmlFor="password"><h4>PASSWORD</h4>
                     <input type="password" name="password" placeholder="password" value={values.password} onChange={handleChange} /></label>
                 <button type="submit">Login</button>
             </StyledForm>
