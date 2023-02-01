@@ -28,7 +28,7 @@ const SignUpForm = ({ user, mode }) => {
     <div>
       <StyledForm onSubmit={handleSubmit}>
         <label htmlFor="email">
-          Email *
+          <h4>EMAIL</h4>
           <input
             type="email"
             name="email"
@@ -38,7 +38,7 @@ const SignUpForm = ({ user, mode }) => {
         </label>
 
         <label htmlFor="password">
-          Password *
+        <h4>PASSWORD</h4>
           <input
             type="password"
             name="password"
@@ -48,7 +48,7 @@ const SignUpForm = ({ user, mode }) => {
         </label>
 
         <label htmlFor="firstName">
-          First Name *
+        <h4>FIRST NAME</h4>
           <input
             type="text"
             name="firstName"
@@ -58,7 +58,7 @@ const SignUpForm = ({ user, mode }) => {
         </label>
 
         <label htmlFor="lastName">
-          Last Name *
+        <h4>LAST NAME</h4>
           <input
             type="text"
             name="lastName"
@@ -68,7 +68,7 @@ const SignUpForm = ({ user, mode }) => {
         </label>
 
         <label htmlFor="dateOfBirth">
-          Date of birth *
+          <h4>DATE OF BIRTH</h4>
           <input
             type="date"
             name="dateOfBirth"
@@ -78,7 +78,7 @@ const SignUpForm = ({ user, mode }) => {
         </label>
 
         <label htmlFor="nationality">
-          Nationality *
+        <h4>NATIONALITY</h4>
           <input
             type="text"
             name="nationality"
@@ -88,7 +88,7 @@ const SignUpForm = ({ user, mode }) => {
         </label>
 
         <label htmlFor="team">
-          Team *
+          <h4>TEAM</h4>
           <select
             type="text"
             name="team"
@@ -101,7 +101,7 @@ const SignUpForm = ({ user, mode }) => {
         </label>
 
         <label htmlFor="role">
-          Club Role *
+          <h4>CLUB ROLE</h4>
           <select
             type="text"
             name="role"
@@ -114,7 +114,7 @@ const SignUpForm = ({ user, mode }) => {
           </select>
         </label>
 
-        <button type="submit">Create</button>
+        <button type="submit">CREATE</button>
       </StyledForm>
     </div>
   );

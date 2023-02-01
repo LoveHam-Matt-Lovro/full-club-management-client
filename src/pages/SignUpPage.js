@@ -1,11 +1,12 @@
 import React from 'react'
 import SignUpForm from '../components/forms/SignUpForm'
+import { SmallStyledDiv } from '../components/styled/SmallStyledDiv'
 
 const SignUpPage = () => {
   return (
     <div>
-      <h1>Welcome to the Club</h1>
-      <h4>Fields * are required</h4>
+      <SmallStyledDiv><h1>WELCOME TO THE CLUB</h1><h3>ALL FILEDS ARE REQUIRED</h3></SmallStyledDiv>
+      
       <SignUpForm mode="newUser" />
     </div>
   )

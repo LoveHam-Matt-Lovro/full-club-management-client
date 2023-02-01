@@ -1,3 +1,6 @@
+import TheyPerished from '../fonts/TheyPerished.ttf'
+import { GlobalContext } from "../Context/GlobalContext";
+import styled from 'styled-components';
 
 export const COLOR = {
     primary: '#2e7d32',
@@ -36,3 +39,11 @@ export function textContrast(color) {
         return "#fff";
     }
 }
+
+// export const FontStyles = GlobalContext`
+
+// @font-face {
+//   font-family: 'TheyPerished';
+//   src: url(${TheyPerished}) format('ttf');
+// }
+// `;

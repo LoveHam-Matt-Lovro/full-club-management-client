@@ -3,12 +3,13 @@ import styled from 'styled-components';
 export const StyledForm = styled.form`
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     align-items: left;
     justify-content: center;
-    width: 55vw;
-    max-width: 1200px;   
+    width:70vw;
+    max-height:50vh;  
     /* height: 100%; */
-    background-color: #f5f5f5;
+    background-color: rgb(245, 245, 245, 0.3);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
@@ -16,16 +17,16 @@ export const StyledForm = styled.form`
     margin-top: 20px;
     margin-bottom: 20px;
     label {
-        width:50vw;
+        width:30vw;
     }
     input, select, textarea {
 box-sizing: border-box;
-        width: 50vw;
+        width:30vw;
         height: 40px;
         border: 1px solid #ccc;
         border-radius: 5px;
         padding: 5px;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
         font-size: 16px;
     }
    
@@ -35,13 +36,19 @@ box-sizing: border-box;
         border: 1px solid #ccc;
         border-radius: 5px;
         padding: 10px;
+        margin-top:10px;
         margin-bottom: 10px;
+        margin-left:2.5vw;
         font-size: 16px;
         background-color: #f5f5f5;
         cursor: pointer;
         &:hover {
             background-color: #ccc;
         }
+    }
+
+    h4 {
+        margin:0;
     }
     
 `;
