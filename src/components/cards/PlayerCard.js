@@ -37,8 +37,8 @@ const PlayerCard = ({ player, handleFocusPlayer, isPlaying }) => {
           opacity: `${isDragging ? 0.5 : 1}`,
           backgroundColor: `${playColor}`,
            //background: `${backgroundUnselected}`,
-          width: ` ${isPlaying && "10px"}`,
-          height: `${isPlaying && "20px"}`,
+          width: ` ${isPlaying && "auto"}`,
+          height: `${isPlaying && "auto"}`,
           flexDirection: "column",
           borderLeft: `${borderUnselected}`,
         }}
