@@ -94,9 +94,10 @@ const SignUpForm = ({ user, mode }) => {
             name="team"
             value={values.team}
             onChange={handleChange}
+            default="Men"
           >
-            <option value="mens">Mens</option>
-            <option value="womens">Womens</option>
+            <option value="Men">Men</option>
+            <option value="Women">Women</option>
           </select>
         </label>
 
@@ -108,9 +109,9 @@ const SignUpForm = ({ user, mode }) => {
             value={values.role}
             onChange={handleChange}
           >
-            <option value="player">Player</option>
-            <option value="coach">Coach</option>
-            <option value="boardMember">Board Member</option>
+            <option value="Player">Player</option>
+            <option value="Coach">Coach</option>
+            <option value="Board Member">Board Member</option>
           </select>
         </label>
 

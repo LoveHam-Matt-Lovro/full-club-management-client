@@ -17,9 +17,13 @@ const GameCard = ({ game }) => {
 
             <Link to={`/games/${game._id} `}>
 
-                <h1>{game.opponent}</h1>
+                <p>League: {game.league} ... Round {game.round}</p>
 
-                <h3>{game.startTime}</h3>
+                <h1>{game.opponent}</h1>
+                <p>at {game.venue}</p>
+
+
+                <p>{game.startTime}</p>
 
             </Link>
 
