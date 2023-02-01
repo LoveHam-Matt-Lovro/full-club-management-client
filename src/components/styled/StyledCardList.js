@@ -12,5 +12,10 @@ export const StyledCardList = styled.div`
         flex-wrap: wrap;
         justify-content: space-around;
     }
+    &.div {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
  
 `

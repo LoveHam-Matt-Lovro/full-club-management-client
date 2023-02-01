@@ -16,5 +16,25 @@ export const SmallStyledDiv = styled.div`
         color:${COLOR.light};
         font-family:'Freshman', Arial;
     }
+
+    ${props => props.gameList && css`
+    background-color: rgb(0, 150, 0, 0.3);
+    width:350px;
+    margin:10px;
+    h1 {
+        font-size:2.2rem;
+        margin:0;
+    }
+  `}
+
+  ${props => props.pastGameList && css`
+  background-color: rgb(150, 150, 0, 0.3);
+    width:350px;
+    margin:10px;
+    h1 {
+        font-size:2.2rem;
+        margin:0;
+    }
+  `}
  
 `
