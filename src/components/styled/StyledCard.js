@@ -43,20 +43,20 @@ cursor: pointer;
 
     ${props => props.player && css`
     flex-direction: row;
-    padding: 10px;
-    margin: 10px;
-    width: 200px;
+    justify-content: space-between; 
+    width: 220px;
     max-width: 80vw;
 
-    min-height: 30px;
+    min-height: 100px;
+    box-shadow: none;
 
     `}
 
     ${props => props.selection && css`
 
-    width: 350px;
+    width: 450px;
     max-width: 80vw;
-    height: 200px;
+    height: 300px;
 justify-content: flex-start;
 margin: 0 30px;
 background-color: 	rgb(124,252,0,0.5);
@@ -68,7 +68,7 @@ border-bottom: 5px solid white;
     };
     `}
     ${props => props.none && css`
-    
+    height: 100px;
 height:600px;background-color: 	rgb(245,245,245,0.5);
 
     `}

@@ -3,15 +3,3 @@
   margin: 0;
   padding: 0;
 }
-
-html {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: bottom;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: rgb(245, 245, 245, 0.5);
-  text-align: center;
-  color: white;
-}
