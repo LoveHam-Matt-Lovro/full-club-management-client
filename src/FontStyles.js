@@ -1,0 +1,20 @@
+import { createGlobalStyle } from 'styled-components';
+
+
+const FontStyles = createGlobalStyle`
+
+
+ @font-face {
+    font-family: 'TheyPerished';
+    src: url('fonts/TheyPerished.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Freshman';
+    src: url('fonts/Freshman-POdx.ttf') format('truetype');
+  }
+
+
+  `;
+ 
+export default FontStyles;

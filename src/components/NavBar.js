@@ -5,6 +5,7 @@ import { COLOR, textContrast } from "../Context/constants";
 import { GlobalContext } from "../Context/GlobalContext";
 import { logOut } from "./forms/utils/useDelete";
 import { FontStyles } from '../Context/constants';
+import GlobalStyle from '../FontStyles';
 
 
 const StyledNavbar = styled.nav`
@@ -16,8 +17,11 @@ const StyledNavbar = styled.nav`
     background-color: rgb(245, 245, 245, 0.3);
     border-bottom: 3px solid black;
     a{
+      text-decoration:none;
+      font-size:1.6rem;
       color:black;
-      font-family: TheyPerished, sans-serif;
+      font-family: 'Freshman', sans-serif;
+      letter-spacing:0.15rem;      
       margin:0px;
       &:hover {
         color:silver;
