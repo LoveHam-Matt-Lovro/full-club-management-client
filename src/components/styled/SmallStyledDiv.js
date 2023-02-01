@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 import { COLOR } from "../../Context/constants";
 
 export const SmallStyledDiv = styled.div`
+    font-family:'Freshman', Arial;
     display: flex;
     flex-direction: column;
     align-items: center;

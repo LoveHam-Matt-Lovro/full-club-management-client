@@ -5,7 +5,7 @@ import ReviewForm from '../components/forms/ReviewForm'
 import SelectionForm from '../components/forms/SelectionForm'
 import ReviewCard from '../components/cards/ReviewCard'
 import { StyledCardList } from '../components/styled/StyledCardList'
-
+import { SmallStyledDiv} from '../components/styled/SmallStyledDiv'
 import GameForm from '../components/forms/GameForm'
 import { StyledButton } from '../components/styled/StyledButton'
 import { useDeleteGame, useDeleteReview } from '../components/forms/utils/useDelete'
@@ -96,35 +96,43 @@ const GameDetailsPage = () => {
   } else
     return (
       <div>
-
-
+        
         {mode === "view" && (
-          <div>
-            <h1>{gameId}</h1>
-            <h2>opponent: {game.opponent} </h2>
-            <h3>venue: {game.venue}</h3>
-            <h4>startTime: {game.startTime}</h4>
-            <h3>number of players: {game.numberOfPlayers}   </h3>
-
-          </div>
-
+          <>
+            <SmallStyledDiv className="font-face-fm">
+            <h2 style={{fontWeight:10}}>{game.league},   Round {game.round}</h2>
+              <h1 style={{fontWeight:10, fontSize:70}}>v {game.opponent} </h1>
+              <h2 style={{fontWeight:10}}>{game.venue},   {game.startTime}</h2>
+              <h3>No. Players: {game.numberOfPlayers} </h3>
+            </SmallStyledDiv>
+          </>
         )}
 
-        {mode === "edit" && <GameForm gameId={gameId} mode="editGame" game={game} />}
+        {mode === "edit" && (
+          <GameForm gameId={gameId} mode="editGame" game={game} />
+        )}
 
+        <StyledButton mode={mode} onClick={toggleMode}>
+          {mode === "view" ? "Edit Game (only coach and board to have access)" : "Cancel Edit"}
+        </StyledButton>
+        <StyledButton danger onClick={deleteGame}>
+          Delete Game (Coach & Board can see)
+        </StyledButton>
 
-        <StyledButton mode={mode} onClick={toggleMode}>{mode === "view" ? "Edit Game" : "Cancel Edit"}</StyledButton>
-        <StyledButton danger onClick={deleteGame}>Delete Game</StyledButton>
+        <StyledButton  onClick={deleteGame}>
+          If im a coach i can click this to access selection panel?
+        </StyledButton>
 
-        {mode === "view" && alreadyPlayed() ? <ReviewForm gameId={gameId} mode="newForm" /> : <SelectionForm gameId={gameId} game={game} />}
-
-
-
+        {mode === "view" && alreadyPlayed() ? (
+          <ReviewForm gameId={gameId} mode="newForm" />
+        ) : (
+          <SelectionForm gameId={gameId} game={game} />
+        )}
 
         <StyledCardList>
-          {filteredReviews().map((review) =>
-            <ReviewCard review={review} key={review._id} />)}
-
+          {filteredReviews().map((review) => (
+            <ReviewCard review={review} key={review._id} />
+          ))}
         </StyledCardList>
       </div>
     );

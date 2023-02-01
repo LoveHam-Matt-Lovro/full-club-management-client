@@ -41,7 +41,7 @@ const GamesListPage = () => {
         {pageMode === "edit" ? <GameForm mode="newGame" togglePageMode={togglePageMode} /> :
 
           <div>
-            <StyledButton onClick={togglePageMode}>Add new game</StyledButton>
+            <StyledButton onClick={togglePageMode}>New Game (Only coach or board can see)</StyledButton>
             <StyledCardList className="games">
 
 

@@ -11,8 +11,8 @@ import GamesListPage from './pages/GamesListPage';
 import GameDetailsPage from './pages/GameDetailsPage';
 import ProfilePage from './pages/ProfilePage';
 import styled from 'styled-components';
-import { FontStyles } from './Context/constants';
-import GlobalStyle from './FontStyles';
+
+import FontStyles from './FontStyles';
 import darkStadium from "./images/dark-stadium-1.png"
 
 const StyledAppDiv = styled.div`
@@ -36,7 +36,7 @@ function App() {
 
   return (
     <StyledAppDiv className="App" >
-      <GlobalStyle />
+      <FontStyles/>
 
 
 
