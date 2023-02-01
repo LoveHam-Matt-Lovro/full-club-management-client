@@ -27,6 +27,7 @@ const StyledAppDiv = styled.div`
     background-position: bottom;
     font-family: 'Freshman';
     letter-spacing:0.15rem;
+    color:white;
     
    
 `

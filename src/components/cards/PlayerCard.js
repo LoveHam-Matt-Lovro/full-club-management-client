@@ -30,7 +30,7 @@ const PlayerCard = ({ player, handleFocusPlayer, isPlaying }) => {
     return (
         <StyledCard
 
-            style={{ "opacity": `${isDragging ? 0.5 : 1}`, "backgroundColor": `${playColor}`, "width": ` ${isPlaying && "80px"}`, "height": `${isPlaying && "60px"}`, "flexDirection": "column", "borderLeft": `${borderUnselected}` }
+            style={{ "opacity": `${isDragging ? 0.5 : 1}`, "backgroundColor": `${playColor}`, "width": ` ${isPlaying && "100px"}`, "height": `${isPlaying && "60px"}`, "flexDirection": "column", "borderLeft": `${borderUnselected}` }
             }
             player
             ref={drag}
@@ -38,7 +38,7 @@ const PlayerCard = ({ player, handleFocusPlayer, isPlaying }) => {
         >
 
 
-            {isPlaying ? <div><img src={shirtColor} width={30} alt="shirt" ></img> <p>{player.lastName}</p></div> : <h4>{player.firstName} {player.lastName} </h4>}
+            {isPlaying ? <div ><img src={shirtColor} width={30} alt="shirt" ></img> <p >{player.lastName}</p></div> : <h4 style={{ "color": "#222" }}>{player.firstName} {player.lastName} </h4>}
 
 
 
