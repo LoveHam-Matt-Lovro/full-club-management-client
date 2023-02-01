@@ -40,7 +40,7 @@ const NavBar = () => {
   const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null
 
   return (
-    <StyledNavbar>
+    <StyledNavbar className="font-face-fm">
       <img style={{height:35}}  src={gameChangerBlack} alt="GAME CHANGER"/>
       <span>
       {user ? <NavLink to={`/profile/${user._id}`}>PROFILE</NavLink> : null}

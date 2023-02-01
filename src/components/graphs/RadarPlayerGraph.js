@@ -21,7 +21,7 @@ ChartJS.register(
 );
 
 const StyledRadar = styled.div`
-    width:400px;
+    width:300px;
     max-width: 70vw;
     max-height:50vh;
     background-color: rgb(245, 245, 245, 0.6);
@@ -32,27 +32,46 @@ const StyledRadar = styled.div`
     margin-top: 20px;
     margin-bottom: 20px;`
 
+const radarOptions = {
+    responsive: false,
+    maintainAspectRatio: true,
+    scale: {
+        ticks: {
+            beginAtZero: true,
+            max: 10
+        }
+    }
+};
+
 const RadarPlayerGraph = ({ user }) => {
 
+
     const radarData = {
-        labels: ['Handballing', 'Kicking', 'Marking', 'Speed', 'Tackling'],
+        labels: ['Kicking', 'Handballing', 'Tackling', 'Speed', 'Marking'],
+        options:radarOptions,
+
+    
+        
+        
         datasets: [
             {
-                label: 'Attributes',
-                data: [user.handballingStat, user.kickingStat, user.markingStat, user.speedStat, user.tacklingStat],
-                backgroundColor: 'rgba(155, 99, 132, 0.5)',
+                label:"i want to delete this",
+                data: [user.kickingStat, user.handballingStat, user.tacklingStat, user.speedStat, user.markingStat],
+                backgroundColor: 'rgba(155, 99, 132, 0.0)',
                 borderColor: 'rgba(155, 99, 132, 1)',
-                borderWidth: 3,
+                borderWidth: 0,
 
 
 
             },
 
         ],
+        
 
     };
-
-
+    
+    
+    
     return (
         <StyledRadar>
 

@@ -1,1 +1,6 @@
-
+@font-face {
+    font-family: "Freshman";
+    src: local("Freshman"),
+     url("../public/fonts/Freshman-POdx.ttf") format("truetype");
+    
+    }
