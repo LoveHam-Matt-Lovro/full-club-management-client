@@ -104,6 +104,7 @@ const GameDetailsPage = () => {
             <h2>opponent: {game.opponent} </h2>
             <h3>venue: {game.venue}</h3>
             <h4>startTime: {game.startTime}</h4>
+            <h3>number of players: {game.numberOfPlayers}   </h3>
 
           </div>
 
@@ -115,7 +116,7 @@ const GameDetailsPage = () => {
         <StyledButton mode={mode} onClick={toggleMode}>{mode === "view" ? "Edit Game" : "Cancel Edit"}</StyledButton>
         <StyledButton danger onClick={deleteGame}>Delete Game</StyledButton>
 
-        {mode === "view" && alreadyPlayed() ? <ReviewForm gameId={gameId} mode="newForm" /> : <SelectionForm gameId={gameId} />}
+        {mode === "view" && alreadyPlayed() ? <ReviewForm gameId={gameId} mode="newForm" /> : <SelectionForm gameId={gameId} game={game} />}
 
 
 

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 
 import { useDrop } from 'react-dnd'
-import { ItemTypes, categories } from "../dnd/dnd";
+import { ItemTypes, categories } from "./dnd";
 
 
 const DropWrapper = ({ onDrop, children, category, icon, color, SelectionContext, markAsSelected }) => {
