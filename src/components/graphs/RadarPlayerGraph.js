@@ -48,16 +48,16 @@ const RadarPlayerGraph = ({ user }) => {
 
     const radarData = {
         labels: ['Kicking', 'Handballing', 'Tackling', 'Speed', 'Marking'],
-        options:radarOptions,
+        options: radarOptions,
 
-    
-        
-        
+
+
+
         datasets: [
             {
-                label:"i want to delete this",
+                label: "Player's Stats",
                 data: [user.kickingStat, user.handballingStat, user.tacklingStat, user.speedStat, user.markingStat],
-                backgroundColor: 'rgba(155, 99, 132, 0.0)',
+                backgroundColor: 'rgba(155, 99, 132, 0.4)',
                 borderColor: 'rgba(155, 99, 132, 1)',
                 borderWidth: 0,
 
@@ -66,17 +66,46 @@ const RadarPlayerGraph = ({ user }) => {
             },
 
         ],
-        
 
-    };
-    
-    
-    
+
+    }
+    const options = {
+        scales:
+        {
+            r: {
+                angleLines: {
+                    display: true
+                },
+                suggestedMin: 0,
+                suggestedMax: 10,
+                ticks: {
+                    stepSize: 2,
+
+
+                    font: {
+                        size: 8,
+
+                    }
+                },
+                pointLabels: {
+
+                    font: {
+                        size: 14,
+                        family: 'Roboto',
+                        weight: 'bold',
+                    }
+                }
+
+            }
+        },
+    }
+
     return (
         <StyledRadar>
 
-            <Radar data={radarData} />
-        </StyledRadar>
+
+            <Radar data={radarData} options={options} />
+        </StyledRadar >
     )
 }
 
