@@ -7,20 +7,14 @@ import gameChangerBlack from "../images/game-changer-black.png"
 import { COLOR } from '../Context/constants';
 import styled from 'styled-components';
 
-const StyledH3 = styled.h3`
-    font-family:"Helectiva";
-    color: ${COLOR.dark};
-    text-align: center;
-    
-    `
 
 const Heading = () => {
   return (
     <SmallStyledDiv>
         
-        <img style={{margin: 20}}  src={gameChangerLogo} alt="GAME CHANGER"/>
+        <img style={{margin: 20, width:700}}  src={gameChangerLogo} alt="GAME CHANGER"/>
         
-        <StyledH3>THE FULL CLUB MANAGEMENT APP</StyledH3>
+        <p>THE FULL CLUB MANAGEMENT APP</p>
     </SmallStyledDiv>
   )
 }

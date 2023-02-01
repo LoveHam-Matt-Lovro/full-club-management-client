@@ -11,21 +11,21 @@ import GamesListPage from './pages/GamesListPage';
 import GameDetailsPage from './pages/GameDetailsPage';
 import ProfilePage from './pages/ProfilePage';
 import styled from 'styled-components';
+import { FontStyles } from './Context/constants';
 import GlobalStyle from './FontStyles';
-
 import darkStadium from "./images/dark-stadium-1.png"
 
 const StyledAppDiv = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-  
     width:100vw;
     min-height:100vh;
     background-image: url(${darkStadium});
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
+    font-family: 'Freshman',
     
    
 `
@@ -35,6 +35,7 @@ function App() {
   return (
     <StyledAppDiv className="App" >
       <GlobalStyle/>
+
 
 
       <NavBar />

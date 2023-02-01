@@ -28,7 +28,7 @@ const SignUpForm = ({ user, mode }) => {
     <div>
       <StyledForm onSubmit={handleSubmit}>
         <label htmlFor="email">
-          <h4>EMAIL</h4>
+          EMAIL
           <input
             type="email"
             name="email"
@@ -38,7 +38,7 @@ const SignUpForm = ({ user, mode }) => {
         </label>
 
         <label htmlFor="password">
-        <h4>PASSWORD</h4>
+        PASSWORD
           <input
             type="password"
             name="password"
@@ -48,7 +48,7 @@ const SignUpForm = ({ user, mode }) => {
         </label>
 
         <label htmlFor="firstName">
-        <h4>FIRST NAME</h4>
+        FIRST NAME
           <input
             type="text"
             name="firstName"
@@ -58,7 +58,7 @@ const SignUpForm = ({ user, mode }) => {
         </label>
 
         <label htmlFor="lastName">
-        <h4>LAST NAME</h4>
+        LAST NAME
           <input
             type="text"
             name="lastName"
@@ -68,7 +68,7 @@ const SignUpForm = ({ user, mode }) => {
         </label>
 
         <label htmlFor="dateOfBirth">
-          <h4>DATE OF BIRTH</h4>
+          DATE OF BIRTH
           <input
             type="date"
             name="dateOfBirth"
@@ -78,7 +78,7 @@ const SignUpForm = ({ user, mode }) => {
         </label>
 
         <label htmlFor="nationality">
-        <h4>NATIONALITY</h4>
+        NATIONALITY
           <input
             type="text"
             name="nationality"
@@ -88,7 +88,7 @@ const SignUpForm = ({ user, mode }) => {
         </label>
 
         <label htmlFor="team">
-          <h4>TEAM</h4>
+          TEAM
           <select
             type="text"
             name="team"
@@ -101,7 +101,7 @@ const SignUpForm = ({ user, mode }) => {
         </label>
 
         <label htmlFor="role">
-          <h4>CLUB ROLE</h4>
+          CLUB ROLE
           <select
             type="text"
             name="role"
