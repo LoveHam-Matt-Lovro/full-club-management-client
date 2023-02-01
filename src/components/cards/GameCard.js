@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyledCard } from "../styled/StyledCard"
+import { StyledButton } from "../styled/StyledButton"
 import axios from 'axios'
 import { GlobalContext } from "../../Context/GlobalContext"
 import { useContext } from 'react'
@@ -13,7 +14,7 @@ const GameCard = ({ game }) => {
     const handleDelete = useDeleteGame(`${process.env.REACT_APP_API_URL}/games`, game._id)
 
     return (
-        <StyledCard>
+        <StyledCard gameCard>
 
             <Link to={`/games/${game._id} `}>
 
@@ -27,8 +28,8 @@ const GameCard = ({ game }) => {
 
             </Link>
 
-        
-            <button onClick={handleDelete}>Delete</button>
+
+            <StyledButton danger onClick={handleDelete}>Delete</StyledButton>
         </StyledCard >
     )
 }
