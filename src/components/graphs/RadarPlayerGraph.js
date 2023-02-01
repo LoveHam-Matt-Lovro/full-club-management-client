@@ -35,6 +35,7 @@ const StyledRadar = styled.div`
 const RadarPlayerGraph = ({ user }) => {
 
     const radarData = {
+
         labels: ['Handballing', 'Kicking', 'Marking', 'Speed', 'Tackling'],
         datasets: [
             {
@@ -50,14 +51,44 @@ const RadarPlayerGraph = ({ user }) => {
 
         ],
 
-    };
+    }
+    const options = {
+        scales:
+        {
+            r: {
+                angleLines: {
+                    display: true
+                },
+                suggestedMin: 0,
+                suggestedMax: 10,
+                ticks: {
+                    stepSize: 2,
 
+
+                    font: {
+                        size: 8,
+
+                    }
+                },
+                pointLabels: {
+
+                    font: {
+                        size: 14,
+                        family: 'Roboto',
+                        weight: 'bold',
+                    }
+                }
+
+            }
+        },
+    }
 
     return (
         <StyledRadar>
 
-            <Radar data={radarData} />
-        </StyledRadar>
+
+            <Radar data={radarData} options={options} />
+        </StyledRadar >
     )
 }
 
