@@ -18,7 +18,7 @@ const Heading = () => {
   return (
     <SmallStyledDiv>
         
-        <img style={{margin: 20}}  src={gameChangerBlack} alt="GAME CHANGER"/>
+        <img style={{margin: 20}}  src={gameChangerLogo} alt="GAME CHANGER"/>
         
         <StyledH3>THE FULL CLUB MANAGEMENT APP</StyledH3>
     </SmallStyledDiv>

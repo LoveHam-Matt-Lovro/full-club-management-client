@@ -13,7 +13,7 @@ const HomePage = () => {
   return (
     <>
       {isLoggedIn ? (
-        <h1> Welcome to the club </h1>
+        <SmallStyledDiv><h1>WELCOME TO THE CLUB</h1></SmallStyledDiv>
       ) : (
         <>
           <Heading />

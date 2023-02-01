@@ -11,7 +11,7 @@ import GamesListPage from './pages/GamesListPage';
 import GameDetailsPage from './pages/GameDetailsPage';
 import ProfilePage from './pages/ProfilePage';
 import styled from 'styled-components';
-
+import GlobalStyle from './FontStyles';
 
 import darkStadium from "./images/dark-stadium-1.png"
 
@@ -34,6 +34,7 @@ function App() {
 
   return (
     <StyledAppDiv className="App" >
+      <GlobalStyle/>
 
 
       <NavBar />
