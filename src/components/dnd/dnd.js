@@ -5,11 +5,6 @@ export const ItemTypes = {
 
 export const categories = [
 
-    {
-        position: "none",
-        color: "#000000",
-        icon: "🗙"
-    },
 
     {
         position: "attack",

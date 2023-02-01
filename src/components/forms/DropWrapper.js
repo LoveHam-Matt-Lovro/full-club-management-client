@@ -25,7 +25,7 @@ const DropWrapper = ({ onDrop, children, category, icon, color, SelectionContext
 
     return (
         <div ref={drop} className="drop-wrapper">
-            {category}
+
             {React.cloneElement(children, { isOver })}
         </div>
     )

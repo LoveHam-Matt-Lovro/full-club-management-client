@@ -4,7 +4,7 @@ import { StyledCard } from '../styled/StyledCard'
 import { ItemTypes } from '../dnd/dnd'
 
 
-const PlayerCard = ({ player }) => {
+const PlayerCard = ({ player, handleFocusPlayer, isPlaying }) => {
     // const [selected, setSelected] = useState(player?.selected || false)
 
 
@@ -16,24 +16,30 @@ const PlayerCard = ({ player }) => {
         item: player,
         collect: (monitor) => ({
             isDragging: !!monitor.isDragging(),
-        })
+        }),
+
     });
 
-    const color = player.nationality === "Australian" ? "#fff1f1" : "#f1fff1"
+
+    const playColor = isPlaying ? "transparent" : "white"
 
 
     return (
         <StyledCard
-            style={{ "opacity": `${isDragging ? 0.5 : 1}`, "border": `3px solid ${color}`, "backgroundColor": `${color}` }}
+
+            style={{ "opacity": `${isDragging ? 0.5 : 1}`, backgroundColor: `${playColor}`, "width": ` ${isPlaying && "80px"}`, "height": `${isPlaying && "60px"}`, "flexDirection": "column" }}
             player
             ref={drag}
-            onClick={() => console.log(player)}
+            onClick={() => { handleFocusPlayer(player) }}
         >
             {console.log(player)}
-            < p > {player.icon}</ p >
-            <h3>{player.firstName} {player.lastName} </h3>
 
-            <p> {player.category ? player.category : "--"}</p>
+            {isPlaying ? <div> 👕<p>{player.lastName}</p></div> : <h4>{player.firstName} {player.lastName} </h4>}
+
+
+
+
+
         </StyledCard >
     )
 }

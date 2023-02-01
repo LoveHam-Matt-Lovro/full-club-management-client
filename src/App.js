@@ -19,10 +19,10 @@ const StyledAppDiv = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+  
     width:100vw;
-    height:100vh;
-    backgroundImage: url(${darkStadium});
+    min-height:100vh;
+    background-image: url(${darkStadium});
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
@@ -33,7 +33,7 @@ const StyledAppDiv = styled.div`
 function App() {
 
   return (
-    <StyledAppDiv className="App" style={{ backgroundImage: `url(${darkStadium})` }}>
+    <StyledAppDiv className="App" >
 
 
       <NavBar />
