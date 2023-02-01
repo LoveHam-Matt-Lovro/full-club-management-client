@@ -6,6 +6,7 @@ import shirt_blue from '../../images/shirt_blue.png'
 import shirt_red from '../../images/shirt_red.png'
 import shirt_yellow from '../../images/yellow-jersey.png'
 import shirt_white from '../../images/white-jersey.png'
+import { registerables } from 'chart.js'
 
 
 
@@ -29,7 +30,7 @@ const PlayerCard = ({ player, handleFocusPlayer, isPlaying }) => {
     const playColor = isPlaying ? "transparent" : "white"
     const shirtColor = player.nationality === "Australian" ? shirt_yellow : shirt_white
     const borderUnselected = !isPlaying && (player.nationality === "Australian" ? "7px solid yellow" : "7px solid black")
-    const backgroundUnselected = !isPlaying && (player.nationality === "Australian" ? "radial-gradient(circle, yellow, green);" : "radial-gradient(circle, white, grey);")
+    //const backgroundUnselected = !isPlaying && (player.nationality === "Australian" ? "radial-gradient(circle, yellow, green);" : "radial-gradient(circle, white, grey);")
 
     return (
       <StyledCard
@@ -41,6 +42,7 @@ const PlayerCard = ({ player, handleFocusPlayer, isPlaying }) => {
           height: `${isPlaying && "auto"}`,
           flexDirection: "column",
           borderLeft: `${borderUnselected}`,
+          
         }}
         player
         ref={drag}
