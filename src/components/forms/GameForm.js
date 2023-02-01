@@ -22,9 +22,9 @@ const GameForm = ({ mode, game, togglePageMode }) => {
 
         <div>
             <StyledForm onSubmit={(e) => submitAndToggle(e)}>
-                <label htmlFor="league">League</label>
+                <label htmlFor="league">LEAGUE</label>
                 <select type="text" name="league" value={values.league} onChange={handleChange} default="AFLG">
-                    <option value="AFLG">AFLG</option>
+                    <option value="German National League">German National League</option>
                     <option value="Berlin League">Berlin League</option>
                     <option value="Champions League">Champions League</option>
                     <option value="Practice Match">Practice Match</option>

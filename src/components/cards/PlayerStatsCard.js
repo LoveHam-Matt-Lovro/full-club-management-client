@@ -7,7 +7,7 @@ const StyledPlayerStatsCard = styled.div`
     background-color: rgb(245, 245, 245, 0.3);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px 0 rgba(22, 22, 22, 0.2);
     margin: 0 auto;`
 
 

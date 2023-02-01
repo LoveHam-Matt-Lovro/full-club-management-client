@@ -9,12 +9,12 @@ import { Link } from "react-router-dom";
 
 
 
-const GameCard = ({ game }) => {
+const PastGameCard = ({ game }) => {
     const { games, setGames } = useContext(GlobalContext)
     const handleDelete = useDeleteGame(`${process.env.REACT_APP_API_URL}/games`, game._id)
 
     return (
-        <StyledCard gameCard>
+        <StyledCard pastGameCard>
 
             <Link to={`/games/${game._id} `}>
 
@@ -33,4 +33,4 @@ const GameCard = ({ game }) => {
     )
 }
 
-export default GameCard
+export default PastGameCard

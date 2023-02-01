@@ -4,8 +4,10 @@ import { GlobalContext } from "../Context/GlobalContext";
 import { Link } from "react-router-dom";
 import GameForm from "../components/forms/GameForm";
 import GameCard from "../components/cards/GameCard";
+import PastGameCard from "../components/cards/PastGameCard";
 import { StyledCardList } from '../components/styled/StyledCardList'
 import { StyledButton } from "../components/styled/StyledButton";
+import { SmallStyledDiv} from "../components/styled/SmallStyledDiv"
 
 const GamesListPage = () => {
   const { games, isLoading, } = useContext(GlobalContext)
@@ -25,6 +27,8 @@ const GamesListPage = () => {
     }
   };
 
+  
+
 
   if (isLoading) {
     return <div>...Loading</div>;
@@ -34,7 +38,7 @@ const GamesListPage = () => {
       <div>
 
 
-        {pageMode === "edit" ? < GameForm mode="newGame" togglePageMode={togglePageMode} /> :
+        {pageMode === "edit" ? <GameForm mode="newGame" togglePageMode={togglePageMode} /> :
 
           <div>
             <StyledButton onClick={togglePageMode}>Add new game</StyledButton>
@@ -42,14 +46,16 @@ const GamesListPage = () => {
 
 
 
-              <div>
-                <h2>Past Games</h2>
+              
+              <SmallStyledDiv pastGameList>
+                <h2>PAST</h2>
+                
                 {games.filter((game) => {
                   return isInPast(game);
                 }).map((game) => {
                   return (
 
-                    <GameCard game={game} key={game._id} />
+                    <PastGameCard game={game} key={game._id} />
 
                   );
                 }
@@ -57,9 +63,11 @@ const GamesListPage = () => {
                 }
 
 
-              </div>
-              <div>
-                <h2>Upcoming games</h2>
+                </SmallStyledDiv>
+              
+                <SmallStyledDiv gameList>
+                <h2>UPCOMING</h2>
+                
                 {games.filter((game) => {
                   return !isInPast(game);
                 }).map((game) => {
@@ -71,9 +79,10 @@ const GamesListPage = () => {
                 }
                 )
                 }
+                </SmallStyledDiv>
 
 
-              </div>
+              
             </StyledCardList >
           </div>
         }

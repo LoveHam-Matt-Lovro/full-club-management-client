@@ -9,7 +9,7 @@ export const StyledForm = styled.form`
     width:70vw;
     max-height:50vh;  
     /* height: 100%; */
-    background-color: rgb(0, 0, 0, 0.5);
+    background-color: rgb(22,22, 22, 0.5);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
