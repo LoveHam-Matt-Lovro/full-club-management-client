@@ -27,6 +27,7 @@ const GameCard = ({ game }) => {
 
             </Link>
 
+        
             <button onClick={handleDelete}>Delete</button>
         </StyledCard >
     )

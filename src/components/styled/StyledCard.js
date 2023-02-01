@@ -7,11 +7,11 @@ export const StyledCard = styled.div`
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(245, 245, 245, 0.5);
-    padding: 20px;
+    padding: 10px;
     margin: 20px;
     width: 400px;
     max-width: 80vw;
-    height: 200px;
+    height: 220px;
     display: flex;
     flex-direction: column;
     justify-content: space-between; 
@@ -23,6 +23,14 @@ export const StyledCard = styled.div`
  
     a {color: rgb(245, 245, 245);
         text-decoration: none;}
+    
+    p {
+        margin: 10px 0;
+    }
+
+    h1 {
+        font-size:2.5rem;
+    }
 
         
 

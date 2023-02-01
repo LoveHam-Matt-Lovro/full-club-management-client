@@ -17,7 +17,7 @@ const GameForm = ({ mode, game }) => {
 
         <div>
             <StyledForm onSubmit={handleSubmit}>
-                <label htmlFor="league">League</label>
+                <label htmlFor="league">LEAGUE</label>
                 <select type="text" name="league" value={values.league} onChange={handleChange} default="AFLG">
                     <option value="AFLG">AFLG</option>
                     <option value="Berlin League">Berlin League</option>
@@ -26,22 +26,22 @@ const GameForm = ({ mode, game }) => {
                     <option value="Tournament">Tournament</option>
                 </select>
 
-                <label htmlFor="round">Round</label>
+                <label htmlFor="round">ROUND</label>
                 <input type="number" name="round" value={values.round} min="1" onChange={handleChange} />
 
-                <label htmlFor="opponent">Opponent</label>
+                <label htmlFor="opponent">OPPONENT</label>
                 <input type="text" name="opponent" value={values.opponent} onChange={handleChange} />
 
-                <label htmlFor="venue">Venue</label>
+                <label htmlFor="venue">VENUE</label>
                 <input type="text" name="venue" value={values.venue} onChange={handleChange} />
 
-                <label htmlFor="startTime">Start Time</label>
+                <label htmlFor="startTime">DATE</label>
                 <input type="datetime-local" name="startTime" value={values.startTime} onChange={handleChange} />
 
-                <label htmlFor="numberOfPlayers">Number of Players</label>
+                <label htmlFor="numberOfPlayers">NO. PLAYERS</label>
                 <input type="text" name="numberOfPlayers" value={values.numberOfPlayers} onChange={handleChange} />
 
-                <StyledButton type="submit">Submit</StyledButton>
+                <StyledButton type="submit">SUBMIT</StyledButton>
             </StyledForm>
         </div>
     )
