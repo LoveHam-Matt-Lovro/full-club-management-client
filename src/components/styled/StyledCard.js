@@ -43,7 +43,7 @@ background-color: rgba(238, 255, 255, 0.8);
     max-width: 80vw;
 
     min-height: 30px;
-max-height: 30px;
+
     `}
 
     ${props => props.selection && css`

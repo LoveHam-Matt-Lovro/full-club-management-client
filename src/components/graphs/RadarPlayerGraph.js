@@ -43,8 +43,13 @@ const RadarPlayerGraph = ({ user }) => {
                 backgroundColor: 'rgba(155, 99, 132, 0.5)',
                 borderColor: 'rgba(155, 99, 132, 1)',
                 borderWidth: 3,
+
+
+
             },
+
         ],
+
     };
 
 
