@@ -23,10 +23,6 @@ const SelectionDnD = ({ selection, setSelection, SelectionContext, game }) => {
 
 
 
-
-
-
-
     const [{ isOver }, drop] = useDrop({
 
         accept: ItemTypes.PLAYER,

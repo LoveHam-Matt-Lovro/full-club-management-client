@@ -10,13 +10,18 @@ const backup = {
     numberOfPlayers: "",
 }
 
-const GameForm = ({ mode, game }) => {
+const GameForm = ({ mode, game, togglePageMode }) => {
     const [values, handleChange, handleSubmit] = useForm({ ...game || backup }, mode, game);
+
+    const submitAndToggle = (e) => {
+        handleSubmit(e);
+        togglePageMode();
+    }
 
     return (
 
         <div>
-            <StyledForm onSubmit={handleSubmit}>
+            <StyledForm onSubmit={(e) => submitAndToggle(e)}>
                 <label htmlFor="league">League</label>
                 <select type="text" name="league" value={values.league} onChange={handleChange} default="AFLG">
                     <option value="AFLG">AFLG</option>
@@ -40,8 +45,12 @@ const GameForm = ({ mode, game }) => {
 
                 <label htmlFor="numberOfPlayers">Number of Players</label>
                 <input type="text" name="numberOfPlayers" value={values.numberOfPlayers} onChange={handleChange} />
+                <div>
+                    <StyledButton onClick={togglePageMode}>Cancel</StyledButton>
+                    <StyledButton type="submit">Submit</StyledButton>
+                </div>
 
-                <StyledButton type="submit">Submit</StyledButton>
+
             </StyledForm>
         </div>
     )

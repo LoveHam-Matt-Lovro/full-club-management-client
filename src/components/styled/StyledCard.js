@@ -20,17 +20,13 @@ export const StyledCard = styled.div`
     position: relative;
     overflow: hidden;
     transition: transform 0.3s ease-in-out;
- 
+cursor: pointer; 
     a {color: rgb(245, 245, 245);
         text-decoration: none;}
 
         
 
-    &:hover {
-        background-color: rgba(0, 0, 0, 0.8);
-        box-shadow: 0 0 15px rgba(245, 245, 245, 0.9);
-        transform: scale(1.05);
-    };
+
     &.review {
        height: 100px;
        width: 1200px;
@@ -49,9 +45,7 @@ export const StyledCard = styled.div`
     `}
 
     ${props => props.selection && css`
-    
-  
-   
+
     width: 350px;
     max-width: 80vw;
     height: 200px;
@@ -71,6 +65,13 @@ height:600px;background-color: 	rgb(245,245,245,0.5);
 
     `}
    
+    ${props => props.gameCard && css`
+  
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+        box-shadow: 0 0 15px rgba(245, 245, 245, 0.9);
+        transform: scale(1.05);
+    }`}
  
 `
 

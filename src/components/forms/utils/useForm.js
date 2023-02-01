@@ -22,6 +22,7 @@ export const useForm = (initialValues, mode, element) => {
     };
 
     const handleSubmit = (e) => {
+        console.log(e)
         e.preventDefault()
         let axiosFunction
         let secondaryFunction
