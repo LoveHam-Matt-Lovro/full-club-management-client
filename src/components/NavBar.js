@@ -21,7 +21,7 @@ const StyledNavbar = styled.nav`
       font-size:1.6rem;
       color:black;
       font-family: 'Freshman', sans-serif;
-      
+      letter-spacing:0.15rem;      
       margin:0px;
       &:hover {
         color:silver;

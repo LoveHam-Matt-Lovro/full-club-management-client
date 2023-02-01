@@ -1,7 +1,10 @@
 import styled, { css } from "styled-components";
 
+
 export const StyledCard = styled.div`
-    background-color: rgba(0, 0, 0, 0.3);
+    font-family:'Freshman', Arial;
+    letter-spacing:0.15rem;
+    background-color: rgba(0, 0, 0, 0.6);
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(245, 245, 245, 0.5);
     padding: 20px;
@@ -18,16 +21,14 @@ export const StyledCard = styled.div`
     overflow: hidden;
     transition: transform 0.3s ease-in-out;
  
-    color: black;
-        text-decoration: none;
-
-        background-color: rgba(0, 0, 0, 0.3);
+    a {color: rgb(245, 245, 245);
+        text-decoration: none;}
 
         
 
     &:hover {
-        background-color: rgba(0, 0, 0, 0.6);
-        box-shadow: 0 0 15px rgba(245, 245, 245, 0.8);
+        background-color: rgba(0, 0, 0, 0.8);
+        box-shadow: 0 0 15px rgba(245, 245, 245, 0.9);
         transform: scale(1.05);
     };
     &.review {
