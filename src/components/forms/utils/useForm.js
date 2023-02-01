@@ -8,7 +8,7 @@ export const useForm = (initialValues, mode, element) => {
     const [values, setValues] = useState(initialValues);
     const { user, setUser, games, setGames, } = useContext(GlobalContext)
     const baseUrl = process.env.REACT_APP_API_URL
-    console.log(process.env.REACT_APP_API_URL, "baseUrl")
+
     const navigate = useNavigate();
     const storedToken = localStorage.getItem('token');
     const header = {
@@ -18,6 +18,7 @@ export const useForm = (initialValues, mode, element) => {
 
     const handleChange = (e) => {
         setValues((values) => { return { ...values, [e.target.name]: e.target.value } });
+        console.log(values)
     };
 
     const handleSubmit = (e) => {
@@ -47,7 +48,8 @@ export const useForm = (initialValues, mode, element) => {
                 break;
             case "editUser":
                 //TODO: test this
-                axiosFunction = axios.put(baseUrl + `/users/${element._id}/`, values, header)
+                axiosFunction = axios.put(baseUrl + `/profile/${element._id}`, values, header)
+
                 secondaryFunction = () => {
                     console.log("edited user")
                 }
@@ -65,9 +67,9 @@ export const useForm = (initialValues, mode, element) => {
             case "editGame":
                 //TODO: test this
                 axiosFunction = axios.put(baseUrl + `/games/${element._id}/`, values, header)
-                console.log(axiosFunction())
-                secondaryFunction = () => {
 
+                secondaryFunction = () => {
+                    window.location.reload()
                 }
 
                 break;
@@ -88,6 +90,7 @@ export const useForm = (initialValues, mode, element) => {
 
 
             default:
+                console.log("no mode selected")
                 break;
         }
 

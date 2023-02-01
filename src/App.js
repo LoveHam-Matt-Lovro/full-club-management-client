@@ -17,7 +17,9 @@ function App() {
 
   return (
     <div className="App">
-      <img src={stadium} className="bg" />
+      {
+        //<img src={stadium} className="bg" />
+      }
 
       <NavBar />
       <Routes>

@@ -3,24 +3,30 @@ import { StyledForm } from "../styled/StyledForm";
 import { useForm } from "./utils/useForm";
 
 
-const backup = {
-  favouriteAFLTeam: "",
-  kickingStat: "",
-  handballingStat: "",
-  markingStat: "",
-  speedStat: "",
-  tacklingStat: "",
-  aboutMe: "",
-  favouriteFootballMemory: "",
-};
+
 
 
 const PlayerDetailsForm = ({ user, mode }) => {
+
+  const backup = {
+    favouriteAFLTeam: "",
+    kickingStat: "",
+    handballingStat: "",
+    markingStat: "",
+    speedStat: "",
+    tacklingStat: "",
+    aboutMe: "",
+    favouriteFootballMemory: "",
+  };
+
   const [values, handleChange, handleSubmit] = useForm(
-    { ...(user || backup) },
+    { ...user || backup },
     mode,
-    null
+    user,
   );
+
+
+
   return (
     <div>
       <StyledForm onSubmit={handleSubmit}>
