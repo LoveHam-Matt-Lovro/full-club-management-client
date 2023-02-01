@@ -25,12 +25,10 @@ cursor: pointer;
         text-decoration: none;}
     
     p {
-        margin: 10px 0;
+        margin: 5px 0;
     }
 
-    h1 {
-        font-size:2.5rem;
-    }
+   
 
         
 
@@ -69,17 +67,41 @@ border-bottom: 5px solid white;
     `}
     ${props => props.none && css`
     
-height:600px;background-color: 	rgb(245,245,245,0.5);
+        height:600px;
+        background-color: 	rgb(245,245,245,0.5);
 
     `}
    
     ${props => props.gameCard && css`
+    width:300px;
+    height:130px;
+    h1 {
+        font-size:2.rem;
+        margin:0;
+    }
   
     &:hover {
         background-color: rgba(0, 0, 0, 0.8);
         box-shadow: 0 0 15px rgba(245, 245, 245, 0.9);
         transform: scale(1.05);
     }`}
+
+    ${props => props.pastGameCard && css`
+    background-color: rgba(35, 35, 35, 0.8);
+    width:300px;
+    height:130px;
+    h1 {
+        font-size:2.rem;
+        margin:0;
+    }
+  
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+        box-shadow: 0 0 15px rgba(245, 245, 245, 0.9);
+        transform: scale(1.05);
+    }`}
+
+  
  
 `
 
