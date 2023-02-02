@@ -21,8 +21,10 @@ export const useForm = (initialValues, mode, element) => {
         console.log(values)
     };
 
+
+
     const handleSubmit = (e) => {
-        console.log(e)
+
         e.preventDefault()
         let axiosFunction
         let secondaryFunction
@@ -76,7 +78,8 @@ export const useForm = (initialValues, mode, element) => {
 
                 break;
             case "newReview":
-                axiosFunction = console.log(axios.post(baseUrl + `games/${element._id}/review`, values, header))
+
+                axiosFunction = axios.post(baseUrl + `/games/${element._id}/review`, values, header)
                 secondaryFunction = (newReview) => {
                     setValues(initialValues)
                     window.location.reload()
@@ -84,7 +87,7 @@ export const useForm = (initialValues, mode, element) => {
 
                 break;
             case "editReview":
-                axios.put(baseUrl + `games/${element._id}/review`, values, header)
+                axiosFunction = axios.put(baseUrl + `/games/${element._id}/review`, values, header)
                 secondaryFunction = () => {
 
                 }
@@ -95,6 +98,7 @@ export const useForm = (initialValues, mode, element) => {
                 console.log("no mode selected")
                 break;
         }
+
 
         axiosFunction.then((values) => {
             console.log('we are inside the response for the first one')

@@ -17,12 +17,20 @@ const backup = {
   role: "player",
 };
 
+
+
+
 const SignUpForm = ({ user, mode }) => {
   const [values, handleChange, handleSubmit] = useForm(
     { ...(user || backup) },
     mode,
     null
   );
+
+
+
+
+
 
   return (
     <div>
