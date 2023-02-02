@@ -73,8 +73,8 @@ export const StyledCard = styled.div`
     ${(props) =>
     props.gameCard &&
     css`
-      width: 300px;
-      height: 130px;
+      width: 330px;
+      height: 100px;
       h1 {
         font-family:'Freshman', Arial;
         font-weight:10;
@@ -93,8 +93,8 @@ export const StyledCard = styled.div`
     props.pastGameCard &&
     css`
       background-color: rgba(35, 35, 35, 0.8);
-      width: 300px;
-      height: 130px;
+      width: 330px;
+      height: 100px;
       h1 {
         font-family:'Freshman', Arial;
         font-weight:10;
