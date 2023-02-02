@@ -2,12 +2,7 @@ import React from "react";
 import { StyledForm } from "../styled/StyledForm";
 import { useForm } from "./utils/useForm";
 
-
-
-
-
 const PlayerDetailsForm = ({ user, mode }) => {
-
   const backup = {
     favouriteAFLTeam: "",
     kickingStat: "",
@@ -20,12 +15,10 @@ const PlayerDetailsForm = ({ user, mode }) => {
   };
 
   const [values, handleChange, handleSubmit] = useForm(
-    { ...user || backup },
+    { ...(user || backup) },
     mode,
-    user,
+    user
   );
-
-
 
   return (
     <div>

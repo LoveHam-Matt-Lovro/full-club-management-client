@@ -6,23 +6,26 @@ import { useSelection } from "./utils/useSelection";
 import { SmallStyledDiv } from "../styled/SmallStyledDiv";
 
 const SelectionForm = ({ gameId, game }) => {
-    const [selection, setSelection, SelectionContext, markAsSelected] = useSelection(`${process.env.REACT_APP_API_URL}/games/${gameId}/selection`)
+  const [selection, setSelection, SelectionContext, markAsSelected] =
+    useSelection(`${process.env.REACT_APP_API_URL}/games/${gameId}/selection`);
 
+  return (
+    <SmallStyledDiv>
+      <h4>
+        Selection v {game.opponent}, No.Players {game.numberOfPlayers}
+      </h4>
 
-    return (
-        <SmallStyledDiv>
-            <h4>Selection v {game.opponent}, No.Players {game.numberOfPlayers}</h4>
-
-
-            <SelectionContext.Provider value={{ markAsSelected }}>
-
-                {/**/}
-                <SelectionDnD selection={selection} setSelection={setSelection} SelectionContext={SelectionContext} game={game} />
-
-            </SelectionContext.Provider>
-            </SmallStyledDiv>
-
-    );
+      <SelectionContext.Provider value={{ markAsSelected }}>
+        {/**/}
+        <SelectionDnD
+          selection={selection}
+          setSelection={setSelection}
+          SelectionContext={SelectionContext}
+          game={game}
+        />
+      </SelectionContext.Provider>
+    </SmallStyledDiv>
+  );
 };
 
 export default SelectionForm;
