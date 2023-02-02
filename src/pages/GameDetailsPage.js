@@ -102,16 +102,12 @@ const GameDetailsPage = () => {
         )}
 
         <StyledButton mode={mode} onClick={toggleMode}>
-          {mode === "view" ? "Edit Game (only coachto have access)" : "Cancel Edit"}
+          {mode === "view" ? "Edit Game" : "Cancel Edit"}
         </StyledButton>
 
 
         <StyledButton danger onClick={deleteGame}>
-          Delete Game {isCoach() ? "(coach)" : "(hidden)"}
-        </StyledButton>
-
-        <StyledButton onClick={deleteGame}>
-          Selection {isCoach() ? "(coach)" : "(hidden)"}
+          Delete Game {isCoach() ? "" : "(hidden)"}
         </StyledButton>
 
         {mode === "view" && alreadyPlayed() ? (
