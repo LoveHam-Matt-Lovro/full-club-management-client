@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import PlayerCard from '../cards/PlayerCard';
 import { useDrop } from "react-dnd";
 import { ItemTypes, categories } from "./dnd";
@@ -7,19 +7,23 @@ import { StyledCard } from '../styled/StyledCard';
 import DropWrapper from './DropWrapper';
 import PlayerStatsCard from '../cards/PlayerStatsCard';
 import styled from 'styled-components';
-
+import { StyledButton } from '../styled/StyledButton';
 
 const StyledPlayerCard = styled(PlayerCard)`
     background-color: red;
     border: 3px solid red;
     `
 
-const SelectionDnD = ({ selection, setSelection, SelectionContext, game }) => {
+const SelectionDnD = ({ selection, setSelection, SelectionContext, game, submitSelection }) => {
 
     const [items, setItems] = useState(selection);
     const [prevItems, setPrevItems] = useState(selection);
-    const { markAsSelected } = useContext(SelectionContext);
+    const { markAsSelected, selectedPlayers } = useContext(SelectionContext);
+
     const [focusPlayer, setFocusPlayer] = useState({});
+
+
+
 
 
 
@@ -30,8 +34,10 @@ const SelectionDnD = ({ selection, setSelection, SelectionContext, game }) => {
         drop: (item, monitor) => {
             markAsSelected(item._id)
 
+
         },
         collect: (monitor) => ({
+
             isOver: !!monitor.isOver(),
         }),
 
@@ -42,16 +48,13 @@ const SelectionDnD = ({ selection, setSelection, SelectionContext, game }) => {
 
     const onDrop = (item, monitor, position) => {
         const mapping = categories.find(cat => cat.position === position);
-        console.log(item)
+
+
+
 
 
 
         setItems(prevState => {
-            // max players in a category is 1/3 of the total number of players, rounded down
-            const maxPlayers = Math.floor(game.numberOfPlayers / 3);
-            console.log(maxPlayers)
-            // if the category is not full, return the previous state
-            // if (prevState.filter((player) => player.category === mapping.position).length < maxPlayers) {
 
 
             const newItems = prevState
@@ -61,13 +64,6 @@ const SelectionDnD = ({ selection, setSelection, SelectionContext, game }) => {
 
         })
 
-        console.log(selection)
-        //console log all names of players in category "attack"
-        console.log(selection.filter((player) => player.category === "attack").map((player) => {
-            return player.firstName;
-        }))
-
-
     }
 
     const handleFocusPlayer = (player) => {
@@ -76,64 +72,73 @@ const SelectionDnD = ({ selection, setSelection, SelectionContext, game }) => {
     }
 
 
+    const submitSelectedPlayers = () => {
+
+        submitSelection(game)
+
+    }
 
 
 
 
-    const randomNumber = Math.trunc(Math.random() * 9999) + 1;
+
 
     return (
-        <div style={{ display: "flex" }}>
+        <div>
 
-            <PlayerStatsCard player={focusPlayer} />
+            <pre>{JSON.stringify(game, null, 2)}</pre>
+            <StyledButton onClick={submitSelectedPlayers} >Submit Selection</StyledButton>
+
             <div style={{ display: "flex" }}>
+                <PlayerStatsCard player={focusPlayer} />
+                <div style={{ display: "flex" }}>
 
-                <DropWrapper category="none" color="black" icon="🗙" key="test" onDrop={onDrop} SelectionContext={SelectionContext} markAsSelected={markAsSelected} >
-
-
-                    <StyledCard selection none  >
-                        {selection.filter((player) => player.category === "none").map((player) => {
-                            return <PlayerCard onClick={handleFocusPlayer} player={player} key={`${player._id}_${"test"}`} handleFocusPlayer={handleFocusPlayer} />;
-                            // key={`${player._id}_${player.selected}
+                    <DropWrapper category="none" color="black" icon="🗙" key="test" onDrop={onDrop} SelectionContext={SelectionContext} markAsSelected={markAsSelected} >
 
 
-                        })}
-                    </StyledCard>
-
-                </DropWrapper>
-
-
+                        <StyledCard selection none  >
+                            {selection.filter((player) => player.category === "none").map((player) => {
+                                return <PlayerCard onClick={handleFocusPlayer} player={player} key={`${player._id}_${"test"}`} handleFocusPlayer={handleFocusPlayer} />;
+                                // key={`${player._id}_${player.selected}
 
 
+                            })}
+                        </StyledCard>
+
+                    </DropWrapper>
 
 
 
-                <div>
-
-                    {categories.map((category) => {
-                        return (
-                            <DropWrapper category={category.position} color={category.color} icon={category.icon} key={category.position} onDrop={onDrop} SelectionContext={SelectionContext} markAsSelected={markAsSelected} >
-                                <div style={{ "display": "flex" }}>
-
-                                    <StyledCard selection style={{ "display": "flex", "flexDirection": "row", "flexWrap": "wrap" }}  >
-                                        {selection.filter((player) => player.category === category.position).map((player) => {
-                                            return <PlayerCard onClick={handleFocusPlayer} player={player} key={`${player._id}_${category.position}`} handleFocusPlayer={handleFocusPlayer} isPlaying />;
 
 
-                                        })}
-                                    </StyledCard>
-                                    {category.position}
-                                </div>
-                            </DropWrapper>
-                        )
 
-                    })
-                    }
+
+                    <div>
+
+                        {categories.map((category) => {
+                            return (
+                                <DropWrapper category={category.position} color={category.color} icon={category.icon} key={category.position} onDrop={onDrop} SelectionContext={SelectionContext} markAsSelected={markAsSelected} >
+                                    <div style={{ "display": "flex" }}>
+
+                                        <StyledCard selection style={{ "display": "flex", "flexDirection": "row", "flexWrap": "wrap" }}  >
+                                            {selection.filter((player) => player.category === category.position).map((player) => {
+                                                return <PlayerCard onClick={handleFocusPlayer} player={player} key={`${player._id}_${category.position}`} handleFocusPlayer={handleFocusPlayer} isPlaying />;
+
+
+                                            })}
+                                        </StyledCard>
+                                        {category.position}
+                                    </div>
+                                </DropWrapper>
+                            )
+
+                        })
+                        }
+                    </div>
                 </div>
-            </div>
 
 
-        </div >
+            </div ></div>
     )
 }
 
