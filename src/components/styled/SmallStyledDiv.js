@@ -38,4 +38,5 @@ export const SmallStyledDiv = styled.div`
     }
   `}
  
+ 
 `

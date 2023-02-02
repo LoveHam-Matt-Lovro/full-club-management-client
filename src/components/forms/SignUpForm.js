@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { StyledForm } from "../styled/StyledForm";
 import { useNavigate } from "react-router-dom";
-
+import { StyledButton } from '../styled/StyledButton';
 import { useForm } from "./utils/useForm";
 
 const backup = {
@@ -29,53 +29,54 @@ const SignUpForm = ({ user, mode }) => {
   const passwordRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
 
   const checkErrors = () => {
-    setError("")
-    if (mode="newUser"){
-       
-      
-      
-      if (values.email === "" || values.password === "" || values.firstName === "" || values.lastName === "" || values.dateOfBirth === "" ) {
-      setError("All fields are required");
-      return;
+    setError("");
+    if ((mode = "newUser")) {
+      if (
+        values.email === "" ||
+        values.password === "" ||
+        values.firstName === "" ||
+        values.lastName === "" ||
+        values.dateOfBirth === ""
+      ) {
+        setError("All fields are required");
+        return;
+      }
+      if (!emailRegex.test(values.email)) {
+        setError("Email address must be valid");
+        return;
+      }
+      if (values.firstName.length < 2) {
+        setError("First name must be at least 2 characters");
+        return;
+      }
+      if (values.lastName.length < 2) {
+        setError("Last name must be at least 2 characters");
+        return;
+      }
+      if (!passwordRegex.test(values.password)) {
+        setError(
+          "Password must have at least 6 characters and contain at least one number, one lowercase and one uppercase letter."
+        );
+        return;
+      }
     }
-    if (!emailRegex.test(values.email)) {
-      setError("Email address must be valid");
-      return;
-    }
-    if (values.firstName.length < 2) {
-      setError("First name must be at least 2 characters");
-      return;
-    }
-    if (values.lastName.length < 2) {
-      setError("Last name must be at least 2 characters");
-      return;
-    }
-    if (!passwordRegex.test(values.password)) {
-      setError("Password must have at least 6 characters and contain at least one number, one lowercase and one uppercase letter.");
-      return;
-    }
+    return;
+  };
 
-    } return;
-   
-  }
-
-
-  const submitHandler = (e) =>{
-       e.preventDefault()
-       checkErrors()
-    console.log("Error:", error)
+  const submitHandler = (e) => {
+    e.preventDefault();
+    checkErrors();
+    console.log("Error:", error);
     if (error) {
-        return }
-   else {
-    handleSubmit()
-  }
-  }
+      return;
+    } else {
+      handleSubmit();
+    }
+  };
 
-
-  
   return (
     <div>
-      <StyledForm onSubmit={submitHandler}>
+      <StyledForm signUp onSubmit={submitHandler}>
         <label htmlFor="email">
           EMAIL
           <input
@@ -83,8 +84,6 @@ const SignUpForm = ({ user, mode }) => {
             name="email"
             value={values.email}
             onChange={handleChange}
-            
-
           />
         </label>
 
@@ -167,11 +166,10 @@ const SignUpForm = ({ user, mode }) => {
             <option value="board member">Board Member</option>
           </select>
         </label>
-        
-        <button type="submit">CREATE</button>
-       
-          </StyledForm>
-          {error && <h4 className="error">error: {error}</h4> }
+
+        <StyledButton className="submit" type="submit">Submit</StyledButton>
+      </StyledForm>
+      {error && <h4 className="error">error: {error}</h4>}
     </div>
   );
 };

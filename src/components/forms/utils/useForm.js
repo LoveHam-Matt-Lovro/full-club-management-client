@@ -45,7 +45,7 @@ export const useForm = (initialValues, mode, element) => {
             case "newUser":
                 axiosFunction = axios.post(baseUrl + "/auth/signup", values, header)
                 secondaryFunction = () => {
-                    navigate("/")
+                    navigate("/games")
                 }
                 break;
             case "editUser":
