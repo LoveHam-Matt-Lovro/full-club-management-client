@@ -1,44 +1,38 @@
+import "./App.css";
+import { useState, useEffect } from "react";
 
-import './App.css';
-import { useState, useEffect } from "react"
+import GameForm from "./components/forms/GameForm";
+import HomePage from "./pages/HomePage";
+import { Routes, Route } from "react-router-dom";
+import SignUpPage from "./pages/SignUpPage";
+import NavBar from "./components/NavBar";
+import GamesListPage from "./pages/GamesListPage";
+import GameDetailsPage from "./pages/GameDetailsPage";
+import ProfilePage from "./pages/ProfilePage";
+import styled from "styled-components";
 
-import GameForm from './components/forms/GameForm';
-import HomePage from './pages/HomePage';
-import { Routes, Route } from 'react-router-dom'
-import SignUpPage from './pages/SignUpPage';
-import NavBar from './components/NavBar';
-import GamesListPage from './pages/GamesListPage';
-import GameDetailsPage from './pages/GameDetailsPage';
-import ProfilePage from './pages/ProfilePage';
-import styled from 'styled-components';
-
-import FontStyles from './FontStyles';
-import darkStadium from "./images/dark-stadium-1.png"
+import FontStyles from "./FontStyles";
+import darkStadium from "./images/dark-stadium-1.png";
 
 const StyledAppDiv = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width:100vw;
-    min-height:100vh;
-    background-image: url(${darkStadium});
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: bottom;
-    font-family: 'Forum', Arial;
-    letter-spacing:0.15rem;
-    color:white;
-    
-   
-`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+  background-image: url(${darkStadium});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  font-family: "Forum", Arial;
+  letter-spacing: 0.15rem;
+  color: white;
+`;
 
 function App() {
-
   return (
-    <StyledAppDiv className="App" >
-      <FontStyles/>
-
-
+    <StyledAppDiv className="App">
+      <FontStyles />
 
       <NavBar />
       <Routes>
@@ -48,7 +42,6 @@ function App() {
         <Route path="/games/:gameId" element={<GameDetailsPage />} />
         <Route path="/profile/:userId" element={<ProfilePage />} />
       </Routes>
-
 
       {/* 
  <GameForm />
@@ -63,7 +56,6 @@ function App() {
 
         )
       })}  */}
-
     </StyledAppDiv>
   );
 }

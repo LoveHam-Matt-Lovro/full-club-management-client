@@ -11,8 +11,9 @@ const SelectionForm = ({ gameId, game }) => {
 
     return (
         <SmallStyledDiv>
-            <h1>Selection v {game.opponent}</h1>
-
+            <h4>
+                Selection v {game.opponent}, No.Players {game.numberOfPlayers}
+            </h4>
 
             <SelectionContext.Provider value={{ markAsSelected }}>
 

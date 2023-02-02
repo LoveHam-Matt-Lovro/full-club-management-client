@@ -10,9 +10,9 @@ import styled from 'styled-components';
 import { StyledButton } from '../styled/StyledButton';
 
 const StyledPlayerCard = styled(PlayerCard)`
-    background-color: red;
-    border: 3px solid red;
-    `
+  background-color: red;
+  border: 3px solid red;
+`;
 
 const SelectionDnD = ({ selection, setSelection, SelectionContext, game, submitSelection }) => {
 
@@ -138,8 +138,8 @@ const SelectionDnD = ({ selection, setSelection, SelectionContext, game, submitS
                 </div>
 
 
-            </div ></div>
-    )
+            </div >
+            )
 }
 
-export default SelectionDnD
+            export default SelectionDnD

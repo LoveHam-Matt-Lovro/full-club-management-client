@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { COLOR, textContrast } from "../../Context/constants";
 
 export const StyledForm = styled.form`
-  font-family:'Forum', Arial;
+  font-family: "Forum", Arial;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -21,7 +21,7 @@ export const StyledForm = styled.form`
   input,
   select,
   textarea {
-    font-family:Arial;
+    font-family: Arial;
     box-sizing: border-box;
     width: 30vw;
     height: 40px;
@@ -70,8 +70,8 @@ export const StyledForm = styled.form`
   ${(props) =>
     props.signUp &&
     css`
-      max-height:320px;
-      width:80vw;
+      max-height: 320px;
+      width: 80vw;
       .submit {
         width: 10vw;
         background-color: ${COLOR.success};

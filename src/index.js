@@ -8,7 +8,7 @@ import { GlobalProvider, GlobalContext } from "./Context/GlobalContext";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import FontStyles from "./FontStyles";
-import './fonts/Freshman-POdx.ttf'
+import "./fonts/Freshman-POdx.ttf";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
