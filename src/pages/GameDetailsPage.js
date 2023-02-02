@@ -90,9 +90,9 @@ const GameDetailsPage = () => {
         {mode === "view" && (
           <div>
             <SmallStyledDiv className="font-face-fm">
-              <h2 style={{ fontWeight: 10 }}>{game.league},   Round {game.round}</h2>
-              <h1 style={{ fontWeight: 10, fontSize: 70 }}>v {game.opponent} </h1>
-              <h2 style={{ fontWeight: 10 }}>{game.venue},   {game.startTime}</h2>
+              <h2>{game.league},   Round {game.round}</h2>
+              <h1 style={{fontSize: 70 }}>v {game.opponent} </h1>
+              <h2>{game.venue},   {game.startTime}</h2>
               <h3>No. Players: {game.numberOfPlayers} </h3>
 
 

@@ -53,6 +53,11 @@ export const StyledButton = styled.button`
         background-color: ${COLOR.danger};
         color: white;`}
 
+    ${props => props.submit && css`
+        background-color: ${COLOR.success};
+        color: white;`}
+
+
 
 
 

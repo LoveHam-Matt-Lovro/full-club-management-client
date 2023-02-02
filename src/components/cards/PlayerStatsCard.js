@@ -18,7 +18,7 @@ const PlayerStatsCard = ({ player }) => {
 
         <StyledPlayerStatsCard>
 
-            <h2 style={{fontWeight:10}}>{player.firstName} {player.lastName} Stats</h2>
+            <h2>{player.firstName} {player.lastName} Stats</h2>
             <img src={player.img} alt="profile" />
             <RadarPlayerGraph user={player} />
 
