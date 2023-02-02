@@ -1,16 +1,18 @@
 import React from 'react'
 import { StyledForm } from '../styled/StyledForm'
 import { useForm } from "./utils/useForm";
+import isCoach from './utils/isCoach'
 
 const backup = {
-    ourScore: "",
-    opponentScore: "",
+
     coachReview: "",
     playerReview: ""
 }
+const storedUser = JSON.parse(localStorage.getItem('user'))
+
 
 const ReviewForm = ({ gameId, review, mode }) => {
-    const [values, handleChange, handleSubmit] = useForm({ ...review || backup }, mode, review)
+    const [values, handleChange, handleSubmit] = useForm({ ...review || backup, gameId, author: storedUser }, mode, review)
 
     return (
 
@@ -18,10 +20,9 @@ const ReviewForm = ({ gameId, review, mode }) => {
             <StyledForm onSubmit={handleSubmit}>
 
 
-                <label htmlFor="coachReview">Coach Review</label>
-                <input type="text" name="coachReview" value={values.coachReview} onChange={handleChange} />
-                <label htmlFor="playerReview">Player Review</label>
-                <input type="text" name="playerReview" value={values.playerReview} onChange={handleChange} />
+                <label htmlFor="text">{isCoach() ? "Coach" : "Player"} Review</label>
+                <input type="text" name="text" value={values.text} onChange={handleChange} />
+
                 <button type="submit">Submit</button>
             </StyledForm>
         </div>

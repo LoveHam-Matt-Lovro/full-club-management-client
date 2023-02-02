@@ -5,7 +5,7 @@ import ReviewForm from '../components/forms/ReviewForm'
 import SelectionForm from '../components/forms/SelectionForm'
 import ReviewCard from '../components/cards/ReviewCard'
 import { StyledCardList } from '../components/styled/StyledCardList'
-import { SmallStyledDiv} from '../components/styled/SmallStyledDiv'
+import { SmallStyledDiv } from '../components/styled/SmallStyledDiv'
 import GameForm from '../components/forms/GameForm'
 import { StyledButton } from '../components/styled/StyledButton'
 import { useDeleteGame, useDeleteReview } from '../components/forms/utils/useDelete'
@@ -21,7 +21,6 @@ const GameDetailsPage = () => {
   const { gameId } = useParams();
   const { reviewId } = useParams();
   const navigate = useNavigate();
-
 
   const deleteGame = useDeleteGame(`${process.env.REACT_APP_API_URL}/games`, gameId, "/games");
 
@@ -49,28 +48,6 @@ const GameDetailsPage = () => {
   }
 
 
-
-
-  // const deleteGame = () => {
-
-  //   axios
-  //     .delete(`http://127.0.0.1:5005/games/${gameId}`)
-  //     .then(() => {
-  //       navigate("/games");
-  //     })
-  //     .catch((err) => console.log(err));
-  // };
-
-  // const deleteReview = () => {
-
-  //   axios
-  //     .delete(`http://127.0.0.1:5005/games/${gameId}/review/${reviewId}`)
-  //     .then(() => {
-  //       navigate(`/games/${gameId}/`);
-  //     })
-  //     .catch((err) => console.log(err));
-  // };
-
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}/games/${gameId}`).then((response) => {
       console.log("response.data", response.data);
@@ -96,13 +73,13 @@ const GameDetailsPage = () => {
   } else
     return (
       <div>
-        
+
         {mode === "view" && (
           <>
             <SmallStyledDiv className="font-face-fm">
-            <h2 style={{fontWeight:10}}>{game.league},   Round {game.round}</h2>
-              <h1 style={{fontWeight:10, fontSize:70}}>v {game.opponent} </h1>
-              <h2 style={{fontWeight:10}}>{game.venue},   {game.startTime}</h2>
+              <h2 style={{ fontWeight: 10 }}>{game.league},   Round {game.round}</h2>
+              <h1 style={{ fontWeight: 10, fontSize: 70 }}>v {game.opponent} </h1>
+              <h2 style={{ fontWeight: 10 }}>{game.venue},   {game.startTime}</h2>
               <h3>No. Players: {game.numberOfPlayers} </h3>
             </SmallStyledDiv>
           </>
@@ -119,7 +96,7 @@ const GameDetailsPage = () => {
           Delete Game (Coach & Board can see)
         </StyledButton>
 
-        <StyledButton  onClick={deleteGame}>
+        <StyledButton onClick={deleteGame}>
           If im a coach i can click this to access selection panel?
         </StyledButton>
 
