@@ -5,10 +5,10 @@ export const StyledCardList = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 5% auto;
-    max-width: 90vw;
+    margin:10;
+    max-width: 98vw;
     &.games {
-        flex-direction: row;
+        
         flex-wrap: wrap;
         justify-content: space-around;
     }

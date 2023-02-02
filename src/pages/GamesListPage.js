@@ -26,11 +26,13 @@ const GamesListPage = () => {
         ) : (
           <div>
             <StyledButton onClick={togglePageMode}>
-              New Game (Only coach can see)
+             CREATE NEW GAME
             </StyledButton>
             <StyledCardList className="games">
-              <SmallStyledDiv pastGameList>
+              <div>
                 <h2>PAST</h2>
+                </div>
+                <SmallStyledDiv pastGameList>
 
                 {games
                   .filter((game) => {
@@ -41,8 +43,10 @@ const GamesListPage = () => {
                   })}
               </SmallStyledDiv>
 
-              <SmallStyledDiv gameList>
+              <div>
                 <h2>UPCOMING</h2>
+                </div>
+                <SmallStyledDiv gameList>
 
                 {games
                   .filter((game) => {

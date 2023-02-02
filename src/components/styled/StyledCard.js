@@ -76,7 +76,9 @@ export const StyledCard = styled.div`
       width: 300px;
       height: 130px;
       h1 {
-        font-size: 2rem;
+        font-family:'Freshman', Arial;
+        font-weight:10;
+        font-size: 1.4rem;
         margin: 0;
       }
 
@@ -94,7 +96,9 @@ export const StyledCard = styled.div`
       width: 300px;
       height: 130px;
       h1 {
-        font-size: 2rem;
+        font-family:'Freshman', Arial;
+        font-weight:10;
+        font-size: 1.4rem;
         margin: 0;
       }
 

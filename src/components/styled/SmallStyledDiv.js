@@ -12,15 +12,18 @@ export const SmallStyledDiv = styled.div`
     background-color: rgb(22,22, 22, 0.7);
     border-radius: 10px;
     padding: 20px;
-    h1, h2, h3, h4, h5, h6 {
+    h2, h3, h4, h5, h6 {
         margin:5px;
         color:${COLOR.light};
         font-family:'Forum', Arial;
     }
 
     ${props => props.gameList && css`
-    background-color: rgb(0, 150, 0, 0.3);
-    width:350px;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    background-color: rgb(0, 50, 0, 0.3);
+    width:auto;
     margin:10px;
     h1 {
         font-size:2.2rem;
@@ -29,8 +32,11 @@ export const SmallStyledDiv = styled.div`
   `}
 
   ${props => props.pastGameList && css`
-  background-color: rgb(150, 150, 0, 0.3);
-    width:350px;
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  background-color: rgb(32,42,68, 0.3);
+    width:auto;
     margin:10px;
     h1 {
         font-size:2.2rem;
