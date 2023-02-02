@@ -26,14 +26,13 @@ const GamesListPage = () => {
         ) : (
           <div>
             <StyledButton onClick={togglePageMode}>
-             CREATE NEW GAME
+              CREATE NEW GAME
             </StyledButton>
             <StyledCardList className="games">
               <div>
                 <h2>PAST</h2>
-                </div>
-                <SmallStyledDiv pastGameList>
-
+              </div>
+              <SmallStyledDiv pastGameList>
                 {games
                   .filter((game) => {
                     return isInPast(game);
@@ -45,9 +44,8 @@ const GamesListPage = () => {
 
               <div>
                 <h2>UPCOMING</h2>
-                </div>
-                <SmallStyledDiv gameList>
-
+              </div>
+              <SmallStyledDiv gameList>
                 {games
                   .filter((game) => {
                     return !isInPast(game);
