@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 
 export const StyledCard = styled.div`
-  font-family: "Chonburi", Arial;
+  font-family: "Forum", Arial;
   letter-spacing: 0.15rem;
   background-color: rgba(22, 22, 22, 0.6);
   border-radius: 5px;
