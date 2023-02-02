@@ -22,10 +22,11 @@ ChartJS.register(
 
 const StyledRadar = styled.div`
     width:300px;
+    height:350px;
     max-width: 70vw;
     max-height:50vh;
-    background-color: rgb(245, 245, 245, 0.6);
-    padding: 20px;
+    background-color: rgb(0, 80, 0, 0.3);
+    padding: 10px;
     border-radius: 10px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     margin: 0 auto;
@@ -55,11 +56,11 @@ const RadarPlayerGraph = ({ user }) => {
 
         datasets: [
             {
-                label: "Player's Stats",
+                label: "Stats",
                 data: [user.kickingStat, user.handballingStat, user.tacklingStat, user.speedStat, user.markingStat],
-                backgroundColor: 'rgba(155, 99, 132, 0.4)',
-                borderColor: 'rgba(155, 99, 132, 1)',
-                borderWidth: 0,
+                backgroundColor: 'rgba(245, 245, 245, 0.5)',
+                borderColor: 'rgba(240, 240, 240, 0.8)',
+                borderWidth: 0.5,
 
 
 

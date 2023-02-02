@@ -122,7 +122,7 @@ const SelectionDnD = ({ selection, setSelection, SelectionContext, game }) => {
 
                                         })}
                                     </StyledCard>
-                                    {category.position}
+                                    
                                 </div>
                             </DropWrapper>
                         )

@@ -33,7 +33,7 @@ const PlayerCard = ({ player, handleFocusPlayer, isPlaying }) => {
     //const backgroundUnselected = !isPlaying && (player.nationality === "Australian" ? "radial-gradient(circle, yellow, green);" : "radial-gradient(circle, white, grey);")
 
     return (
-      <StyledCard
+      <StyledCard selectFrom
         style={{
           opacity: `${isDragging ? 0.5 : 1}`,
           backgroundColor: `${playColor}`,
@@ -41,6 +41,7 @@ const PlayerCard = ({ player, handleFocusPlayer, isPlaying }) => {
           width: ` ${isPlaying && "auto"}`,
           height: `${isPlaying && "auto"}`,
           flexDirection: "column",
+          flexWrap:"wrap",
           borderLeft: `${borderUnselected}`,
           
         }}
@@ -51,14 +52,14 @@ const PlayerCard = ({ player, handleFocusPlayer, isPlaying }) => {
         }}
       >
         {isPlaying ? (
-          <div style={{backgroundImage:{shirtColor}, backgroundSize:"contain"}}>
-            <img src={shirtColor} width={30} alt="shirt"></img>{" "}
-            <p style={{color:"222"}}>{player.lastName}</p>
+          <div >
+            <img src={shirtColor} width={30} margin={0} alt="shirt"></img>{" "}
+            <p style={{color:"rgb(245, 245, 245"}}>{player.lastName}</p>
           </div>
         ) : (
-          <h4 style={{ color: "#222" }}>
+          <h3 style= {{color:"black"}}>
             {player.firstName} {player.lastName}{" "}
-          </h4>
+          </h3>
         )}
       </StyledCard>
     );
