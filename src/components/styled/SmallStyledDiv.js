@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { COLOR } from "../../Context/constants";
 
 export const SmallStyledDiv = styled.div`
-    font-family:'Freshman', Arial;
+    font-family:'Forum', Arial;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,7 +15,7 @@ export const SmallStyledDiv = styled.div`
     h1, h2, h3, h4, h5, h6 {
         margin:5px;
         color:${COLOR.light};
-        font-family:'Freshman', Arial;
+        font-family:'Forum', Arial;
     }
 
     ${props => props.gameList && css`
