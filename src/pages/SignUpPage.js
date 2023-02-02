@@ -5,7 +5,7 @@ import { SmallStyledDiv } from '../components/styled/SmallStyledDiv'
 const SignUpPage = () => {
   return (
     <div>
-      <SmallStyledDiv><h1 style={{ "fontSize": 50 }}>WELCOME TO THE CLUB</h1></SmallStyledDiv>
+      <SmallStyledDiv><h1 style={{ "fontSize": 50, "fontWeight":10 }}>WELCOME TO THE CLUB</h1></SmallStyledDiv>
 
       <SignUpForm mode="newUser" />
     </div>

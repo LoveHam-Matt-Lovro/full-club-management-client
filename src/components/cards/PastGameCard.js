@@ -19,7 +19,7 @@ const PastGameCard = ({ game }) => {
             <Link to={`/games/${game._id} `}>
 
 
-                <h1>{game.opponent}</h1>
+                <h1 style={{ "fontWeight":10 }}>{game.opponent}</h1>
                 <p>at {game.venue}</p>
 
 
