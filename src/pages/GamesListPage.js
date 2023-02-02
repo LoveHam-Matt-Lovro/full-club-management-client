@@ -26,7 +26,7 @@ const GamesListPage = () => {
         ) : (
           <div>
             <StyledButton onClick={togglePageMode}>
-              New Game (Only coach or board can see)
+              New Game (Only coach can see)
             </StyledButton>
             <StyledCardList className="games">
               <SmallStyledDiv pastGameList>
