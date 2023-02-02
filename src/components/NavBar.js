@@ -9,6 +9,7 @@ import GlobalStyle from '../FontStyles';
 import gameChangerBlack from "../images/game-changer-black.png"
 
 
+
 const StyledNavbar = styled.nav`
     width: 100vw;
     display: flex;
@@ -37,17 +38,22 @@ const StyledNavbar = styled.nav`
 `
 
 const NavBar = () => {
-  const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null
-
+  const userStorage = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null
+  const { user, setUser } = useContext(GlobalContext);
+  console.log("userStorage", userStorage)
+  console.log("user", user)
   return (
     <StyledNavbar className="font-face-fm">
-      <img style={{height:35}}  src={gameChangerBlack} alt="GAME CHANGER"/>
+      <img style={{ height: 35 }} src={gameChangerBlack} alt="GAME CHANGER" />
+
       <span>
-      {user ? <NavLink to={`/profile/${user._id}`}>PROFILE</NavLink> : null}
-      <NavLink to="/">HOME</NavLink>
-      <NavLink to="/register">SIGN UP</NavLink>
-      <NavLink to="/games">GAMES</NavLink>
-      {user ? <NavLink onClick={logOut}>LOGOUT</NavLink> : null}
+        {userStorage ? <NavLink to={`/profile/${userStorage._id}`}>PROFILE</NavLink> : null}
+        <NavLink to="/">HOME</NavLink>
+        <NavLink to="/register">SIGN UP</NavLink>
+        <NavLink to="/games">GAMES</NavLink>
+        <NavLink onClick={logOut}>LOGOUT</NavLink>
+
+        <p>{userStorage?.role || ""}</p>
       </span>
     </StyledNavbar>
   )

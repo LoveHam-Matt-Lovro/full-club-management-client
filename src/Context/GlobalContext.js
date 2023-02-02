@@ -8,7 +8,7 @@ export const GlobalProvider = ({ children }) => {
     const [games, setGames] = useState([]);
     const [user, setUser] = useState([]);
     const [review, setReviews] = useState([]);
-    const [test, setTest] = useState("Hi from Context!")
+
     const [isLoading, setIsLoading] = useState(true);
 
 
@@ -16,18 +16,33 @@ export const GlobalProvider = ({ children }) => {
         axios.get(`${process.env.REACT_APP_API_URL}/games`).then((response) => {
             console.log("response.data", response.data);
             setGames(response.data);
-            setIsLoading(false);
-
         });
+
+        const storedUser = localStorage.getItem("user");
+        if (storedUser) {
+            axios
+                .get(`${process.env.REACT_APP_API_URL}/profile/${storedUser._id}`)
+                .then((response) => {
+                    setUser(response.data);
+                });
+        }
+
+
+        setIsLoading(false);
     }, []);
+
+    // // get logged user
+    // useEffect(() => {
+
+    // }, []);
 
 
 
     return (
         <GlobalContext.Provider
-            value={{ games, setGames, user, setUser, review, setReviews, test, setTest, isLoading, setIsLoading }}
+            value={{ games, setGames, user, setUser, review, setReviews, isLoading, setIsLoading }}
         >
             {children}
-        </GlobalContext.Provider>
+        </GlobalContext.Provider >
     );
 };

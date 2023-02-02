@@ -11,10 +11,10 @@ const backup = {
   password: "",
   firstName: "",
   lastName: "",
-  team: "",
+  team: "Men",
   dateOfBirth: "",
   nationality: "",
-  role: "",
+  role: "player",
 };
 
 const SignUpForm = ({ user, mode }) => {
@@ -38,7 +38,7 @@ const SignUpForm = ({ user, mode }) => {
         </label>
 
         <label htmlFor="password">
-        PASSWORD
+          PASSWORD
           <input
             type="password"
             name="password"
@@ -48,7 +48,7 @@ const SignUpForm = ({ user, mode }) => {
         </label>
 
         <label htmlFor="firstName">
-        FIRST NAME
+          FIRST NAME
           <input
             type="text"
             name="firstName"
@@ -58,7 +58,7 @@ const SignUpForm = ({ user, mode }) => {
         </label>
 
         <label htmlFor="lastName">
-        LAST NAME
+          LAST NAME
           <input
             type="text"
             name="lastName"
@@ -78,7 +78,7 @@ const SignUpForm = ({ user, mode }) => {
         </label>
 
         <label htmlFor="nationality">
-        NATIONALITY
+          NATIONALITY
           <input
             type="text"
             name="nationality"
@@ -108,10 +108,11 @@ const SignUpForm = ({ user, mode }) => {
             name="role"
             value={values.role}
             onChange={handleChange}
+            default="player"
           >
-            <option value="Player">Player</option>
-            <option value="Coach">Coach</option>
-            <option value="Board Member">Board Member</option>
+            <option value="player">Player</option>
+            <option value="coach">Coach</option>
+            <option value="board member">Board Member</option>
           </select>
         </label>
 

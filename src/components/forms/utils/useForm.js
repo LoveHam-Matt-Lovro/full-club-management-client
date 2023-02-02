@@ -34,6 +34,7 @@ export const useForm = (initialValues, mode, element) => {
             case "loginUser":
                 axiosFunction = axios.post(baseUrl + "/auth/login", values)
                 secondaryFunction = (response) => {
+                    console.log("LOGIN", response.data)
                     localStorage.setItem('token', response.data.authToken)
                     localStorage.setItem('user', JSON.stringify(response.data.user))
                     setUser(response.data.user)
