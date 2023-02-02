@@ -46,30 +46,6 @@ const ProfilePage = () => {
           Profile of {user.firstName} {user.lastName}
         </h2>
         <div className="flexRowProfile">
-          <div className="flexColumn">
-            <h3>
-              {user.firstName} {user.lastName} Playing Stats
-            </h3>
-            <ul>
-              <li>Kick - {user.kickingStat}</li>
-              <li>Handball - {user.handballingStat}</li>
-              <li>Mark - {user.markingStat}</li>
-              <li>Tackle - {user.tacklingStat}</li>
-              <li>Speed - {user.speedStat}</li>
-            </ul>
-          </div>
-          <RadarPlayerGraph user={user} />
-        </div>
-        <div className="flexRowProfile">
-          <div className="flexColumnProfile">
-            <h3>About {user.firstName}</h3>
-            <p>{user.aboutMe}. </p>
-            <h3>Favourite Football Memory</h3>
-            <p>{user.favouriteFootballMemory}</p>
-            <p>
-              <b>Supports: </b> {user.favouriteAFLTeam}
-            </p>
-          </div>
           <div className="flexColumnProfile">
             <p>
               <b>Club Role: </b> {user.role}
@@ -89,6 +65,30 @@ const ProfilePage = () => {
             <p>
               <b>D.O.B: </b>
               {user.dateOfBirth}
+            </p>
+          </div>
+          <div className="flexColumn" Profile>
+            <h3>Playing Stats</h3>
+            <ul>
+              <li>Kick - {user.kickingStat}</li>
+              <li>Handball - {user.handballingStat}</li>
+              <li>Mark - {user.markingStat}</li>
+              <li>Tackle - {user.tacklingStat}</li>
+              <li>Speed - {user.speedStat}</li>
+            </ul>
+          </div>
+          <div className="flexRowProfile">
+            <RadarPlayerGraph user={user} />
+          </div>
+        </div>
+        <div className="flexRowProfile">
+          <div className="flexColumnProfile">
+            <h3>About {user.firstName}</h3>
+            <p>{user.aboutMe}. </p>
+            <h3>Favourite Football Memory</h3>
+            <p>{user.favouriteFootballMemory}</p>
+            <p>
+              <b>Supports: </b> {user.favouriteAFLTeam}
             </p>
           </div>
         </div>
