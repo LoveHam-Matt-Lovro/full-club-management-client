@@ -44,10 +44,18 @@ export const useForm = (initialValues, mode, element) => {
                 }
                 break;
 
+                case "logoutUser":
+                secondaryFunction = (response) => {
+                    localStorage.removeItem('token', response.data.authToken)
+                    navigate('/')
+                }
+
+            break;
+
             case "newUser":
                 axiosFunction = axios.post(baseUrl + "/auth/signup", values, header)
                 secondaryFunction = () => {
-                    navigate("/games")
+                    navigate("/")
                 }
                 break;
             case "editUser":

@@ -51,7 +51,7 @@ export const useDeleteReview = (url, id) => {
 
 export const logOut = () => {
     localStorage.clear();
-    window.location.reload();
+    
 }
 
 

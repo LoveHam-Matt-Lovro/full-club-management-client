@@ -107,7 +107,7 @@ const GameDetailsPage = () => {
 
 
         <StyledButton danger onClick={deleteGame}>
-          Delete Game {isCoach() ? "" : "(hidden)"}
+          Delete Game {isCoach() ? "" : ""}
         </StyledButton>
 
         {mode === "view" && alreadyPlayed() ? (

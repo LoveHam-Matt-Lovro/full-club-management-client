@@ -51,7 +51,7 @@ const NavBar = () => {
         <NavLink to="/">HOME</NavLink>
         <NavLink to="/register">SIGN UP</NavLink>
         <NavLink to="/games">GAMES</NavLink>
-        <NavLink onClick={logOut}>LOGOUT</NavLink>
+        <NavLink to="/" onClick={logOut}>LOGOUT</NavLink>
 
         <p>{userStorage?.role || ""}</p>
       </span>
