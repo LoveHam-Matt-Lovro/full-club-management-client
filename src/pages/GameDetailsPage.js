@@ -100,7 +100,7 @@ const GameDetailsPage = () => {
         )}
 
         <StyledButton mode={mode} onClick={toggleMode}>
-          {mode === "view" ? "Edit Game (only coach and board to have access)" : "Cancel Edit"}
+          {mode === "view" ? "Edit Game (only coachto have access)" : "Cancel Edit"}
         </StyledButton>
 
 

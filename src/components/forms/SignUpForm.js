@@ -166,7 +166,6 @@ const SignUpForm = ({ user, mode }) => {
           >
             <option value="player">Player</option>
             <option value="coach">Coach</option>
-            <option value="board member">Board Member</option>
           </select>
         </label>
 
