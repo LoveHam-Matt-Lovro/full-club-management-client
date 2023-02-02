@@ -9,7 +9,7 @@ export const SmallStyledDiv = styled.div`
     justify-content: center;
     color:${COLOR.light};
     margin: 0;
-    background-color: rgb(22,22, 22, 0.5);
+    background-color: rgb(22,22, 22, 0.7);
     border-radius: 10px;
     padding: 20px;
     h1, h2, h3, h4, h5, h6 {

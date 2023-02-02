@@ -5,11 +5,9 @@ export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  align-items: left;
+  align-items: center;
   justify-content: center;
-
-  /* height: 100%; */
-  background-color: rgb(22, 22, 22, 0.5);
+  background-color: rgb(22, 22, 22, 0.7);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
@@ -70,7 +68,10 @@ export const StyledForm = styled.form`
   ${(props) =>
     props.signUp &&
     css`
+      max-height:320px;
+      width:80vw;
       .submit {
+        width: 10vw;
         background-color: ${COLOR.success};
         border: 1px solid ${COLOR.success};
         color: ${textContrast(COLOR.success)};
