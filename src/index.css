@@ -1,6 +1,25 @@
 @font-face {
-    font-family: "Freshman";
-    src: local("Freshman"),
-     url("../public/fonts/Freshman-POdx.ttf") format("truetype");
-    
-    }
+  font-family: "Freshman";
+  src: local("Freshman"),
+    url("../public/fonts/Freshman-POdx.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Caveat";
+  src: local("Caveat"),
+    url("../public/fonts/Caveat-VariableFont_wght.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Carter";
+  src: local("Carter"),
+    url("../public/fonts/CarterOne-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Chonburi";
+  src: local("Chonburi"),
+    url("../public/fonts/Chonburi-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Forum";
+  src: local("Forum"),
+    url("../public/fonts/Forum-Regular.ttf") format("truetype");
+}

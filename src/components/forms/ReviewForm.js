@@ -5,18 +5,18 @@ import isCoach from './utils/isCoach'
 
 
 const storedUser = JSON.parse(localStorage.getItem('user'))
-const authorRole = storedUser.role.toLowerCase()
+// const authorRole = storedUser.role.toLowerCase()
 
 const backup = {
     text: '',
     gameId: '',
     author: storedUser,
-    authorRole: authorRole
+    // authorRole: authorRole
 
 }
 
 const ReviewForm = ({ gameId, review, mode, game }) => {
-    const [values, handleChange, handleSubmit] = useForm({ ...review || backup, gameId, author: storedUser, authorRole }, mode, game)
+    const [values, handleChange, handleSubmit] = useForm({ ...review || backup, gameId, author: storedUser }, mode, game)
 
     return (
 
