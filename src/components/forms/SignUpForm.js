@@ -24,9 +24,48 @@ const SignUpForm = ({ user, mode }) => {
     null
   );
 
+  const [error, setError] = useState("");
+
+  const checkErrors = () => {
+    setError("")
+    if (mode="newUser"){
+       
+      
+      
+      if (values.password.length < 8) {
+      setError("Password must be at least 8 characters");
+      return true;
+    }
+    if (!values.email.includes("@")) {
+      setError("Email must be valid");
+      return true;
+    }
+    if (values.firstName.length < 2) {
+      setError("First name must be at least 2 characters");
+    }
+
+
+    }
+   
+  }
+
+
+  const submitHandler = (e) =>{
+       e.preventDefault()
+       checkErrors()
+    console.log("Error:", error)
+    if (error) {
+        return }
+   else {
+    handleSubmit()
+  }
+  }
+
+
+  
   return (
     <div>
-      <StyledForm onSubmit={handleSubmit}>
+      <StyledForm onSubmit={submitHandler}>
         <label htmlFor="email">
           EMAIL
           <input
@@ -34,6 +73,8 @@ const SignUpForm = ({ user, mode }) => {
             name="email"
             value={values.email}
             onChange={handleChange}
+            
+
           />
         </label>
 
@@ -115,9 +156,11 @@ const SignUpForm = ({ user, mode }) => {
             <option value="board member">Board Member</option>
           </select>
         </label>
-
+        
         <button type="submit">CREATE</button>
-      </StyledForm>
+       
+          </StyledForm>
+          {error && <p style={{"color":"red"}}>error: {error}</p> }
     </div>
   );
 };
