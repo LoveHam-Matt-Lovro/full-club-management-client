@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { COLOR, textContrast } from "../../Context/constants";
 
 export const StyledButton = styled.button`
-  font-family: "Forum", Arial;
+  font-family: "Arial", Arial;
   letter-spacing: 0.1rem;
   padding: 0.5rem 1rem;
   border-radius: 5px;
