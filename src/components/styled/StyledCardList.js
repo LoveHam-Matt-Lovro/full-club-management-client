@@ -16,6 +16,7 @@ export const StyledCardList = styled.div`
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-around;
+        background-color:red;
     }
  
 `

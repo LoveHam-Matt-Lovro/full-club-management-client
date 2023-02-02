@@ -10,6 +10,7 @@ import GameForm from '../components/forms/GameForm'
 import { StyledButton } from '../components/styled/StyledButton'
 import { useDeleteGame, useDeleteReview } from '../components/forms/utils/useDelete'
 import isCoach from '../components/forms/utils/isCoach'
+import { formatDate } from '../components/forms/utils/formatDate'
 
 
 
@@ -54,6 +55,8 @@ const GameDetailsPage = () => {
 
   }
 
+  const formattedDate = formatDate(game.startTime)
+
 
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}/games/${gameId}`).then((response) => {
@@ -83,14 +86,13 @@ const GameDetailsPage = () => {
 
         {mode === "view" && (
           <div>
-            <SmallStyledDiv className="font-face-fm">
-              <h2>{game.league},   Round {game.round}</h2>
-              <h1 style={{ fontSize: 70 }}>v {game.opponent} </h1>
-              <h2>{game.venue},   {game.startTime}</h2>
-              <h3>No. Players: {game.numberOfPlayers} </h3>
+            <SmallStyledDiv gameDetailsHeading>
+              <h3>{game.league},   Round {game.round}. </h3>
+              <h1> v {game.opponent} </h1>
+             
+              <h3>at {game.venue}, {formattedDate}</h3>
+              </SmallStyledDiv>
 
-
-            </SmallStyledDiv>
           </div>
         )
         }

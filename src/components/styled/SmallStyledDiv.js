@@ -43,6 +43,19 @@ export const SmallStyledDiv = styled.div`
         margin:0;
     }
   `}
+  ${props => props.gameDetailsHeading && css`
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  width:auto;
+  margin:10px;
+  padding:5px;
+    h1 {
+        font-family:"Freshman", Aral;
+        font-size:2rem;
+        margin:0;
+        font-weight:10;
+    }`}
  
  
 `
