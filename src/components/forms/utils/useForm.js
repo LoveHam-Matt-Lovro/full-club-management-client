@@ -40,7 +40,7 @@ export const useForm = (initialValues, mode, element) => {
                     localStorage.setItem('token', response.data.authToken)
                     localStorage.setItem('user', JSON.stringify(response.data.user))
                     setUser(response.data.user)
-                    navigate('/games')
+                    navigate('/')
                 }
                 break;
 

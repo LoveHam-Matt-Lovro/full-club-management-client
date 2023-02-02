@@ -1,9 +1,8 @@
 import React from "react";
-
 import { useState } from "react";
 import { StyledForm } from "../styled/StyledForm";
 import { useNavigate } from "react-router-dom";
-import { StyledButton } from '../styled/StyledButton';
+import { StyledButton } from "../styled/StyledButton";
 import { useForm } from "./utils/useForm";
 
 const backup = {
@@ -16,9 +15,6 @@ const backup = {
   nationality: "",
   role: "player",
 };
-
-
-
 
 const SignUpForm = ({ user, mode }) => {
   const [values, handleChange, handleSubmit] = useForm(
@@ -79,7 +75,7 @@ const SignUpForm = ({ user, mode }) => {
 
   return (
     <div>
-      <StyledForm signUp onSubmit={submitHandler}>
+      <StyledForm signUp onSubmit={handleSubmit}>
         <label htmlFor="email">
           EMAIL
           <input
@@ -169,7 +165,9 @@ const SignUpForm = ({ user, mode }) => {
           </select>
         </label>
 
-        <StyledButton className="submit" type="submit">Submit</StyledButton>
+        <StyledButton className="submit" type="submit">
+          Submit
+        </StyledButton>
       </StyledForm>
       {error && <h4 className="error">error: {error}</h4>}
     </div>
