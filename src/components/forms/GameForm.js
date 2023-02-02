@@ -108,7 +108,8 @@ const GameForm = ({ mode, game, togglePageMode }) => {
           onChange={handleChange}
         />
         <div>
-          <StyledButton onClick={togglePageMode}>Cancel</StyledButton>
+        
+          {mode === "newGame" && <StyledButton onClick={togglePageMode}>Cancel</StyledButton>} 
           <StyledButton className="submit" type="submit">Submit</StyledButton>
         </div>
       </StyledForm>
