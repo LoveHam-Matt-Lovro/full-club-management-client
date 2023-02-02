@@ -1,6 +1,5 @@
 export const formatDate = (input) => {
     const date = new Date(input);
-    console.log("date", date)
     let day = date.getDate();
 
     let ordinalSuffix = "th";

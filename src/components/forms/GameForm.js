@@ -1,16 +1,16 @@
-import React, { useState } from 'react'
-import { StyledForm } from '../styled/StyledForm'
+import React, { useState } from "react";
+import { StyledForm } from "../styled/StyledForm";
 import { useForm } from "./utils/useForm";
-import { StyledButton } from '../styled/StyledButton';
+import { StyledButton } from "../styled/StyledButton";
 
 const backup = {
-    league:"German National League",
-    round:"",
-    opponent: "",
-    venue: "",
-    startTime: "",
-    numberOfPlayers: "",
-}
+  league: "German National League",
+  round: "",
+  opponent: "",
+  venue: "",
+  startTime: "",
+  numberOfPlayers: "",
+};
 
 const GameForm = ({ mode, game, togglePageMode }) => {
   const [values, handleChange, handleSubmit] = useForm(
@@ -18,8 +18,6 @@ const GameForm = ({ mode, game, togglePageMode }) => {
     mode,
     game
   );
-
-
 
   const [error, setError] = useState("");
 
@@ -41,7 +39,6 @@ const GameForm = ({ mode, game, togglePageMode }) => {
   const submitHandler = (e) => {
     e.preventDefault();
     checkErrors();
-    console.log("Error:", error);
     if (error) {
       return;
     } else {
@@ -108,9 +105,12 @@ const GameForm = ({ mode, game, togglePageMode }) => {
           onChange={handleChange}
         />
         <div>
-        
-          {mode === "newGame" && <StyledButton onClick={togglePageMode}>Cancel</StyledButton>} 
-          <StyledButton className="submit" type="submit">Submit</StyledButton>
+          {mode === "newGame" && (
+            <StyledButton onClick={togglePageMode}>Cancel</StyledButton>
+          )}
+          <StyledButton className="submit" type="submit">
+            Submit
+          </StyledButton>
         </div>
       </StyledForm>
       {error && <h4 className="error">error: {error}</h4>}
@@ -118,4 +118,4 @@ const GameForm = ({ mode, game, togglePageMode }) => {
   );
 };
 
-export default GameForm
+export default GameForm;

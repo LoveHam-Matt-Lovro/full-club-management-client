@@ -65,7 +65,6 @@ const SignUpForm = ({ user, mode }) => {
   const submitHandler = (e) => {
     e.preventDefault();
     checkErrors();
-    console.log("Error:", error);
     if (error) {
       return;
     } else {
