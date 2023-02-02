@@ -73,7 +73,7 @@ const SignUpForm = ({ user, mode }) => {
     if (error) {
       return;
     } else {
-      handleSubmit();
+      handleSubmit(e);
     }
   };
 
