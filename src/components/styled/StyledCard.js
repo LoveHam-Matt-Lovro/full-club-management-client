@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components";
 
-
 export const StyledCard = styled.div`
   font-family: "Forum", Arial;
   letter-spacing: 0.15rem;
@@ -47,7 +46,7 @@ export const StyledCard = styled.div`
       box-shadow: none;
     `}
 
-${'' /* this is the playing field */}
+  ${"" /* this is the playing field */}
   ${(props) =>
     props.selection &&
     css`
@@ -57,7 +56,7 @@ ${'' /* this is the playing field */}
       justify-content: flex-start;
       margin: 0 30px;
       background-color: rgb(0, 80, 0, 0.3);
-      border-bottom: 5px solid rgb(245,245,245,0.3);
+      border-bottom: 5px solid rgb(245, 245, 245, 0.3);
 
       &:hover {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -65,28 +64,28 @@ ${'' /* this is the playing field */}
       }
     `}
 
-    ${'' /* this is the div that the selct cards come from */}
+    ${"" /* this is the div that the selct cards come from */}
     ${(props) =>
     props.none &&
     css`
-      flex-wrap:wrap;
-      height:480px;
+      flex-wrap: wrap;
+      height: 480px;
       background-color: rgb(22, 22, 22, 0.7);
-      border:none;
+      border: none;
     `}
     
-    ${'' /* This is the select from list cards */}
+    ${"" /* This is the select from list cards */}
     ${(props) =>
     props.selectFrom &&
     css`
-      color:black;
-      flex-wrap:wrap;
-      width:200px;
-      height:auto;
+      color: black;
+      flex-wrap: wrap;
+      width: 200px;
+      height: auto;
       background-color: red;
-      border:none;
-      margin:1px;
-      padding:1px;
+      border: none;
+      margin: 1px;
+      padding: 1px;
     `}
    
     ${(props) =>
@@ -95,8 +94,8 @@ ${'' /* this is the playing field */}
       width: 330px;
       height: 100px;
       h1 {
-        font-family:'Freshman', Arial;
-        font-weight:10;
+        font-family: "Freshman", Arial;
+        font-weight: 10;
         font-size: 1.4rem;
         margin: 0;
       }
@@ -115,8 +114,8 @@ ${'' /* this is the playing field */}
       width: 330px;
       height: 100px;
       h1 {
-        font-family:'Freshman', Arial;
-        font-weight:10;
+        font-family: "Freshman", Arial;
+        font-weight: 10;
         font-size: 1.4rem;
         margin: 0;
       }
@@ -128,5 +127,3 @@ ${'' /* this is the playing field */}
       }
     `}
 `;
-
-
