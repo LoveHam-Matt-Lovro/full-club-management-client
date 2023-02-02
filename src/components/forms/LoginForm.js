@@ -1,9 +1,7 @@
 import React from "react";
-
-import { useState } from "react";
 import { StyledForm } from "../styled/StyledForm";
-import { useNavigate } from "react-router-dom";
 import { useForm } from "./utils/useForm";
+import { StyledButton } from "../styled/StyledButton";
 
 const loginData = {
   email: "",
@@ -36,7 +34,7 @@ const LoginForm = ({ mode }) => {
             onChange={handleChange}
           />
         </label>
-        <button type="submit">LOGIN</button>
+        <StyledButton type="submit">LOGIN</StyledButton>
       </StyledForm>
     </div>
   );
