@@ -25,7 +25,7 @@ const StyledRadar = styled.div`
     height:350px;
     max-width: 70vw;
     max-height:50vh;
-    background-color: rgb(0, 80, 0, 0.3);
+    background-color: rgb(240, 240, 240, 0.5);
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
@@ -58,8 +58,8 @@ const RadarPlayerGraph = ({ user }) => {
             {
                 label: "Stats",
                 data: [user.kickingStat, user.handballingStat, user.tacklingStat, user.speedStat, user.markingStat],
-                backgroundColor: 'rgba(245, 245, 245, 0.5)',
-                borderColor: 'rgba(240, 240, 240, 0.8)',
+                backgroundColor: 'rgba(0, 80, 0, 0.5)',
+                borderColor: 'rgba(240, 240, 240, 1)',
                 borderWidth: 0.5,
 
 
@@ -75,12 +75,13 @@ const RadarPlayerGraph = ({ user }) => {
         {
             r: {
                 angleLines: {
-                    display: true
+                    display: true,
+                    
                 },
                 suggestedMin: 0,
                 suggestedMax: 10,
                 ticks: {
-                    stepSize: 2,
+                    stepSize: 10,
 
 
                     font: {
@@ -91,9 +92,9 @@ const RadarPlayerGraph = ({ user }) => {
                 pointLabels: {
 
                     font: {
-                        size: 14,
-                        family: 'Roboto',
-                        weight: 'bold',
+                        size: 10,
+                        family: 'Arial',
+                        
                     }
                 }
 

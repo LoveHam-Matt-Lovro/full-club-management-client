@@ -56,6 +56,10 @@ export const SmallStyledDiv = styled.div`
         margin:0;
         font-weight:10;
     }`}
+
+    ${props => props.profile && css`
+    width:85vw;
+  `}
  
  
 `
