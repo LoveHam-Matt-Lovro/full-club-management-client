@@ -25,7 +25,7 @@ const StyledAppDiv = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
-    font-family: 'Freshman';
+    font-family: 'Forum', Arial;
     letter-spacing:0.15rem;
     color:white;
     

@@ -3,12 +3,13 @@ import { COLOR, textContrast } from "../../Context/constants";
 
 
 export const StyledButton = styled.button`
-
+    font-family:'Forum', Arial;
+    letter-spacing:0.1rem;
     padding: 0.5rem 1rem;
     border-radius: 5px;
     border: none;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 10;
     cursor: pointer;
   
 

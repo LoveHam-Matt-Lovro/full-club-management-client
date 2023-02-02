@@ -15,14 +15,14 @@ const StyledNavbar = styled.nav`
     display: flex;
     justify-content: space-around;
     margin-bottom: 30px;
-    padding:5px;
+    padding:10px;
     background-color: rgb(245, 245, 245, 0.3);
     border-bottom: 3px solid black;
     a{
       text-decoration:none;
-      font-size:1.6rem;
+      font-size:1rem;
       color:black;
-      font-family: 'Freshman', sans-serif;
+      font-family: 'Freshman', Arial;
       letter-spacing:0.15rem;      
       margin-left:25px;
       margin-right: 10px;
@@ -44,7 +44,7 @@ const NavBar = () => {
   console.log("user", user)
   return (
     <StyledNavbar className="font-face-fm">
-      <img style={{ height: 35 }} src={gameChangerBlack} alt="GAME CHANGER" />
+      <img style={{ height: 25 }} src={gameChangerBlack} alt="GAME CHANGER" />
 
       <span>
         {userStorage ? <NavLink to={`/profile/${userStorage._id}`}>PROFILE</NavLink> : null}

@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 import { COLOR, textContrast } from "../../Context/constants";
 
 export const StyledForm = styled.form`
+  font-family:'Forum', Arial;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -20,6 +21,7 @@ export const StyledForm = styled.form`
   input,
   select,
   textarea {
+    font-family:Arial;
     box-sizing: border-box;
     width: 30vw;
     height: 40px;
