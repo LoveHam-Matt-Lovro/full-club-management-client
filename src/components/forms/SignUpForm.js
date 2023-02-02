@@ -36,23 +36,26 @@ const SignUpForm = ({ user, mode }) => {
       
       if (values.email === "" || values.password === "" || values.firstName === "" || values.lastName === "" || values.dateOfBirth === "" ) {
       setError("All fields are required");
-      return true;
+      return;
     }
     if (!emailRegex.test(values.email)) {
       setError("Email address must be valid");
-      return true;
+      return;
     }
     if (values.firstName.length < 2) {
       setError("First name must be at least 2 characters");
+      return;
     }
     if (values.lastName.length < 2) {
       setError("Last name must be at least 2 characters");
+      return;
     }
     if (!passwordRegex.test(values.password)) {
       setError("Password must have at least 6 characters and contain at least one number, one lowercase and one uppercase letter.");
+      return;
     }
 
-    }
+    } return;
    
   }
 
@@ -168,7 +171,7 @@ const SignUpForm = ({ user, mode }) => {
         <button type="submit">CREATE</button>
        
           </StyledForm>
-          {error && <h1 style={{"color":"red", "fontWeight":10}}>error: {error}</h1> }
+          {error && <h4 className="error">error: {error}</h4> }
     </div>
   );
 };

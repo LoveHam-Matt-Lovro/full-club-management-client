@@ -30,7 +30,7 @@ const GamesListPage = () => {
             </StyledButton>
             <StyledCardList className="games">
               <SmallStyledDiv pastGameList>
-                <h2 style={{ "fontWeight":10 }}>PAST</h2>
+                <h2>PAST</h2>
 
                 {games
                   .filter((game) => {
@@ -42,7 +42,7 @@ const GamesListPage = () => {
               </SmallStyledDiv>
 
               <SmallStyledDiv gameList>
-                <h2 style={{ "fontWeight":10 }}>UPCOMING</h2>
+                <h2>UPCOMING</h2>
 
                 {games
                   .filter((game) => {
