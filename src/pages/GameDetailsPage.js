@@ -31,19 +31,13 @@ const GameDetailsPage = () => {
     const gameReviews = reviews.filter((review) => gameId === review.gameId);
     return gameReviews;
   };
-  const coachReviews = () => {
-    const coachReviews = gameReviews().filter((review) => review.author.role.toLowerCase() === "coach");
-    return coachReviews;
-  };
-  const playerReviews = () => {
-    const playerReviews = gameReviews().filter((review) => review.author.role.toLowerCase() === "player");
-    return playerReviews;
-  };
 
-  const thisPlayerReviews = () => {
-    const thisPlayerReviews = playerReviews().filter((review) => review.author._id === localStorage.getItem("userId"));
-    return thisPlayerReviews;
-  };
+  const coachReviews = () => gameReviews().filter((review) => review.author.role.toLowerCase() === "coach");
+  const playerReviews = () => gameReviews().filter((review) => review.author.role.toLowerCase() === "player");
+
+  const thisPlayerReviews = () => playerReviews().filter((review) => review.author._id === localStorage.getItem("userId") && review.author.role.toLowerCase() === "player");
+
+
 
   const toggleMode = () => {
     if (mode === 'view') {
@@ -91,7 +85,7 @@ const GameDetailsPage = () => {
           <div>
             <SmallStyledDiv className="font-face-fm">
               <h2>{game.league},   Round {game.round}</h2>
-              <h1 style={{fontSize: 70 }}>v {game.opponent} </h1>
+              <h1 style={{ fontSize: 70 }}>v {game.opponent} </h1>
               <h2>{game.venue},   {game.startTime}</h2>
               <h3>No. Players: {game.numberOfPlayers} </h3>
 
@@ -131,7 +125,7 @@ const GameDetailsPage = () => {
         </StyledCardList>
 
 
-        <StyledCardList>
+        <StyledCardList >
           {isCoach() ? playerReviews().map((review) => (
             <ReviewCard review={review} key={review._id} />
           )) : thisPlayerReviews().map((review) => (

@@ -1,13 +1,22 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 .font-face-fm {
-    font-family: "Freshman";
-   }
+  font-family: "Freshman";
+}
 
-   h1, h2, h3, h4, h5, h6 {
-    font-weight: 10;
-   }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 10;
+}
 
-   .error {
-    color: darkred;
-   }
-
+.error {
+  color: darkred;
+}
