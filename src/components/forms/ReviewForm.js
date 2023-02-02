@@ -3,20 +3,25 @@ import { StyledForm } from '../styled/StyledForm'
 import { useForm } from "./utils/useForm";
 import isCoach from './utils/isCoach'
 
-const backup = {
 
-    coachReview: "",
-    playerReview: ""
-}
 const storedUser = JSON.parse(localStorage.getItem('user'))
+const authorRole = storedUser.role.toLowerCase()
 
+const backup = {
+    text: '',
+    gameId: '',
+    author: storedUser,
+    authorRole: authorRole
 
-const ReviewForm = ({ gameId, review, mode }) => {
-    const [values, handleChange, handleSubmit] = useForm({ ...review || backup, gameId, author: storedUser }, mode, review)
+}
+
+const ReviewForm = ({ gameId, review, mode, game }) => {
+    const [values, handleChange, handleSubmit] = useForm({ ...review || backup, gameId, author: storedUser, authorRole }, mode, game)
 
     return (
 
         <div>
+            <p>{mode}</p>
             <StyledForm onSubmit={handleSubmit}>
 
 

@@ -23,7 +23,7 @@ const GameCard = ({ game }) => {
                 <p>at {game.venue}</p>
 
 
-              
+
 
             </Link>
 
