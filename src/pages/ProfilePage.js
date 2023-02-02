@@ -5,7 +5,10 @@ import { GlobalContext } from "../Context/GlobalContext";
 import axios from "axios";
 import styled from "styled-components";
 import RadarPlayerGraph from "../components/graphs/RadarPlayerGraph";
-import {SmallStyledDiv, SmallSyledDiv} from '../components/styled/SmallStyledDiv'
+import {
+  SmallStyledDiv,
+  SmallSyledDiv,
+} from "../components/styled/SmallStyledDiv";
 
 const ProfilePage = () => {
   const loggedInUser = JSON.parse(localStorage.getItem("user"));
@@ -26,12 +29,10 @@ const ProfilePage = () => {
 
   useEffect(() => {
     const url = `${process.env.REACT_APP_API_URL}/profile/${userId}`;
-    console.log(url, "url");
 
     axios
       .get(url)
       .then((response) => {
-        console.log(response.data, "--------response.data");
         setUser(response.data);
         setIsLoading(false);
       })
@@ -41,38 +42,56 @@ const ProfilePage = () => {
   return (
     <div>
       <SmallStyledDiv profile>
-      <h2>Profile of {user.firstName} {user.lastName}</h2>
+        <h2>
+          Profile of {user.firstName} {user.lastName}
+        </h2>
         <div className="flexRowProfile">
-        <div className="flexColumn">
-        <h3>{user.firstName} {user.lastName} Playing Stats</h3>
-        <ul>
-          <li>Kick - {user.kickingStat}</li>
-          <li>Handball - {user.handballingStat}</li>
-          <li>Mark - {user.markingStat}</li>
-          <li>Tackle - {user.tacklingStat}</li>
-          <li>Speed - {user.speedStat}</li>
-        </ul>
-       
-        </div>
-        <RadarPlayerGraph user={user} />
+          <div className="flexColumn">
+            <h3>
+              {user.firstName} {user.lastName} Playing Stats
+            </h3>
+            <ul>
+              <li>Kick - {user.kickingStat}</li>
+              <li>Handball - {user.handballingStat}</li>
+              <li>Mark - {user.markingStat}</li>
+              <li>Tackle - {user.tacklingStat}</li>
+              <li>Speed - {user.speedStat}</li>
+            </ul>
+          </div>
+          <RadarPlayerGraph user={user} />
         </div>
         <div className="flexRowProfile">
-        <div className="flexColumnProfile">
-        <h3>About {user.firstName}</h3>
-        <p>{user.aboutMe}. </p>
-        <h3>Favourite Football Memory</h3>
-        <p>{user.favouriteFootballMemory}</p>
-        <p><b>Supports: </b> {user.favouriteAFLTeam}</p>
+          <div className="flexColumnProfile">
+            <h3>About {user.firstName}</h3>
+            <p>{user.aboutMe}. </p>
+            <h3>Favourite Football Memory</h3>
+            <p>{user.favouriteFootballMemory}</p>
+            <p>
+              <b>Supports: </b> {user.favouriteAFLTeam}
+            </p>
+          </div>
+          <div className="flexColumnProfile">
+            <p>
+              <b>Club Role: </b> {user.role}
+            </p>
+            <p>
+              <b>Email: </b>
+              {user.email}
+            </p>
+            <p>
+              <b>Team: </b>
+              {user.team}
+            </p>
+            <p>
+              <b>Nationality: </b>
+              {user.nationality}
+            </p>
+            <p>
+              <b>D.O.B: </b>
+              {user.dateOfBirth}
+            </p>
+          </div>
         </div>
-        <div className="flexColumnProfile">
-        <p><b>Club Role: </b> {user.role}</p>
-        <p><b>Email: </b>{user.email}</p>
-        <p><b>Team: </b>{user.team}</p>
-        <p><b>Nationality: </b>{user.nationality}</p>
-        <p><b>D.O.B: </b>{user.dateOfBirth}</p>
-        </div>
-        </div>
-       
       </SmallStyledDiv>
       <PlayerDetailsForm mode="editUser" user={user} />
     </div>
