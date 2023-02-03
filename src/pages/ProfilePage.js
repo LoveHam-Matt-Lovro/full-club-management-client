@@ -36,7 +36,7 @@ const ProfilePage = () => {
         setUser(response.data);
         setIsLoading(false);
       })
-      .catch(() => {});
+      .catch(() => { });
   }, []);
 
   return (

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StyledForm } from "../styled/StyledForm";
 import { useForm } from "./utils/useForm";
-import isCoach from "./utils/isCoach";
+import { GlobalContext } from "../../Context/GlobalContext";
+
+
 
 const storedUser = JSON.parse(localStorage.getItem("user"));
 // const authorRole = storedUser.role.toLowerCase()
@@ -14,11 +16,14 @@ const backup = {
 };
 
 const ReviewForm = ({ gameId, review, mode, game }) => {
+  const { user } = useContext(GlobalContext);
   const [values, handleChange, handleSubmit] = useForm(
     { ...(review || backup), gameId, author: storedUser },
     mode,
     game
   );
+
+  const isCoach = () => { return user?.role?.toLowerCase() === "coach" ? true : false; }
 
   return (
     <div>

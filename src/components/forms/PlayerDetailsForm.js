@@ -1,28 +1,54 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { GlobalContext } from "../../Context/GlobalContext";
 import { StyledButton } from "../styled/StyledButton";
 import { StyledForm } from "../styled/StyledForm";
 import { useForm } from "./utils/useForm";
+import axios from "axios";
 
-const PlayerDetailsForm = ({ user, mode }) => {
-  const backup = {
-    favouriteAFLTeam: "",
-    kickingStat: "",
-    handballingStat: "",
-    markingStat: "",
-    speedStat: "",
-    tacklingStat: "",
-    aboutMe: "",
-    favouriteFootballMemory: "",
+
+const PlayerDetailsForm = ({ mode }) => {
+  const { user, setUser } = useContext(GlobalContext);
+
+
+  const [values, setValues] = useState({
+    favouriteAFLTeam: user.favouriteAFLTeam,
+    kickingStat: user.kickingStat,
+    handballingStat: user.handballingStat,
+    markingStat: user.markingStat,
+    speedStat: user.speedStat,
+    tacklingStat: user.tacklingStat,
+    aboutMe: user.aboutMe,
+    favouriteFootballMemory: user.favouriteFootballMemory,
+
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setValues({ ...values, [name]: value });
   };
 
-  const [values, handleChange, handleSubmit] = useForm(
-    { ...(user || backup) },
-    mode,
-    user
-  );
+  const header = {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios.put(process.env.REACT_APP_API_URL + "/profile/" + user._id, values, header).then((response) => {
+      console.log(response);
+
+      localStorage.setItem("user", JSON.stringify(response.data.user));
+    }
+    );
+    setSubmitted(!submitted)
+  };
+
 
   return (
-    <div>
+    <div><pre>{JSON.stringify(user, null, 2)}</pre>
       <StyledForm onSubmit={handleSubmit}>
         <label htmlFor="favouriteAFLTeam">
           Favourite AFL Team

@@ -1,5 +1,6 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { GlobalContext } from "../Context/GlobalContext";
 import { useNavigate, useParams } from "react-router-dom";
 import ReviewForm from "../components/forms/ReviewForm";
 import SelectionForm from "../components/forms/SelectionForm";
@@ -12,10 +13,11 @@ import {
   useDeleteGame,
   useDeleteReview,
 } from "../components/forms/utils/useDelete";
-import isCoach from "../components/forms/utils/isCoach";
+// import isCoach from "../components/forms/utils/isCoach";
 import { formatDate } from "../components/forms/utils/formatDate";
 
 const GameDetailsPage = () => {
+  const { user } = useContext(GlobalContext);
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [game, setGame] = useState([]);
@@ -23,6 +25,9 @@ const GameDetailsPage = () => {
   const { gameId } = useParams();
   const { reviewId } = useParams();
   const navigate = useNavigate();
+
+  const isCoach = () => { return user?.role?.toLowerCase() === "coach" ? true : false; }
+
 
   const deleteGame = useDeleteGame(
     `${process.env.REACT_APP_API_URL}/games`,
@@ -89,6 +94,7 @@ const GameDetailsPage = () => {
   } else
     return (
       <div>
+        <h1>{user.firstName}</h1>
         {mode === "view" && (
           <div>
             <SmallStyledDiv gameDetailsHeading>
