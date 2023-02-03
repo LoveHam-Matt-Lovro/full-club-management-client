@@ -31,18 +31,21 @@ const GameForm = ({ mode, game, togglePageMode }) => {
         values.round === ""
       ) {
         setError("All fields are required");
-        return;
+        return true;
       }
+    }
+    else {
+      return false;
     }
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
-    checkErrors();
-    if (error) {
+    const hasErros = checkErrors();
+    if (hasErros) {
       return;
     } else {
-      handleSubmit();
+      handleSubmit(e);
     }
   };
 
