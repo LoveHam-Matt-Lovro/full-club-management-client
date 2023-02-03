@@ -66,28 +66,28 @@ const PlayerDetailsForm = ({ mode }) => {
             value={values.favouriteAFLTeam}
             onChange={handleChange}
           >
-            <option value="adelaideCrows">Adelaide Crows</option>
-            <option value="brisbaneLions">Brisbane Lions</option>
-            <option value="carltonBlues">Carlton Blues</option>
-            <option value="collingwoodMagpies">Collingwood Magpies</option>
-            <option value="essendonBombers">Essendon Bombers</option>
-            <option value="fremantleDockers">Fremantle Dockers</option>
-            <option value="geelongCats">Geelong Cats</option>
-            <option value="goldCoastSuns">Gold Coast Suns</option>
-            <option value="greaterWesternSydneyGiants">
+            <option value="Adelaide Crows">Adelaide Crows</option>
+            <option value="Brisbane Lions">Brisbane Lions</option>
+            <option value="Carlton Blues">Carlton Blues</option>
+            <option value="Collingwood Magpies">Collingwood Magpies</option>
+            <option value="Essendon Bombers">Essendon Bombers</option>
+            <option value="Fremantle Dockers">Fremantle Dockers</option>
+            <option value="Geelong Cats">Geelong Cats</option>
+            <option value="Gold Coast Suns">Gold Coast Suns</option>
+            <option value="Greater Western Sydeny Giants">
               Greater Western Sydeny Giants
             </option>
-            <option value="hawthownHawks">Hawthorn Hawks</option>
-            <option value="melbourneDemons">Melbourne Demons</option>
-            <option value="northMelbourneKangaroos">
+            <option value="Hawthorn Hawks">Hawthorn Hawks</option>
+            <option value="Melbourne Demons">Melbourne Demons</option>
+            <option value="North Melbourne Kanagroos">
               North Melbourne Kanagroos
             </option>
-            <option value="portAdelaidePower">Port Adelaide Power</option>
-            <option value="richmondTigers">Richmond Tigers</option>
-            <option value="stKildaSaints">St.Kilda Saints</option>
-            <option value="sydneySwans">Sydney Swans</option>
-            <option value="westCoastEagles">West Coast Eagles</option>
-            <option value="westernBulldogs">Western Bulldogs</option>
+            <option value="Port Adelaide Power">Port Adelaide Power</option>
+            <option value="Richmond Tigers">Richmond Tigers</option>
+            <option value="St.Kilda Saints">St.Kilda Saints</option>
+            <option value="Sydney Swans">Sydney Swans</option>
+            <option value="West Coast Eagles">West Coast Eagles</option>
+            <option value="Western Bulldogs">Western Bulldogs</option>
           </select>
         </label>
 
