@@ -119,10 +119,13 @@ const SelectionDnD = ({ selection, setSelection, SelectionContext, game, submitS
                                                     );
                                                 })}
                                         </StyledCard>
-                                        {category.position}
+                                    
                                     </div>
                                 </DropWrapper>
                             );
+
+
+        
                         })}
                     </div>
                 </div>
@@ -138,3 +141,5 @@ const SelectionDnD = ({ selection, setSelection, SelectionContext, game, submitS
 
 
 export default SelectionDnD;
+
+
