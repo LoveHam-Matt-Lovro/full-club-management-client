@@ -52,14 +52,6 @@ Please note for POST, PUT & DELETE requests the user must have role of coach
 
 <br/>
 
-**Reviews**
-
-| HTTP verb   | Path | Request Headers | Request body  | Description |
-| ------------- | ------------- | ------------- |------------- | ------------- |
-| POST  | /api/tasks  | Authorization: Bearer `<jwt>`  | { title: String, description: String, projectId: ObjectId }  | Create new task  |
-| GET  | /api/tasks  | –  | –  | Get all tasks. Not implemented (yet)  |
-| GET  | /api/tasks/:taskId  | –  | – | Get task details. Not implemented (yet)  |
-
 
 ## Demo
 
