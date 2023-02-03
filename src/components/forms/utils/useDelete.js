@@ -48,7 +48,7 @@ export const useDeleteReview = (url, id) => {
 export const logOut = () => {
   localStorage.removeItem("token");
   localStorage.removeItem("user");
-  window.location.reload();
+
 };
 
 export const useDeleteUser = (url, id) => {
