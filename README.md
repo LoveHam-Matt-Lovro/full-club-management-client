@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# GAME CHANGER
+## The full club management app (server)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+## About
 
-### `npm start`
+REST API for an application to run a sporting club.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- This repo implements the backend REST API (built in Express + MongoDB).
+- A repository for with the frontend (React App) can be found here: https://gamechanger-clubmanager.netlify.app/
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Instructions
 
-### `npm run build`
+To run in your computer, follow these steps:
+- clone 
+- install dependencies: `npm install`
+- create a `.env` file with the following environment variables
+  - ORIGIN, with the location 'https://gamechanger-clubmanager.netlify.app/'
+  - TOKEN_SECRET: used to sign auth tokens (example, `TOKEN_SECRET=crocodilerock`)
+- run the application: `npm run dev`.  It is important to run the server with `npm run dev`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## API Endpoints
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br/>
 
-### `npm run eject`
+**Auth endpoints**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+| HTTP verb   | Path | Request Headers | Request body  | Description |
+| ------------- | ------------- | ------------- |------------- | ------------- |
+| POST  | /api/auth/signup  | –  | { email: String, password: String, firstName: String, lastName: String, role: String }  | Create an account  |
+| POST  | /api/auth/login  | –  | { email: String, password: String }  | Login  |
+| GET  | /api/auth/verify  | Authorization: Bearer `<jwt>`  | –  | Verify jwt  |
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<br/>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**Games**
+Please note for POST, PUT & DELETE requests the user must have role of coach
 
-## Learn More
+| HTTP verb   | Path | Request Headers | Request body  | Description |
+| ------------- | ------------- | ------------- |------------- | ------------- |
+| POST  | /games  | Authorization: Bearer `<jwt>`  | { opponent: String, venue: String, startTime: String, numberOfPlayers: Number }  | Create new game  |
+| GET  | /games  | –  | –  | Get all games  |
+| GET  | /games/:gameId  | –  | – | Get game details  |
+| PUT  | /games/:gameId  | Authorization: Bearer `<jwt>`  | { opponent: String, venue: String, startTime: String, numberOfPlayers: Number }  | Update a game  |
+| DELETE  | /games/:gameId  | Authorization: Bearer `<jwt>`  | – | Delete a game  |
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<br/>
 
-### Code Splitting
+**Reviews**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+| HTTP verb   | Path | Request Headers | Request body  | Description |
+| ------------- | ------------- | ------------- |------------- | ------------- |
+| POST  | /api/tasks  | Authorization: Bearer `<jwt>`  | { title: String, description: String, projectId: ObjectId }  | Create new task  |
+| GET  | /api/tasks  | –  | –  | Get all tasks. Not implemented (yet)  |
+| GET  | /api/tasks/:taskId  | –  | – | Get task details. Not implemented (yet)  |
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Demo
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+A demo of the GAMECHANGER app can be found here: https://gamechanger-clubmanager.netlify.app/
