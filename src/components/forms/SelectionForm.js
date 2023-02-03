@@ -6,7 +6,7 @@ import { useSelection } from "./utils/useSelection";
 import { SmallStyledDiv } from "../styled/SmallStyledDiv";
 
 const SelectionForm = ({ gameId, game }) => {
-    const [selection, setSelection, SelectionContext, markAsSelected, submitSelection, updateTeam] = useSelection(`${process.env.REACT_APP_API_URL}/games/${gameId}/selection`)
+    const [selection, setSelection, SelectionContext, markAsSelected, submitSelection, countLoad, setCountLoad] = useSelection(`${process.env.REACT_APP_API_URL}/games/${gameId}/selection`)
 
 
     return (
@@ -15,10 +15,11 @@ const SelectionForm = ({ gameId, game }) => {
                 Selection v {game.opponent}, No.Players {game.numberOfPlayers}
             </h4>
 
+
             <SelectionContext.Provider value={{ markAsSelected }}>
 
                 {/**/}
-                <SelectionDnD selection={selection} setSelection={setSelection} SelectionContext={SelectionContext} game={game} submitSelection={submitSelection} />
+                <SelectionDnD selection={selection} setSelection={setSelection} SelectionContext={SelectionContext} game={game} submitSelection={submitSelection} setCountLoad={setCountLoad} countLoad={countLoad} />
 
             </SelectionContext.Provider>
         </SmallStyledDiv>

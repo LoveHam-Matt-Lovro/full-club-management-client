@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import { useContext, useEffect, useState, createContext } from "react";
 
 export const useSelection = (url) => {
@@ -7,28 +8,32 @@ export const useSelection = (url) => {
     const [attack, setAttack] = useState([]);
     const [midfield, setMidfield] = useState([]);
     const [defense, setDefense] = useState([]);
+    const [gameData, setGameData] = useState({});
+
 
     //remove /selection from url
     const urlGame = url.replace("/selection", "");
 
     const markAsSelected = (playerId, category, icon, color) => {
-        // find the player in the selection
 
         const player = selection.filter((player) => player._id === playerId);
-        // toggle the selected property
 
         player[0].selected = true;
         player[0].category = category;
         player[0].icon = icon;
         player[0].color = color;
-        // get all the other players
         setSelection(selection.filter((player) => player._id !== playerId).concat(player));
+
+
     };
     // f
     useEffect(() => {
+
         setAttack(selection.filter((player) => player.category === "attack"));
         setMidfield(selection.filter((player) => player.category === "midfield"));
         setDefense(selection.filter((player) => player.category === "defense"));
+
+
     }, [selection]);
 
     const submitSelection = (game) => {
@@ -59,24 +64,9 @@ export const useSelection = (url) => {
             .catch((err) => console.log(err));
     };
 
-    const updateTeam = (game) => {
-        setAttack(game.attack);
-        setMidfield(game.midfield);
-        setDefense(game.defense);
-        for (let i = 0; i < game.attack.length; i++) {
-            markAsSelected(game.attack[i]._id, "attack", "🔥", "#00ff00");
-            for (let i = 0; i < game.midfield.length; i++) {
-                markAsSelected(game.midfield[i]._id, "midfield", "⚽", "#ffff00");
-                for (let i = 0; i < game.defense.length; i++) {
-                    markAsSelected(game.defense[i]._id, "defense", "🔥", "#FF0000");
-                }
-            }
-        }
-    };
 
-    const SelectionContext = createContext({
-        markAsSelected: markAsSelected,
-    });
+
+
 
     useEffect(() => {
         axios.get(url).then((response) => {
@@ -91,11 +81,52 @@ export const useSelection = (url) => {
             setSelection(response.data);
         }).then(() => {
             axios.get(urlGame).then((response) => {
-                console.log(response.data, "dddd")
-                updateTeam(response.data);
+                setGameData(response.data);
+                return response.data;
+            }).then((gameRes) => {
+                // for each player in game.attack, markAsSelected(player._id, "attack", "🔥", "#00ff00")
+                const attackers = gameRes.attack;
+                const midfielders = gameRes.midfield;
+                const defenders = gameRes.defense;
+
+
+
+
+
+                updateTeam(gameRes);
+
+
+
+
             });
         });
     }, [url]);
 
+
+    const updateTeam = async (game) => {
+        console.log(gameData)
+        const attackers = await gameData.attack;
+        const midfield = await gameData.midfield;
+        const defense = await gameData.defense;
+        setAttack(attackers)
+        console.log(attackers)
+        for (let i = 0; i < gameData.attack; i++) {
+            attackers[i].category = "attack";
+            attackers[i].icon = "🔥";
+            attackers[i].color = "#00ff00";
+            setSelection(selection.filter((player) => player._id !== attackers[i]._id).concat(attackers[i]));
+        }
+
+
+
+
+
+
+    };
+
+    const SelectionContext = createContext({
+        attack: attack,
+        markAsSelected: markAsSelected,
+    });
     return [selection, setSelection, SelectionContext, markAsSelected, submitSelection];
 };
