@@ -19,18 +19,13 @@ const SelectionDnD = ({ selection, setSelection, SelectionContext, game, submitS
     const [prevItems, setPrevItems] = useState(selection);
     const { markAsSelected, selectedPlayers } = useContext(SelectionContext);
 
-    const [focusPlayer, setFocusPlayer] = useState({});
-    const randomNumber = () => { return Math.floor(Math.random() * 100) };
+    const [focusPlayer, setFocusPlayer] = useState(false);
+    //random number 3 to 9
+    const randomNumber = () => { return Math.floor(Math.random() * 7) + 3; }
     // generate number from 3 to 10 5 times
     const backupArr = selection.map((player) => {
         return {
             _id: player._id,
-            index: selection.findIndex((p) => p._id === player._id),
-            kicking: randomNumber(),
-            speed: randomNumber(),
-            tackling: randomNumber(),
-            marking: randomNumber(),
-            handballing: randomNumber(),
 
         }
     })
@@ -45,10 +40,12 @@ const SelectionDnD = ({ selection, setSelection, SelectionContext, game, submitS
 
         drop: (item, monitor) => {
             markAsSelected(item._id);
+            setFocusPlayer(false)
         },
         collect: (monitor) => ({
             isOver: !!monitor.isOver(),
         }),
+
     });
 
     //*
@@ -79,7 +76,7 @@ const SelectionDnD = ({ selection, setSelection, SelectionContext, game, submitS
 
             <StyledButton onClick={submitSelectedPlayers}>Submit Selection</StyledButton>
             <div style={{ display: "flex" }}>
-                <PlayerStatsCard player={focusPlayer} backupArr={backupArr} />
+                <PlayerStatsCard player={focusPlayer} backupArr={backupArr} focusPlayer={focusPlayer} />
                 <div style={{ display: "flex" }}>
                     <DropWrapper category="none" color="black" icon="🗙" key="test" onDrop={onDrop} SelectionContext={SelectionContext} markAsSelected={markAsSelected}>
                         <StyledCard selection none>

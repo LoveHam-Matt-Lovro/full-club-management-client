@@ -45,7 +45,7 @@ const radarOptions = {
   },
 };
 
-const RadarPlayerGraph = ({ user, backupData }) => {
+const RadarPlayerGraph = ({ user }) => {
   const radarData = {
     labels: ["Kicking", "Handballing", "Tackling", "Speed", "Marking"],
     options: radarOptions,
@@ -54,11 +54,11 @@ const RadarPlayerGraph = ({ user, backupData }) => {
       {
         label: "Stats",
         data: [
-          user.kickingStat || backupData.kicking,
-          user.handballingStat || backupData.handballing,
-          user.tacklingStat || backupData.tackling,
-          user.speedStat || backupData.speed,
-          user.markingStat || backupData.marking,
+          user.kickingStat || 5,
+          user.handballingStat || 4,
+          user.tacklingStat || 7,
+          user.speedStat || 8,
+          user.markingStat || 6,
         ],
         backgroundColor: "rgba(0, 80, 0, 0.5)",
         borderColor: "rgba(240, 240, 240, 1)",

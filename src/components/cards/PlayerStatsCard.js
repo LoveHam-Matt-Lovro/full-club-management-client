@@ -11,7 +11,7 @@ const StyledPlayerStatsCard = styled.div`
   margin: 0 auto;
 `;
 
-const PlayerStatsCard = ({ player, backupArr }) => {
+const PlayerStatsCard = ({ player, backupArr, focusPlayer }) => {
   const randomNumber = Math.floor(Math.random() * 100);
 
   // find which index the player is in the array
@@ -19,16 +19,18 @@ const PlayerStatsCard = ({ player, backupArr }) => {
 
   const backupData = backupArr[index]
 
-  const image = player.img || `https://randomuser.me/api/portraits/men/${index + 1}.jpg`
+  const image = player.img ? player.img : focusPlayer && `https://randomuser.me/api/portraits/men/${index + 1}.jpg`;
   return (
     <StyledPlayerStatsCard>
+
       <div className="flexColumn">
         <div className="flexRow">
           <div className="flexColumn">
             <h2>{player.firstName}</h2>
             <h2>{player.lastName}</h2>
           </div>
-          <img src={image} width={75} alt="profile" />
+          {focusPlayer && < img src={image} width={75} alt="profile" />}
+
         </div>
         <RadarPlayerGraph user={player} backupData={backupData} />
       </div>
