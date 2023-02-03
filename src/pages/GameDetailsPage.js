@@ -39,18 +39,18 @@ const GameDetailsPage = () => {
 
   const coachReviews = () =>
     gameReviews().filter(
-      (review) => review.author.role.toLowerCase() === "coach"
+      (review) => review?.author?.role?.toLowerCase() === "coach"
     );
   const playerReviews = () =>
     gameReviews().filter(
-      (review) => review.author.role.toLowerCase() === "player"
+      (review) => review?.author?.role?.toLowerCase() === "player"
     );
 
   const thisPlayerReviews = () =>
     playerReviews().filter(
       (review) =>
         review.author._id === localStorage.getItem("userId") &&
-        review.author.role.toLowerCase() === "player"
+        review?.author?.role?.toLowerCase() === "player"
     );
 
   const toggleMode = () => {
@@ -131,11 +131,11 @@ const GameDetailsPage = () => {
         <StyledCardList>
           {isCoach()
             ? playerReviews().map((review) => (
-                <ReviewCard review={review} key={review._id} />
-              ))
+              <ReviewCard review={review} key={review._id} />
+            ))
             : thisPlayerReviews().map((review) => (
-                <ReviewCard review={review} key={review._id} />
-              ))}
+              <ReviewCard review={review} key={review._id} />
+            ))}
         </StyledCardList>
       </div>
     );
