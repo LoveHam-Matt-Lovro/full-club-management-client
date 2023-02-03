@@ -8,11 +8,14 @@ import { useDeleteGame } from "../forms/utils/useDelete";
 import { Link } from "react-router-dom";
 
 const PastGameCard = ({ game }) => {
-  const { games, setGames } = useContext(GlobalContext);
+  const { games, setGames, user } = useContext(GlobalContext);
   const handleDelete = useDeleteGame(
     `${process.env.REACT_APP_API_URL}/games`,
     game._id
   );
+
+  const isCoach = () => { return user?.role?.toLowerCase() === "coach" ? true : false; }
+
 
   return (
     <StyledCard pastGameCard>
@@ -20,10 +23,10 @@ const PastGameCard = ({ game }) => {
         <h1>{game.opponent}</h1>
         <p>at {game.venue}</p>
       </Link>
-
-      <StyledButton danger onClick={handleDelete}>
+      {isCoach() && <StyledButton danger onClick={handleDelete}>
         Delete
-      </StyledButton>
+      </StyledButton>}
+
     </StyledCard>
   );
 };

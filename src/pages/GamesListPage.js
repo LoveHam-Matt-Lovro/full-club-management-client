@@ -9,13 +9,13 @@ import { StyledButton } from "../components/styled/StyledButton";
 import { SmallStyledDiv } from "../components/styled/SmallStyledDiv";
 
 const GamesListPage = () => {
-  const { games, isLoading } = useContext(GlobalContext);
+  const { user, games, isLoading } = useContext(GlobalContext);
   const [pageMode, setPageMode] = useState("view");
 
   const isInPast = (game) => new Date(game.startTime) < new Date();
   const togglePageMode = () =>
     pageMode === "view" ? setPageMode("edit") : setPageMode("view");
-
+  const isCoach = () => { return user?.role?.toLowerCase() === "coach" ? true : false; }
   if (isLoading) {
     return <div>...Loading</div>;
   } else
@@ -25,9 +25,8 @@ const GamesListPage = () => {
           <GameForm mode="newGame" togglePageMode={togglePageMode} />
         ) : (
           <div>
-            <StyledButton onClick={togglePageMode}>
-              CREATE NEW GAME
-            </StyledButton>
+            {isCoach() && <StyledButton onClick={togglePageMode}>CREATE NEW GAME</StyledButton>}
+
             <StyledCardList className="games">
               <div>
                 <h2>PAST</h2>

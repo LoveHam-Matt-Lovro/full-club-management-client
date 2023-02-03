@@ -8,6 +8,7 @@ import DropWrapper from "./DropWrapper";
 import PlayerStatsCard from "../cards/PlayerStatsCard";
 import styled from "styled-components";
 import { StyledButton } from "../styled/StyledButton";
+import { GlobalContext } from "../../Context/GlobalContext";
 
 const StyledPlayerCard = styled(PlayerCard)`
   background-color: red;
@@ -18,6 +19,7 @@ const SelectionDnD = ({ selection, setSelection, SelectionContext, game, submitS
     const [items, setItems] = useState(selection);
     const [prevItems, setPrevItems] = useState(selection);
     const { markAsSelected, selectedPlayers } = useContext(SelectionContext);
+    const { user } = useContext(GlobalContext);
 
     const [focusPlayer, setFocusPlayer] = useState(false);
     //random number 3 to 9
@@ -33,7 +35,7 @@ const SelectionDnD = ({ selection, setSelection, SelectionContext, game, submitS
 
 
 
-
+    const isCoach = () => { return user?.role?.toLowerCase() === "coach" ? true : false; }
 
     const [{ isOver }, drop] = useDrop({
         accept: ItemTypes.PLAYER,
@@ -73,8 +75,8 @@ const SelectionDnD = ({ selection, setSelection, SelectionContext, game, submitS
         <div>
 
 
+            {isCoach() && <StyledButton onClick={submitSelectedPlayers}>Submit Selection</StyledButton>}
 
-            <StyledButton onClick={submitSelectedPlayers}>Submit Selection</StyledButton>
             <div style={{ display: "flex" }}>
                 <PlayerStatsCard player={focusPlayer} backupArr={backupArr} focusPlayer={focusPlayer} />
                 <div style={{ display: "flex" }}>

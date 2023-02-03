@@ -114,19 +114,26 @@ const GameDetailsPage = () => {
           <GameForm gameId={gameId} mode="editGame" game={game} />
         )}
 
-        <StyledButton mode={mode} onClick={toggleMode}>
+        {isCoach() && <StyledButton mode={mode} onClick={toggleMode}>
           {mode === "view" ? "Edit Game" : "Cancel Edit"}
-        </StyledButton>
+        </StyledButton>}
 
-        <StyledButton danger onClick={deleteGame}>
-          Delete Game {isCoach() ? "" : ""}
-        </StyledButton>
 
-        {mode === "view" && alreadyPlayed() ? (
-          <ReviewForm gameId={gameId} mode="newReview" game={game} />
-        ) : (
-          <SelectionForm gameId={gameId} game={game} />
-        )}
+
+        {
+          isCoach() && <StyledButton danger onClick={deleteGame}>
+            Delete Game
+          </StyledButton>
+        }
+
+
+        {
+          mode === "view" && alreadyPlayed() ? (
+            <ReviewForm gameId={gameId} mode="newReview" game={game} />
+          ) : (
+            <SelectionForm gameId={gameId} game={game} />
+          )
+        }
 
         <StyledCardList>
           {coachReviews().map((review) => (
@@ -143,7 +150,7 @@ const GameDetailsPage = () => {
               <ReviewCard review={review} key={review._id} />
             ))}
         </StyledCardList>
-      </div>
+      </div >
     );
 };
 

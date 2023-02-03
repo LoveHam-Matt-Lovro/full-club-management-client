@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { GlobalContext } from "../../Context/GlobalContext";
 import { StyledButton } from "../styled/StyledButton";
 import { StyledForm } from "../styled/StyledForm";
@@ -8,6 +8,8 @@ import axios from "axios";
 
 const PlayerDetailsForm = ({ mode }) => {
   const { user, setUser } = useContext(GlobalContext);
+
+
 
 
   const [values, setValues] = useState({
@@ -22,6 +24,10 @@ const PlayerDetailsForm = ({ mode }) => {
 
   });
   const [submitted, setSubmitted] = useState(false);
+
+
+
+
 
 
   const handleChange = (e) => {
@@ -40,15 +46,17 @@ const PlayerDetailsForm = ({ mode }) => {
     axios.put(process.env.REACT_APP_API_URL + "/profile/" + user._id, values, header).then((response) => {
       console.log(response);
 
-      localStorage.setItem("user", JSON.stringify(response.data.user));
+
+      window.location.reload();
     }
     );
     setSubmitted(!submitted)
   };
 
 
+
   return (
-    <div><pre>{JSON.stringify(user, null, 2)}</pre>
+    <div>
       <StyledForm onSubmit={handleSubmit}>
         <label htmlFor="favouriteAFLTeam">
           Favourite AFL Team

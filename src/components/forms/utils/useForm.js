@@ -33,14 +33,14 @@ export const useForm = (initialValues, mode, element) => {
                     localStorage.setItem("user", JSON.stringify(response.data.user));
                     setUser(response.data.user);
                     // alert("Welcome back " + response.data.user.role + "!")
-                    navigate("/");
+                    navigate("/games");
                 };
                 break;
 
             case "logoutUser":
                 secondaryFunction = (response) => {
                     localStorage.removeItem("token", response.data.authToken);
-                    navigate("/");
+                    navigate("");
                     setUser(null);
                 };
 
