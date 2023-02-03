@@ -25,7 +25,7 @@ const GamesListPage = () => {
           <GameForm mode="newGame" togglePageMode={togglePageMode} />
         ) : (
           <div>
-            {isCoach() && <StyledButton onClick={togglePageMode}>CREATE NEW GAME</StyledButton>}
+            <StyledButton onClick={togglePageMode}>CREATE NEW GAME</StyledButton>
 
             <StyledCardList className="games">
               <div>

@@ -23,9 +23,9 @@ const PastGameCard = ({ game }) => {
         <h1>{game.opponent}</h1>
         <p>at {game.venue}</p>
       </Link>
-      {isCoach() && <StyledButton danger onClick={handleDelete}>
+      <StyledButton danger onClick={handleDelete}>
         Delete
-      </StyledButton>}
+      </StyledButton>
 
     </StyledCard>
   );

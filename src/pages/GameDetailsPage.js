@@ -114,17 +114,15 @@ const GameDetailsPage = () => {
           <GameForm gameId={gameId} mode="editGame" game={game} />
         )}
 
-        {isCoach() && <StyledButton mode={mode} onClick={toggleMode}>
+        <StyledButton mode={mode} onClick={toggleMode}>
           {mode === "view" ? "Edit Game" : "Cancel Edit"}
-        </StyledButton>}
+        </StyledButton>
 
 
+        <StyledButton danger onClick={deleteGame}>
+          Delete Game
+        </StyledButton>
 
-        {
-          isCoach() && <StyledButton danger onClick={deleteGame}>
-            Delete Game
-          </StyledButton>
-        }
 
 
         {
