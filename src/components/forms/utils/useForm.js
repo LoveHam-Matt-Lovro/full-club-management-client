@@ -7,7 +7,7 @@ import { putTokenInStorage, putUserInStorage } from "./localStorage";
 
 export const useForm = (initialValues, mode, element) => {
     const [values, setValues] = useState(initialValues);
-    const { setUser, } = useContext(GlobalContext);
+    const { setUser, setGames, games, isLoading, setIsLoading, fetchGames } = useContext(GlobalContext);
     const navigate = useNavigate();
 
 
@@ -21,6 +21,8 @@ export const useForm = (initialValues, mode, element) => {
         e.preventDefault();
         let axiosFunction;
         let secondaryFunction;
+        setIsLoading(true);
+        console.log("start", isLoading);
 
         switch (mode) {
             case "loginUser":
@@ -64,9 +66,9 @@ export const useForm = (initialValues, mode, element) => {
             case "newGame":
                 axiosFunction = axios.post(baseUrl + "/games", values, header);
                 secondaryFunction = (newGame) => {
-                    setValues(initialValues);
-                    window.location.reload();
+                    fetchGames();
                 };
+
 
                 break;
             case "editGame":
@@ -106,6 +108,8 @@ export const useForm = (initialValues, mode, element) => {
         axiosFunction
             .then((values) => {
                 secondaryFunction(values);
+                setIsLoading(false);
+                console.log("end", isLoading);
             })
             .catch((err) => console.log(err));
     };
