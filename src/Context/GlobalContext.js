@@ -1,6 +1,8 @@
 import { createContext } from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { baseUrl } from "../components/forms/utils/reqData";
+import { getStoredUser } from "../components/forms/utils/localStorage";
 
 export const GlobalContext = createContext();
 
@@ -8,20 +10,17 @@ export const GlobalProvider = ({ children }) => {
     const [games, setGames] = useState([]);
     const [user, setUser] = useState([]);
     const [review, setReviews] = useState([]);
-
     const [isLoading, setIsLoading] = useState(true);
 
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API_URL}/games`).then((response) => {
-            console.log("response.data", response.data);
+        axios.get(`${baseUrl}/games`).then((response) => {
             setGames(response.data);
         });
 
-        const storedUser = localStorage.getItem("user");
-        if (storedUser) {
+        if (getStoredUser()) {
             axios
-                .get(`${process.env.REACT_APP_API_URL}/profile/${storedUser._id}`)
+                .get(`${baseUrl}/profile/${getStoredUser._id}`)
                 .then((response) => {
                     setUser(response.data);
                 });
@@ -31,10 +30,6 @@ export const GlobalProvider = ({ children }) => {
         setIsLoading(false);
     }, []);
 
-    // // get logged user
-    // useEffect(() => {
-
-    // }, []);
 
 
 
