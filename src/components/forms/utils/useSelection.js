@@ -84,13 +84,6 @@ export const useSelection = (url) => {
                 setGameData(response.data);
                 return response.data;
             }).then((gameRes) => {
-                // for each player in game.attack, markAsSelected(player._id, "attack", "🔥", "#00ff00")
-                const attackers = gameRes.attack;
-                const midfielders = gameRes.midfield;
-                const defenders = gameRes.defense;
-
-
-
 
 
                 updateTeam(gameRes);
@@ -106,8 +99,7 @@ export const useSelection = (url) => {
     const updateTeam = async (game) => {
         console.log(gameData)
         const attackers = await gameData.attack;
-        const midfield = await gameData.midfield;
-        const defense = await gameData.defense;
+
         setAttack(attackers)
         console.log(attackers)
         for (let i = 0; i < gameData.attack; i++) {
