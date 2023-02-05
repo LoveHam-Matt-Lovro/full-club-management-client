@@ -41,11 +41,12 @@ const GameForm = ({ mode, game, togglePageMode }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    const hasErros = checkErrors();
-    if (hasErros) {
-      return;
+    const hasErrors = checkErrors();
+    if (hasErrors) {
+      return true
     } else {
       handleSubmit(e);
+      return false
     }
   };
 
