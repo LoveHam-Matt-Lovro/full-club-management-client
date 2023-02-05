@@ -6,14 +6,14 @@ import { GlobalContext } from "../../Context/GlobalContext";
 import { useContext } from "react";
 import { useDeleteGame } from "../forms/utils/useDelete";
 import { Link } from "react-router-dom";
+import { baseUrl } from "../forms/utils/reqData";
 
 const GameCard = ({ game }) => {
-  const { games, setGames, user } = useContext(GlobalContext);
-  const handleDelete = useDeleteGame(
-    `${process.env.REACT_APP_API_URL}/games`,
-    game._id
-  );
+  const { user } = useContext(GlobalContext);
+  const handleDelete = useDeleteGame(`${baseUrl}/games`, game._id);
+
   const isCoach = () => { return user?.role?.toLowerCase() === "coach" ? true : false; }
+
   return (
     <StyledCard gameCard>
       <Link to={`/games/${game._id} `}>
