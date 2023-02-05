@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const useDeleteGame = (url, id, navigator) => {
-  const { games, setGames } = useContext(GlobalContext);
+  const { games, setGames, fetchGames } = useContext(GlobalContext);
   const navigate = useNavigate();
   const handleDelete = () => {
     axios
@@ -14,10 +14,11 @@ export const useDeleteGame = (url, id, navigator) => {
           (game) => game._id !== response.data._id
         );
         setGames(filteredGames);
+        fetchGames()
         if (navigator) {
           navigate(navigator);
         }
-        window.location.reload();
+
       })
       .catch((error) => {
         console.log(error);
