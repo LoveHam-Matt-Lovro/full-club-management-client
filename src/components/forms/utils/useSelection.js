@@ -10,30 +10,22 @@ export const useSelection = (url) => {
     const [defense, setDefense] = useState([]);
     const [gameData, setGameData] = useState({});
 
-
     //remove /selection from url
     const urlGame = url.replace("/selection", "");
 
-    const markAsSelected = (playerId, category, icon, color) => {
-
+    const markAsSelected = (playerId, category) => {
         const player = selection.filter((player) => player._id === playerId);
 
         player[0].selected = true;
         player[0].category = category;
-        player[0].icon = icon;
-        player[0].color = color;
+
         setSelection(selection.filter((player) => player._id !== playerId).concat(player));
-
-
     };
     // f
     useEffect(() => {
-
         setAttack(selection.filter((player) => player.category === "attack"));
         setMidfield(selection.filter((player) => player.category === "midfield"));
         setDefense(selection.filter((player) => player.category === "defense"));
-
-
     }, [selection]);
 
     const submitSelection = (game) => {
@@ -64,56 +56,42 @@ export const useSelection = (url) => {
             .catch((err) => console.log(err));
     };
 
-
-
-
-
     useEffect(() => {
-        axios.get(url).then((response) => {
-            response.data
-                .filter((player) => player.role === "player")
-                .forEach((player) => {
-                    player.category = "none";
-                    player.icon = "🗙";
-                    player.color = "#000";
-                });
+        axios
+            .get(url)
+            .then((response) => {
+                response.data
+                    .filter((player) => player.role === "player")
+                    .forEach((player) => {
+                        player.category = "none";
+                    });
 
-            setSelection(response.data);
-        }).then(() => {
-            axios.get(urlGame).then((response) => {
-                setGameData(response.data);
-                return response.data;
-            }).then((gameRes) => {
-
-
-                updateTeam(gameRes);
-
-
-
-
+                setSelection(response.data);
+            })
+            .then(() => {
+                axios
+                    .get(urlGame)
+                    .then((response) => {
+                        setGameData(response.data);
+                        return response.data;
+                    })
+                    .then((gameRes) => {
+                        updateTeam(gameRes);
+                    });
             });
-        });
     }, [url]);
 
-
     const updateTeam = async (game) => {
-        console.log(gameData)
+        console.log(gameData);
         const attackers = await gameData.attack;
 
-        setAttack(attackers)
-        console.log(attackers)
+        setAttack(attackers);
+        console.log(attackers);
         for (let i = 0; i < gameData.attack; i++) {
             attackers[i].category = "attack";
-            attackers[i].icon = "🔥";
-            attackers[i].color = "#00ff00";
+
             setSelection(selection.filter((player) => player._id !== attackers[i]._id).concat(attackers[i]));
         }
-
-
-
-
-
-
     };
 
     const SelectionContext = createContext({
