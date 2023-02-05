@@ -12,32 +12,23 @@ export const GlobalProvider = ({ children }) => {
     const [review, setReviews] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-
-    useEffect(() => {
+    const fetchGames = () => {
         axios.get(`${baseUrl}/games`).then((response) => {
             setGames(response.data);
         });
+    };
 
-        if (getStoredUser()) {
-            axios
-                .get(`${baseUrl}/profile/${getStoredUser._id}`)
-                .then((response) => {
-                    setUser(response.data);
-                });
-        }
+    const fetchUser = () => {
+        axios.get(`${baseUrl}/profile/${getStoredUser._id}`).then((res) => {
+            setUser(res.data);
+        });
+    }
 
-
+    useEffect(() => {
+        fetchGames()
+        getStoredUser() && fetchUser();
         setIsLoading(false);
     }, []);
 
-
-
-
-    return (
-        <GlobalContext.Provider
-            value={{ games, setGames, user, setUser, review, setReviews, isLoading, setIsLoading }}
-        >
-            {children}
-        </GlobalContext.Provider >
-    );
+    return <GlobalContext.Provider value={{ games, setGames, user, setUser, review, setReviews, isLoading, setIsLoading, fetchGames, fetchUser }}>{children}</GlobalContext.Provider>;
 };
