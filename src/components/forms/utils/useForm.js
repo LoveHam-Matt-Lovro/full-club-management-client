@@ -2,16 +2,12 @@ import { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "../../../Context/GlobalContext";
-import {
-    baseUrl,
-    header,
-    navigate,
-
-} from "./reqData";
+import { baseUrl, header } from "./reqData";
+import { putTokenInStorage, putUserInStorage } from "./localStorage";
 
 export const useForm = (initialValues, mode, element) => {
     const [values, setValues] = useState(initialValues);
-    const { user, setUser, games, setGames } = useContext(GlobalContext);
+    const { setUser, } = useContext(GlobalContext);
     const navigate = useNavigate();
 
 
@@ -30,8 +26,8 @@ export const useForm = (initialValues, mode, element) => {
             case "loginUser":
                 axiosFunction = axios.post(baseUrl + "/auth/login", values);
                 secondaryFunction = (response) => {
-                    localStorage.setItem("token", response.data.authToken);
-                    localStorage.setItem("user", JSON.stringify(response.data.user));
+                    putTokenInStorage(response);
+                    putUserInStorage(response);
                     setUser(response.data.user);
                     navigate("/games");
                 };
@@ -99,11 +95,7 @@ export const useForm = (initialValues, mode, element) => {
 
                 break;
             case "editReview":
-                axiosFunction = axios.put(
-                    baseUrl + `/games/${element._id}/review`,
-                    values,
-                    header
-                );
+                axiosFunction = axios.put(baseUrl + `/games/${element._id}/review`, values, header);
                 secondaryFunction = () => { };
                 break;
 
