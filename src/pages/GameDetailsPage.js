@@ -19,12 +19,10 @@ const GameDetailsPage = () => {
   const [mode, setMode] = useState("view");
   const { gameId } = useParams();
 
-  const isCoach = () => { return user?.role?.toLowerCase() === "coach" ? true : false; }
+  const isCoach = () => {
+    return user?.role?.toLowerCase() === "coach" ? true : false;
+  };
   const deleteGame = useDeleteGame(`${process.env.REACT_APP_API_URL}/games`, gameId, "/games");
-
-
-
-
 
   const toggleMode = () => {
     if (mode === "view") {
@@ -40,20 +38,14 @@ const GameDetailsPage = () => {
     return gameDate < today ? true : false;
   };
 
-
-
   useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/games/${gameId}`)
-      .then((response) => {
-        setGame(response.data);
-      });
+    axios.get(`${process.env.REACT_APP_API_URL}/games/${gameId}`).then((response) => {
+      setGame(response.data);
+    });
 
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/games/${gameId}/review`)
-      .then((response) => {
-        setReviews(response.data);
-      });
+    axios.get(`${process.env.REACT_APP_API_URL}/games/${gameId}/review`).then((response) => {
+      setReviews(response.data);
+    });
     setIsLoading(false);
   }, []);
 
@@ -65,23 +57,19 @@ const GameDetailsPage = () => {
         <h1>{user.firstName}</h1>
         {mode === "view" && <GameHeading game={game} />}
         {mode === "edit" && <GameForm gameId={gameId} mode="editGame" game={game} />}
-        <StyledButton mode={mode} onClick={toggleMode}>{mode === "view" ? "Edit Game" : "Cancel Edit"}</StyledButton>
+        <StyledButton mode={mode} onClick={toggleMode}>
+          {mode === "view" ? "Edit Game" : "Cancel Edit"}
+        </StyledButton>
 
-        <StyledButton danger onClick={deleteGame}>       Delete Game        </StyledButton>
+        <StyledButton danger onClick={deleteGame}>
+          {" "}
+          Delete Game{" "}
+        </StyledButton>
 
-
-
-        {
-          mode === "view" && alreadyPlayed() ? (
-            <ReviewForm gameId={gameId} mode="newReview" game={game} />
-          ) : (
-            <SelectionForm gameId={gameId} game={game} />
-          )
-        }
+        {mode === "view" && alreadyPlayed() ? <ReviewForm gameId={gameId} mode="newReview" game={game} /> : <SelectionForm gameId={gameId} game={game} />}
 
         <ReviewList reviews={reviews} mode={mode} gameId={gameId} isCoach={isCoach} />
-
-      </div >
+      </div>
     );
 };
 

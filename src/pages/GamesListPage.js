@@ -11,11 +11,12 @@ import { SmallStyledDiv } from "../components/styled/SmallStyledDiv";
 const GamesListPage = () => {
   const { user, games, isLoading } = useContext(GlobalContext);
   const [pageMode, setPageMode] = useState("view");
-
   const isInPast = (game) => new Date(game.startTime) < new Date();
   const togglePageMode = () =>
     pageMode === "view" ? setPageMode("edit") : setPageMode("view");
+
   const isCoach = () => { return user?.role?.toLowerCase() === "coach" ? true : false; }
+
   if (isLoading) {
     return <div>...Loading</div>;
   } else
