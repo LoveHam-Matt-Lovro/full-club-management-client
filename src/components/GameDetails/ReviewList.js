@@ -8,8 +8,8 @@ const ReviewList = ({ reviews, mode, gameId, isCoach }) => {
         const gameReviews = reviews.filter((review) => gameId === review.gameId);
         // if player show only own reviews, if coach show all player reviews
         const playerOrCoachFilter = (review) => isCoach() ? true : review.author._id === localStorage.getItem("userId")
-        const coachReviews = gameReviews().filter((review) => review?.author?.role?.toLowerCase() === "coach")
-        const playerReviews = gameReviews().filter((review) => review?.author?.role?.toLowerCase() === "player" && playerOrCoachFilter(review))
+        const coachReviews = gameReviews.filter((review) => review?.author?.role?.toLowerCase() === "coach")
+        const playerReviews = gameReviews.filter((review) => review?.author?.role?.toLowerCase() === "player" && playerOrCoachFilter(review))
 
         // selects which array to use based on input
         const arr = loggedUser === "coach" ? [...coachReviews] : [...playerReviews]
