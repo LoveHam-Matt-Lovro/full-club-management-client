@@ -4,10 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "../../../Context/GlobalContext";
 import { baseUrl, header } from "./reqData";
 import { putTokenInStorage, putUserInStorage } from "./localStorage";
+import { getStoredUser } from "./localStorage";
 
 export const useForm = (initialValues, mode, element) => {
     const [values, setValues] = useState(initialValues);
-    const { setUser, setGames, games, isLoading, setIsLoading, fetchGames } = useContext(GlobalContext);
+    const { setUser, setGames, games, isLoading, setIsLoading, fetchGames, fetchUser } = useContext(GlobalContext);
     const navigate = useNavigate();
 
 
@@ -30,19 +31,11 @@ export const useForm = (initialValues, mode, element) => {
                 secondaryFunction = (response) => {
                     putTokenInStorage(response);
                     putUserInStorage(response);
-                    setUser(response.data.user);
+                    fetchUser();
                     navigate("/games");
                 };
                 break;
 
-            case "logoutUser":
-                secondaryFunction = (response) => {
-                    localStorage.removeItem("token", response.data.authToken);
-                    navigate("");
-                    setUser(null);
-                };
-
-                break;
 
             case "newUser":
                 axiosFunction = axios.post(baseUrl + "/auth/signup", values, header);
@@ -58,7 +51,7 @@ export const useForm = (initialValues, mode, element) => {
                     header
                 );
                 secondaryFunction = () => {
-                    window.location.reload();
+                    fetchUser();
                 };
 
                 break;
@@ -80,6 +73,7 @@ export const useForm = (initialValues, mode, element) => {
                 );
 
                 secondaryFunction = () => {
+                    //TODO: fix this to work without reloading
                     window.location.reload();
                 };
 
