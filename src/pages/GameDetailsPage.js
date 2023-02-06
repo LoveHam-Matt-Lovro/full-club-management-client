@@ -14,7 +14,8 @@ import {
   useDeleteReview,
 } from "../components/forms/utils/useDelete";
 // import isCoach from "../components/forms/utils/isCoach";
-import { formatDate } from "../components/forms/utils/formatDate";
+// import { formatDate } from "../components/forms/utils/formatDate";
+import GameHeading from "../components/GameDetails/GameHeading";
 
 const GameDetailsPage = () => {
   const { user } = useContext(GlobalContext);
@@ -23,8 +24,7 @@ const GameDetailsPage = () => {
   const [game, setGame] = useState([]);
   const [mode, setMode] = useState("view");
   const { gameId } = useParams();
-  const { reviewId } = useParams();
-  const navigate = useNavigate();
+
 
   const isCoach = () => { return user?.role?.toLowerCase() === "coach" ? true : false; }
 
@@ -72,7 +72,7 @@ const GameDetailsPage = () => {
     return gameDate < today ? true : false;
   };
 
-  const formattedDate = formatDate(game.startTime);
+
 
   useEffect(() => {
     axios
@@ -95,24 +95,9 @@ const GameDetailsPage = () => {
     return (
       <div>
         <h1>{user.firstName}</h1>
-        {mode === "view" && (
-          <div>
-            <SmallStyledDiv gameDetailsHeading>
-              <h3>
-                {game.league}, Round {game.round}.{" "}
-              </h3>
-              <h1> v {game.opponent} </h1>
+        {mode === "view" && <GameHeading game={game} />}
 
-              <h3>
-                at {game.venue}, {formattedDate}
-              </h3>
-            </SmallStyledDiv>
-          </div>
-        )}
-
-        {mode === "edit" && (
-          <GameForm gameId={gameId} mode="editGame" game={game} />
-        )}
+        {mode === "edit" && <GameForm gameId={gameId} mode="editGame" game={game} />}
 
         <StyledButton mode={mode} onClick={toggleMode}>
           {mode === "view" ? "Edit Game" : "Cancel Edit"}
