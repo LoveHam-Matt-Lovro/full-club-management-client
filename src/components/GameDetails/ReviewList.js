@@ -12,35 +12,28 @@ const ReviewList = ({ reviews, mode, gameId, isCoach }) => {
         gameReviews().filter(
             (review) => review?.author?.role?.toLowerCase() === "coach"
         );
-    const playerReviews = () =>
-        gameReviews().filter(
-            (review) => review?.author?.role?.toLowerCase() === "player"
-        );
 
-    const thisPlayerReviews = () =>
-        playerReviews().filter(
-            (review) =>
-                review.author._id === localStorage.getItem("userId") &&
-                review?.author?.role?.toLowerCase() === "player"
+    /**
+     * if coach, show all player reviews, if player, show only own reviews
+     * @returns {Array} of reviews for players
+     */
+
+    const playerReviews = () => {
+        const playerOrCoach = (review) => isCoach() ? true : review.author._id === localStorage.getItem("userId")
+        return gameReviews().filter((review) => review?.author?.role?.toLowerCase() === "player" && playerOrCoach(review)
         );
+    }
 
 
     return (
         <div>
             <StyledCardList>
-                {coachReviews().map((review) => (
-                    <ReviewCard review={review} key={review._id} />
-                ))}
+                {coachReviews().map((review) => (<ReviewCard review={review} key={review._id} />))}
             </StyledCardList>
 
             <StyledCardList>
-                {isCoach()
-                    ? playerReviews().map((review) => (
-                        <ReviewCard review={review} key={review._id} />
-                    ))
-                    : thisPlayerReviews().map((review) => (
-                        <ReviewCard review={review} key={review._id} />
-                    ))}
+                {playerReviews().map((review) => (<ReviewCard review={review} key={review._id} />))
+                }
             </StyledCardList></div>
     )
 }
