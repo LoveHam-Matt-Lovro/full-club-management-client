@@ -15,8 +15,6 @@ const GamesListPage = () => {
   const togglePageMode = () =>
     pageMode === "view" ? setPageMode("edit") : setPageMode("view");
 
-  const isCoach = () => { return user?.role?.toLowerCase() === "coach" ? true : false; }
-
   if (isLoading) {
     return <div>...Loading</div>;
   } else
