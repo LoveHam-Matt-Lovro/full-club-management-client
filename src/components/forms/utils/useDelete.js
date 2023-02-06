@@ -3,6 +3,7 @@ import { GlobalContext } from "../../../Context/GlobalContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 export const useDeleteGame = (url, id, navigator) => {
   const { games, setGames, fetchGames } = useContext(GlobalContext);
   const navigate = useNavigate();
@@ -47,8 +48,14 @@ export const useDeleteReview = (url, id) => {
 };
 
 export const logOut = () => {
+
   localStorage.removeItem("token");
   localStorage.removeItem("user");
+  alert("You have been logged out");
+  window.location.reload();
+
+
+
 
 };
 
