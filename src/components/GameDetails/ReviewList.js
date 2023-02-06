@@ -3,37 +3,28 @@ import ReviewCard from '../cards/ReviewCard'
 import { StyledCardList } from '../styled/StyledCardList'
 
 const ReviewList = ({ reviews, mode, gameId, isCoach }) => {
-    const gameReviews = () => {
+
+    const filteredReviews = (loggedUser) => {
         const gameReviews = reviews.filter((review) => gameId === review.gameId);
-        return gameReviews;
-    };
+        // if player show only own reviews, if coach show all player reviews
+        const playerOrCoachFilter = (review) => isCoach() ? true : review.author._id === localStorage.getItem("userId")
+        const coachReviews = gameReviews().filter((review) => review?.author?.role?.toLowerCase() === "coach")
+        const playerReviews = gameReviews().filter((review) => review?.author?.role?.toLowerCase() === "player" && playerOrCoachFilter(review))
 
-    const coachReviews = () =>
-        gameReviews().filter(
-            (review) => review?.author?.role?.toLowerCase() === "coach"
-        );
+        // selects which array to use based on input
+        const arr = loggedUser === "coach" ? [...coachReviews] : [...playerReviews]
 
-    /**
-     * if coach, show all player reviews, if player, show only own reviews
-     * @returns {Array} of reviews for players
-     */
-
-    const playerReviews = () => {
-        const playerOrCoach = (review) => isCoach() ? true : review.author._id === localStorage.getItem("userId")
-        return gameReviews().filter((review) => review?.author?.role?.toLowerCase() === "player" && playerOrCoach(review)
-        );
+        return arr.map((review) => (<ReviewCard review={review} key={review._id} />))
     }
-
 
     return (
         <div>
             <StyledCardList>
-                {coachReviews().map((review) => (<ReviewCard review={review} key={review._id} />))}
+                {filteredReviews("coach")}
             </StyledCardList>
 
             <StyledCardList>
-                {playerReviews().map((review) => (<ReviewCard review={review} key={review._id} />))
-                }
+                {filteredReviews("player")}
             </StyledCardList></div>
     )
 }
