@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { GlobalContext } from "../../Context/GlobalContext";
 import { StyledButton } from "../styled/StyledButton";
 import { StyledForm } from "../styled/StyledForm";
-import { useForm } from "./utils/useForm";
+import { useForm } from "../../Hooks/useForm"
 import axios from "axios";
 
 

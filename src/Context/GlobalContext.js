@@ -1,8 +1,8 @@
 import { createContext } from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { baseUrl } from "../components/forms/utils/reqData";
-import { getStoredUser } from "../components/forms/utils/localStorage";
+import { baseUrl } from "../utils/reqData";
+import { getStoredUser } from "../utils/localStorage";
 
 export const GlobalContext = createContext();
 

@@ -10,7 +10,7 @@ import { useDeleteGame } from "../components/forms/utils/useDelete";
 
 import GameHeading from "../components/GameDetails/GameHeading";
 import ReviewList from "../components/GameDetails/ReviewList";
-import { useFetchGameDetails } from "../components/forms/utils/useFetchGameDetails";
+import { useFetchGameDetails } from "../Hooks/useFetchGameDetails";
 
 const GameDetailsPage = () => {
   const { user } = useContext(GlobalContext);

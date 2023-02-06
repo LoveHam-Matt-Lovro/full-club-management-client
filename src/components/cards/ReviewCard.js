@@ -1,6 +1,6 @@
 import React from "react";
 import { StyledCard } from "../styled/StyledCard";
-import { formatDate } from "../forms/utils/formatDate";
+import { formatDate } from "../../utils/formatDate";
 import styled from "styled-components";
 
 const StyledDiv = styled.div`

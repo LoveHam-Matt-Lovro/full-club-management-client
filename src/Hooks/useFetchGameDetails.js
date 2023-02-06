@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { baseUrl } from './reqData';
+import { baseUrl } from '../utils/reqData';
 
 
 export const useFetchGameDetails = (gameId) => {

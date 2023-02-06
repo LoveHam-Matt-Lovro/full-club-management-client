@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StyledForm } from "../styled/StyledForm";
-import { useForm } from "./utils/useForm";
+import { useForm } from "../../Hooks/useForm";
 import { StyledButton } from "../styled/StyledButton";
 
 // array of animals, writtenin plural with first capital letter

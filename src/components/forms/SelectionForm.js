@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 // import { SelectionContext } from "../../Context/SelectionContext";
 import SelectionDnD from "../dnd/SelectionDnD";
-import { useSelection } from "./utils/useSelection";
+import { useSelection } from "../../Hooks/useSelection";
 import { SmallStyledDiv } from "../styled/SmallStyledDiv";
 
 const SelectionForm = ({ gameId, game }) => {

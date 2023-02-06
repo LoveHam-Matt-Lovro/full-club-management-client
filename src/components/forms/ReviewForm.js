@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { StyledForm } from "../styled/StyledForm";
-import { useForm } from "./utils/useForm";
+import { useForm } from "../../Hooks/useForm";
 import { GlobalContext } from "../../Context/GlobalContext";
 
 

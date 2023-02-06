@@ -1,10 +1,10 @@
 import { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { GlobalContext } from "../../../Context/GlobalContext";
-import { baseUrl, header } from "./reqData";
-import { putTokenInStorage, putUserInStorage } from "./localStorage";
-import { getStoredUser } from "./localStorage";
+import { GlobalContext } from "../Context/GlobalContext";
+import { baseUrl, header } from "../utils/reqData";
+import { putTokenInStorage, putUserInStorage } from "../utils/localStorage";
+import { getStoredUser } from "../utils/localStorage";
 
 export const useForm = (initialValues, mode, element) => {
     const [values, setValues] = useState(initialValues);

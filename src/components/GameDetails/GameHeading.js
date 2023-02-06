@@ -1,5 +1,5 @@
 import { SmallStyledDiv } from "../styled/SmallStyledDiv";
-import { formatDate } from "../forms/utils/formatDate";
+import { formatDate } from "../../utils/formatDate";
 
 const gameHeading = ({ game }) => {
     const formattedDate = formatDate(game.date);

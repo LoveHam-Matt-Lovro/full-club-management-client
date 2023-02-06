@@ -3,7 +3,7 @@ import { useState } from "react";
 import { StyledForm } from "../styled/StyledForm";
 import { useNavigate } from "react-router-dom";
 import { StyledButton } from "../styled/StyledButton";
-import { useForm } from "./utils/useForm";
+import { useForm } from "../../Hooks/useForm"
 
 const backup = {
   email: "",
