@@ -1,5 +1,4 @@
-import axios from "axios";
-import React, { useEffect, useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { GlobalContext } from "../Context/GlobalContext";
 import { useParams } from "react-router-dom";
 import ReviewForm from "../components/forms/ReviewForm";

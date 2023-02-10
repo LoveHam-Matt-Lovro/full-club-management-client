@@ -1,6 +1,5 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { GlobalContext } from "../Context/GlobalContext";
-import { Link } from "react-router-dom";
 import GameForm from "../components/forms/GameForm";
 import GameCard from "../components/cards/GameCard";
 import PastGameCard from "../components/cards/PastGameCard";
@@ -9,7 +8,7 @@ import { StyledButton } from "../components/styled/StyledButton";
 import { SmallStyledDiv } from "../components/styled/SmallStyledDiv";
 
 const GamesListPage = () => {
-  const { user, games, isLoading } = useContext(GlobalContext);
+  const { games, isLoading } = useContext(GlobalContext);
   const [pageMode, setPageMode] = useState("view");
   const isInPast = (game) => new Date(game.startTime) < new Date();
   const togglePageMode = () =>

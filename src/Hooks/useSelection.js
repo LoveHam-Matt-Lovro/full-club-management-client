@@ -1,10 +1,9 @@
 import axios from "axios";
 
-import { useContext, useEffect, useState, createContext } from "react";
+import { useEffect, useState, createContext } from "react";
 
 export const useSelection = (url) => {
     const [selection, setSelection] = useState([]);
-    const [selectedPlayers, setSelectedPlayers] = useState([]);
     const [attack, setAttack] = useState([]);
     const [midfield, setMidfield] = useState([]);
     const [defense, setDefense] = useState([]);

@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "../Context/GlobalContext";
 import { baseUrl, header } from "../utils/reqData";
 import { putTokenInStorage, putUserInStorage } from "../utils/localStorage";
-import { getStoredUser } from "../utils/localStorage";
+
 
 export const useForm = (initialValues, mode, element) => {
     const [values, setValues] = useState(initialValues);
-    const { setUser, setGames, games, isLoading, setIsLoading, fetchGames, fetchUser } = useContext(GlobalContext);
+    const { isLoading, setIsLoading, fetchGames, fetchUser, fetchSingleGame } = useContext(GlobalContext);
     const navigate = useNavigate();
 
 
@@ -17,6 +17,8 @@ export const useForm = (initialValues, mode, element) => {
             return { ...values, [e.target.name]: e.target.value };
         });
     };
+
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -73,8 +75,7 @@ export const useForm = (initialValues, mode, element) => {
                 );
 
                 secondaryFunction = () => {
-                    //TODO: fix this to work without reloading
-                    window.location.reload();
+                    fetchSingleGame(element._id)
                 };
 
                 break;

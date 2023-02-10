@@ -1,10 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { baseUrl } from '../utils/reqData';
+import { GlobalContext } from '../Context/GlobalContext';
+
 
 
 export const useFetchGameDetails = (gameId) => {
-    const [game, setGame] = useState([]);
+    const { game, setGame } = useContext(GlobalContext);
     const [reviews, setReviews] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 

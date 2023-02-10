@@ -1,30 +1,23 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import PlayerCard from "../cards/PlayerCard";
 import { useDrop } from "react-dnd";
 import { ItemTypes, categories } from "./dnd";
-
 import { StyledCard } from "../styled/StyledCard";
 import DropWrapper from "./DropWrapper";
 import PlayerStatsCard from "../cards/PlayerStatsCard";
-import styled from "styled-components";
+
 import { StyledButton } from "../styled/StyledButton";
 import { GlobalContext } from "../../Context/GlobalContext";
 
-const StyledPlayerCard = styled(PlayerCard)`
-  background-color: red;
-  border: 3px solid red;
-`;
 
 const SelectionDnD = ({ selection, setSelection, SelectionContext, game, submitSelection }) => {
     const [items, setItems] = useState(selection);
-    const [prevItems, setPrevItems] = useState(selection);
+
     const { markAsSelected, selectedPlayers } = useContext(SelectionContext);
     const { user } = useContext(GlobalContext);
 
     const [focusPlayer, setFocusPlayer] = useState(false);
-    //random number 3 to 9
-    const randomNumber = () => { return Math.floor(Math.random() * 7) + 3; }
-    // generate number from 3 to 10 5 times
+
     const backupArr = selection.map((player) => {
         return {
             _id: player._id,
@@ -53,10 +46,9 @@ const SelectionDnD = ({ selection, setSelection, SelectionContext, game, submitS
     //*
 
     const onDrop = (item, monitor, position) => {
-        const mapping = categories.find((cat) => cat.position === position);
 
         setItems((prevState) => {
-            const newItems = prevState.filter((i) => i.id !== item.id).concat({ ...item, position: position, icon: mapping.icon });
+            const newItems = prevState.filter((i) => i.id !== item.id).concat({ ...item, position: position });
             return [...newItems];
         });
     };
@@ -119,13 +111,13 @@ const SelectionDnD = ({ selection, setSelection, SelectionContext, game, submitS
                                                     );
                                                 })}
                                         </StyledCard>
-                                    
+
                                     </div>
                                 </DropWrapper>
                             );
 
 
-        
+
                         })}
                     </div>
                 </div>
