@@ -17,6 +17,7 @@ export const GlobalProvider = ({ children }) => {
     const navigate = useNavigate();
     const fetchGames = () => {
         axios.get(`${baseUrl}/games`).then((response) => {
+            console.log(response.data);
             setGames(response.data);
         });
     };

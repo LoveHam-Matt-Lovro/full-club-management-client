@@ -25,7 +25,7 @@ export const useForm = (initialValues, mode, element) => {
         let axiosFunction;
         let secondaryFunction;
         setIsLoading(true);
-        console.log("start", isLoading);
+
 
         switch (mode) {
             case "loginUser":
