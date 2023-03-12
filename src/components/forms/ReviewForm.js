@@ -18,9 +18,9 @@ const backup = {
 const ReviewForm = ({ gameId, review, mode, game }) => {
   const { user } = useContext(GlobalContext);
   const [values, handleChange, handleSubmit] = useForm(
-    { ...(review || backup), gameId, author: storedUser },
-    mode,
-    game
+    { ...({ ...review } || backup), author: storedUser },
+    mode, game.id
+
   );
 
   const isCoach = () => { return user?.role?.toLowerCase() === "coach" ? true : false; }
