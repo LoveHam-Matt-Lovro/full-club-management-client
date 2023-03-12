@@ -2,86 +2,25 @@ import React, { useState } from "react";
 import { StyledForm } from "../styled/StyledForm";
 import { useForm } from "../../Hooks/useForm";
 import { StyledButton } from "../styled/StyledButton";
-
-// array of animals, writtenin plural with first capital letter
-const animals = [
-  "Cats",
-  "Dogs",
-  "Elephants",
-  "Giraffes",
-  "Horses",
-  "Lions",
-  "Monkeys",
-  "Pigs",
-  "Rabbits",
-  "Sheep",]
-
-// array of cities
-
-const cities = [
-  "Berlin",
-  "Hamburg",
-  "Munich",
-  "Cologne",
-  "Frankfurt",
-  "Stuttgart",
-  "Dusseldorf",
-  "Dortmund",]
-
-const getTeamName = () => {
-  const randomAnimal = animals[Math.floor(Math.random() * animals.length)];
-  const randomCity = cities[Math.floor(Math.random() * cities.length)];
-
-  return `${randomCity} ${randomAnimal}`;
-};
+import { backup } from "./gameFormGenerateTEeam";
 
 
-const backup = {
+
+const newGame = {
   league: "German National League",
   round: "1",
-  opponent: getTeamName(),
-  venue: "hall",
-  startTime: "05/05/2021 12:00",
+  opponent: "",
+  venue: "",
+  startTime: "",
   numberOfPlayers: "12",
 };
 
 const GameForm = ({ mode, game, togglePageMode }) => {
-  const [values, handleChange, handleSubmit] = useForm(
-    { ...(game || backup) },
-    mode,
-    game
-  );
-
-  const [error, setError] = useState("");
-
-  const checkErrors = () => {
-    if ((mode = "newGame")) {
-      if (
-        values.opponent === "" ||
-        values.venue === "" ||
-        values.startTime === "" ||
-        values.numberOfPlayers === "" ||
-        values.round === ""
-      ) {
-        setError("All fields are required");
-        return true;
-      }
-    }
-    else {
-      return false;
-    }
-  };
+  const [values, handleChange, handleSubmit, error] = useForm({ ...(game || newGame) }, mode);
 
   const submitHandler = (e) => {
-    e.preventDefault();
-    const hasErrors = checkErrors();
-    if (hasErrors) {
-      return true
-    } else {
-      handleSubmit(e);
-      togglePageMode();
-      return false
-    }
+    handleSubmit(e);
+    togglePageMode();
   };
 
   return (

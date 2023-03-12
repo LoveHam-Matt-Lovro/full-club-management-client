@@ -24,7 +24,7 @@ const LoginForm = ({ mode }) => {
             onChange={handleChange}
           />
         </label>
-        <label htmlFor="password">
+        <label htmlFor="password" autoComplete={values.password.toString()}>
           PASSWORD
           <input
             type="password"

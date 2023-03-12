@@ -1,7 +1,7 @@
 import { createContext } from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { baseUrl } from "../utils/reqData";
+import { baseUrl, header } from "../utils/reqData";
 import { getStoredUser } from "../utils/localStorage";
 const { useNavigate } = require("react-router-dom");
 
@@ -16,9 +16,11 @@ export const GlobalProvider = ({ children }) => {
 
     const navigate = useNavigate();
     const fetchGames = () => {
-        axios.get(`${baseUrl}/games`).then((response) => {
+        axios.get(`${baseUrl}/games`, header).then((response) => {
             console.log(response.data);
             setGames(response.data);
+        }).catch((err) => {
+            console.log(err);
         });
     };
 
