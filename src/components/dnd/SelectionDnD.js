@@ -12,10 +12,8 @@ import { GlobalContext } from "../../Context/GlobalContext";
 
 const SelectionDnD = ({ selection, setSelection, SelectionContext, game, submitSelection }) => {
     const [items, setItems] = useState(selection);
-
     const { markAsSelected, selectedPlayers } = useContext(SelectionContext);
     const { user } = useContext(GlobalContext);
-
     const [focusPlayer, setFocusPlayer] = useState(false);
 
     const backupArr = selection.map((player) => {
@@ -24,7 +22,6 @@ const SelectionDnD = ({ selection, setSelection, SelectionContext, game, submitS
 
         }
     })
-
 
 
 

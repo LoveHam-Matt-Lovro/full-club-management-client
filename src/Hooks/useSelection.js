@@ -49,7 +49,7 @@ export const useSelection = (url) => {
 
         axiosFunction
             .then((values) => {
-                console.log("hi from useSelection");
+
                 secondaryFunction(values);
             })
             .catch((err) => console.log(err));
@@ -81,11 +81,11 @@ export const useSelection = (url) => {
     }, [url]);
 
     const updateTeam = async (game) => {
-        console.log(gameData);
+
         const attackers = await gameData.attack;
 
         setAttack(attackers);
-        console.log(attackers);
+
         for (let i = 0; i < gameData.attack; i++) {
             attackers[i].category = "attack";
 
