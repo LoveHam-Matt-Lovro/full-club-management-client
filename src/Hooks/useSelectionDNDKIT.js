@@ -22,7 +22,7 @@ export const useSelectionDNDKIT = (url) => {
                     attack: response.data.filter((player) => player.category === "attack"),
                     defense: response.data.filter((player) => player.category === "defense"),
                     midfield: response.data.filter((player) => player.category === "midfield"),
-                    goalkeeper: response.data.filter((player) => player.category === "goalkeeper"),
+                    // goalkeeper: response.data.filter((player) => player.category === "goalkeeper"),
                 }
 
                 setSelection(result);

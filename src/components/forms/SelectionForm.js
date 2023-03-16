@@ -43,7 +43,9 @@ const SelectionForm = ({ gameId, game }) => {
                 <SelectionDnD selection={selection} setSelection={setSelection} SelectionContext={SelectionContext} game={game} submitSelection={submitSelection} setCountLoad={setCountLoad} countLoad={countLoad} />
 
             </SelectionContext.Provider>
-            <DragAndDrop data={all} gameId={gameId} />
+            {
+                // <DragAndDrop data={all} gameId={gameId} />
+            }
         </SmallStyledDiv>
 
     );

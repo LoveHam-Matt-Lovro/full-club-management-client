@@ -1,6 +1,7 @@
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import Card from 'react-bootstrap/Card';
+import PlayerCardDNDKIT from '../cards/PlayerCardDNDKIT';
 
 
 export default function SortableItem(props) {
@@ -19,7 +20,8 @@ export default function SortableItem(props) {
 
     return (
         <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
-            <Card body className="card p-3 m-3" style={{ "width": "200px", "height": "80px" }}>{props.id.firstName}</Card>
+            <PlayerCardDNDKIT player={props.id} />
+
         </div>
     );
 }
